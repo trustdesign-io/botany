@@ -12,7 +12,7 @@ The records live in `public/plant-records.json`. The site is built from that fil
 1. Branch: `feature/records-NNN` (or `fix/record-NNN`).
 2. Edit `public/plant-records.json`:
    - New records take the next `record_no`, zero-padded (`022`). Numbers run in one sequence across all sites, in the order of the work; never renumber existing records without Danny asking.
-   - `date` is ISO (`2026-10-02`). Set `site`, and `project` if it belongs to one (else `null`).
+   - `date` is ISO (`2026-10-02`). Set `site`. `projects` is a list: `[]` for none, or one or more project names. A record with several projects still appears once; never duplicate a record.
    - A field that is not known is `null`. Never fill a field with a guess: it comes from Danny, the plant's label, or a citable authority.
    - The only markup is `<i>…</i>` around botanical names. No HTML entities; write `&` not `&amp;`.
    - `name` must equal `name_html` with the tags removed.

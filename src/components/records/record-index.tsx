@@ -21,7 +21,7 @@ export function RecordIndex({ records }: RecordIndexProps) {
   const set = (patch: Partial<RecordFilters>) => setFilters({ ...filters, ...patch })
 
   const sites = uniqueSorted(records.map((r) => r.site))
-  const projects = uniqueSorted(records.map((r) => r.project))
+  const projects = uniqueSorted(records.flatMap((r) => r.projects))
   const families = uniqueSorted(records.map((r) => r.family))
 
   const shown = filterRecords(records, filters).reverse()

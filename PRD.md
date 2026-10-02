@@ -87,7 +87,7 @@ A field with nothing recorded is shown as blank, never omitted, so gaps stay vis
 - About page with the conventions and authorities.
 - Search by name, and filters for site and family.
 - Link from each record to its POWO taxon page, where one exists.
-- Data schema that scales beyond Lullingstone: every record carries `site` and `project`, and the index can filter by both.
+- Data schema that scales beyond Lullingstone: every record carries `site` and a list of `projects` (none, one or several; a record never appears twice), and the index can filter by both.
 - Typed schema and a validation test for `plant-records.json`, so a malformed edit fails CI and never deploys.
 - Light and dark themes.
 

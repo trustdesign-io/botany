@@ -56,10 +56,10 @@ export function RecordSheet({ record: r, headingLevel: Heading = 'h1', keptBy }:
               <dd>{r.grid_ref ?? <Blank />}</dd>
             </div>
           </div>
-          {r.project && (
+          {r.projects.length > 0 && (
             <div className="col-span-2">
-              <dt className="label">Project</dt>
-              <dd>{r.project}</dd>
+              <dt className="label">{r.projects.length === 1 ? 'Project' : 'Projects'}</dt>
+              <dd>{r.projects.join('; ')}</dd>
             </div>
           )}
         </div>
