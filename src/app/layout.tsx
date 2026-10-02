@@ -19,8 +19,9 @@ export const metadata: Metadata = {
   description: 'Records of plants worked with, kept by D.C. Chambers.',
 }
 
-// Applies the saved or system theme before first paint, so there is no flash.
-const themeScript = `try{var t=localStorage.getItem('theme');if(t==='dark'||(!t&&matchMedia('(prefers-color-scheme: dark)').matches))document.documentElement.classList.add('dark')}catch(e){}`
+// Light is the default. Dark applies only when the visitor has chosen it with
+// the switch; the choice is restored before first paint, so there is no flash.
+const themeScript = `try{if(localStorage.getItem('theme')==='dark')document.documentElement.classList.add('dark')}catch(e){}`
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (

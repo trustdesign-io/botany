@@ -1,12 +1,16 @@
 'use client'
 
+import type { ReactNode } from 'react'
 import type { PlantRecord } from '@/types/record'
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from '@/components/ui/accordion'
-import { formatDate } from '@/lib/records'
 import { TaxonName } from './taxon-name'
 
 interface SummaryProps {
   records: PlantRecord[]
+  /** Search and filter controls, shown as the first panel. */
+  filters?: ReactNode
+  /** Short note beside the filter heading, e.g. how many filters are set. */
+  filtersNote?: string
 }
 
 function countBy(records: PlantRecord[], key: (r: PlantRecord) => string): [string, PlantRecord[]][] {
@@ -15,17 +19,30 @@ function countBy(records: PlantRecord[], key: (r: PlantRecord) => string): [stri
   return [...groups.entries()]
 }
 
-/** Summary views of all records. Every panel starts closed, so the index stays a plain list. */
-export function Summary({ records }: SummaryProps) {
+/**
+ * The index's accordion: search and filters, then summary views of all records.
+ * Every panel starts closed, so the index stays a plain list.
+ */
+export function Summary({ records, filters, filtersNote }: SummaryProps) {
   const families = countBy(records, (r) => r.family).sort(
     (a, b) => b[1].length - a[1].length || a[0].localeCompare(b[0]),
   )
-  const days = countBy(records, (r) => r.date).sort((a, b) => b[0].localeCompare(a[0]))
   const most = Math.max(...families.map(([, rs]) => rs.length))
   const trigger = 'label cursor-pointer py-3 hover:text-stamp hover:no-underline'
 
   return (
     <Accordion className="border-y border-border">
+      {filters && (
+        <AccordionItem value="filters">
+          <AccordionTrigger className={trigger}>
+            Search and filter{filtersNote ? ` (${filtersNote})` : ''}
+          </AccordionTrigger>
+          <AccordionContent>
+            <div className="pb-4">{filters}</div>
+          </AccordionContent>
+        </AccordionItem>
+      )}
+
       <AccordionItem value="family">
         <AccordionTrigger className={trigger}>
           By family ({families.length})
@@ -42,31 +59,6 @@ export function Summary({ records }: SummaryProps) {
               </li>
             ))}
           </ul>
-        </AccordionContent>
-      </AccordionItem>
-
-      <AccordionItem value="timeline">
-        <AccordionTrigger className={trigger}>
-          Timeline ({days.length} work days)
-        </AccordionTrigger>
-        <AccordionContent>
-          <ol className="grid gap-3 pb-4 text-base">
-            {days.map(([date, rs]) => (
-              <li key={date} className="grid gap-x-4 sm:grid-cols-[7.5rem_1fr]">
-                <time dateTime={date} className="font-sans text-sm tabular-nums text-muted-foreground">
-                  {formatDate(date, 'short')}
-                </time>
-                <span>
-                  {rs.map((r, i) => (
-                    <span key={r.record_no}>
-                      {i > 0 && '; '}
-                      <TaxonName html={r.name_html.replace(/<\/i>.*$/, '</i>')} />
-                    </span>
-                  ))}
-                </span>
-              </li>
-            ))}
-          </ol>
         </AccordionContent>
       </AccordionItem>
 

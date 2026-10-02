@@ -174,12 +174,13 @@
   .blank {
     display: block;
   }
-  .blank > span {
+  .blank > span[aria-hidden] {
     display: none;
     height: 1.35rem;
     border-bottom: 1px solid var(--input);
   }
-  .blank > span:first-child {
+  /* On screen, one short rule (the first after the screen-reader text). */
+  .blank > .sr-only + span[aria-hidden] {
     display: block;
     width: 3rem;
   }
@@ -224,8 +225,8 @@
     text-decoration: none;
   }
   /* Blank fields become ruled lines to write on. */
-  .blank > span,
-  .blank > span:first-child {
+  .blank > span[aria-hidden],
+  .blank > .sr-only + span[aria-hidden] {
     display: block;
     width: auto;
     height: 6.4mm;
