@@ -27,7 +27,6 @@ describe('filterRecords', () => {
   })
 })
 
-<<<<<<< HEAD
 describe('projects', () => {
   const [a, b, ...rest] = records
   const withProjects = [
@@ -51,8 +50,6 @@ describe('projects', () => {
   })
 })
 
-=======
->>>>>>> 3c80d5b0afd58b65e0f08ef397adf154aa82c565
 describe('hash round trip', () => {
   it('survives encoding', () => {
     const f = { ...EMPTY_FILTERS, q: 'aloe vera', family: 'Asphodelaceae' }

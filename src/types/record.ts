@@ -4,12 +4,8 @@ export interface PlantRecord {
   /** ISO 8601 date of the work, e.g. 2026-10-01. */
   date: string
   site: string
-<<<<<<< HEAD
   /** Projects this record belongs to. Empty when it belongs to none. */
   projects: string[]
-=======
-  project: string | null
->>>>>>> 3c80d5b0afd58b65e0f08ef397adf154aa82c565
   location: string | null
   vice_county: string | null
   grid_ref: string | null
