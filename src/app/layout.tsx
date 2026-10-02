@@ -6,8 +6,8 @@ const geistSans = Geist({ subsets: ['latin'], variable: '--font-geist-sans' })
 const geistMono = Geist_Mono({ subsets: ['latin'], variable: '--font-geist-mono' })
 
 export const metadata: Metadata = {
-  title: 'trustdesign starter',
-  description: 'Next.js starter template by trustdesign.',
+  title: 'Plant records',
+  description: 'Plant records kept by D.C. Chambers.',
 }
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
