@@ -5,11 +5,11 @@ import '../src/app/globals.css'
 // next/font sets these on <html> at runtime via Next.js — Storybook bypasses that.
 // IMPORTANT: whenever a new font is added to src/app/layout.tsx, add its
 // CSS variable here too or it will appear as undefined in Storybook.
-// No custom fonts in template — add your project's font variable shims here
-// Example:
-// if (typeof document !== 'undefined') {
-//   document.documentElement.style.setProperty('--font-your-font', '"Your Font"')
-// }
+if (typeof document !== 'undefined') {
+  document.documentElement.style.setProperty('--font-newsreader', '"Newsreader"')
+  document.documentElement.style.setProperty('--font-geist-sans', '"Geist"')
+  document.documentElement.style.setProperty('--font-geist-mono', '"Geist Mono"')
+}
 
 const preview: Preview = {
   parameters: {

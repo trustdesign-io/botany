@@ -17,6 +17,15 @@ export default defineConfig({
     exclude: ['**/node_modules/**', '**/tests/e2e/**'],
     projects: [{
       extends: true,
+      test: {
+        name: 'unit',
+        // Pure logic and data validation; no DOM needed.
+        environment: 'node',
+        setupFiles: [],
+        include: ['src/**/*.test.{ts,tsx}']
+      }
+    }, {
+      extends: true,
       plugins: [
       // The plugin will run tests for the stories defined in your Storybook config
       // See options at: https://storybook.js.org/docs/next/writing-tests/integrations/vitest-addon#storybooktest
