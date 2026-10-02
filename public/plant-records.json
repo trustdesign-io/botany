@@ -1,18 +1,20 @@
 {
-  "title": "Plant records",
+  "schema_version": 2,
+  "title": "Botanical and Horticultural Records",
   "kept_by": "D.C. Chambers",
   "updated": "2026-10-02",
-  "conventions": "null = not yet recorded. Text fields may contain <i> tags marking botanical names; 'name' is the plain-text form of 'name_html'.",
+  "conventions": "null means not yet recorded. Text fields are plain text; the only markup allowed is <i>…</i> around botanical names. 'name' is the plain-text form of 'name_html'. Dates are ISO 8601.",
   "records": [
     {
       "record_no": "001",
       "date": "2026-07-18",
       "site": "Lullingstone Castle World Garden, Eynsford, Kent",
+      "project": null,
       "location": null,
       "vice_county": "16 W Kent",
       "grid_ref": null,
       "name": "Eucalyptus badjensis Beuzev. & M.B.Welch",
-      "name_html": "<i>Eucalyptus badjensis</i> Beuzev. &amp; M.B.Welch",
+      "name_html": "<i>Eucalyptus badjensis</i> Beuzev. & M.B.Welch",
       "family": "Myrtaceae",
       "det": "T. Hart Dyke (verbal), relayed to D.C. Chambers, 18 Jul 2026 — not keyed",
       "label_read": "None — unlabelled",
@@ -26,12 +28,14 @@
       "work_done": null,
       "observed": null,
       "sources": "POWO, accessed 28 Sep 2026. IPNI 592709-1: J. Proc. Roy. Soc. New South Wales 58: 177 (1924). EUCLID.",
-      "open_questions": "Diagnostic taken from secondary sources; check against the tree. Near misses unsourced."
+      "open_questions": "Diagnostic taken from secondary sources; check against the tree. Near misses unsourced.",
+      "powo_url": "https://powo.science.kew.org/taxon/urn:lsid:ipni.org:names:592709-1"
     },
     {
       "record_no": "002",
       "date": "2026-07-31",
       "site": "Lullingstone Castle World Garden, Eynsford, Kent",
+      "project": null,
       "location": "New Zealand bed",
       "vice_county": "16 W Kent",
       "grid_ref": null,
@@ -50,12 +54,14 @@
       "work_done": "Pruned hard with secateurs; the plant had overtaken the bed. THD asked for a wavy structure. First attempt; the work was finished by another volunteer.",
       "observed": null,
       "sources": "POWO, accessed 7 Sep 2026.",
-      "open_questions": "Provenance. What the finisher changed, and why. Whether the wavy form is a shape THD maintains or a one-off."
+      "open_questions": "Provenance. What the finisher changed, and why. Whether the wavy form is a shape THD maintains or a one-off.",
+      "powo_url": null
     },
     {
       "record_no": "003",
       "date": "2026-08-07",
       "site": "Lullingstone Castle World Garden, Eynsford, Kent",
+      "project": null,
       "location": null,
       "vice_county": "16 W Kent",
       "grid_ref": null,
@@ -74,12 +80,14 @@
       "work_done": null,
       "observed": null,
       "sources": "POWO, accessed 29 Sep 2026. First published in DC., Prodr. 8: 665 (1844).",
-      "open_questions": "Synonyms include <i>Stapelia gordonii</i>; confirm the basionym on IPNI. Confirm the CITES listing for the genus."
+      "open_questions": "Synonyms include <i>Stapelia gordonii</i>; confirm the basionym on IPNI. Confirm the CITES listing for the genus.",
+      "powo_url": null
     },
     {
       "record_no": "004",
       "date": "2026-08-07",
       "site": "Lullingstone Castle World Garden, Eynsford, Kent",
+      "project": null,
       "location": null,
       "vice_county": "16 W Kent",
       "grid_ref": null,
@@ -98,12 +106,14 @@
       "work_done": null,
       "observed": null,
       "sources": "POWO, accessed 2 Oct 2026. Adansonia, n.s., 1: 43 (1961). Wikipedia, <i>Alluaudia montagnacii</i>.",
-      "open_questions": "Diagnostic from secondary sources; check against the plant. Wikipedia calls it probably a natural hybrid of <i>A. ascendens</i> and <i>A. procera</i>, and gives IUCN Endangered; confirm both. Compare record 005."
+      "open_questions": "Diagnostic from secondary sources; check against the plant. Wikipedia calls it probably a natural hybrid of <i>A. ascendens</i> and <i>A. procera</i>, and gives IUCN Endangered; confirm both. Compare record 005.",
+      "powo_url": "https://powo.science.kew.org/taxon/urn:lsid:ipni.org:names:316434-1"
     },
     {
       "record_no": "005",
       "date": "2026-08-07",
       "site": "Lullingstone Castle World Garden, Eynsford, Kent",
+      "project": null,
       "location": null,
       "vice_county": "16 W Kent",
       "grid_ref": null,
@@ -122,17 +132,19 @@
       "work_done": null,
       "observed": null,
       "sources": "POWO, accessed 2 Oct 2026. Bull. Mus. Hist. Nat. (Paris) 9: 37 (1903). Wikipedia, <i>Alluaudia procera</i>.",
-      "open_questions": "Diagnostic from secondary sources; check against the plant. Basionym <i>Didierea procera</i> Drake (1903). Compare record 004."
+      "open_questions": "Diagnostic from secondary sources; check against the plant. Basionym <i>Didierea procera</i> Drake (1903). Compare record 004.",
+      "powo_url": "https://powo.science.kew.org/taxon/urn:lsid:ipni.org:names:316435-1"
     },
     {
       "record_no": "006",
       "date": "2026-08-14",
       "site": "Lullingstone Castle World Garden, Eynsford, Kent",
+      "project": null,
       "location": null,
       "vice_county": "16 W Kent",
       "grid_ref": null,
       "name": "Aloidendron barberae (Dyer) Klopper & Gideon F.Sm.",
-      "name_html": "<i>Aloidendron barberae</i> (Dyer) Klopper &amp; Gideon F.Sm.",
+      "name_html": "<i>Aloidendron barberae</i> (Dyer) Klopper & Gideon F.Sm.",
       "family": "Asphodelaceae",
       "det": "T. Hart Dyke (verbal), relayed to D.C. Chambers, 14 Aug 2026 — not keyed",
       "label_read": null,
@@ -146,12 +158,14 @@
       "work_done": null,
       "observed": null,
       "sources": "POWO, accessed 2 Oct 2026. Phytotaxa 76: 9 (2013). SANBI PlantZAfrica, <i>Aloidendron barberae</i>.",
-      "open_questions": "Diagnostic from secondary sources; check against the plant."
+      "open_questions": "Diagnostic from secondary sources; check against the plant.",
+      "powo_url": "https://powo.science.kew.org/taxon/urn:lsid:ipni.org:names:77125489-1"
     },
     {
       "record_no": "007",
       "date": "2026-08-14",
       "site": "Lullingstone Castle World Garden, Eynsford, Kent",
+      "project": null,
       "location": null,
       "vice_county": "16 W Kent",
       "grid_ref": null,
@@ -162,7 +176,7 @@
       "label_read": null,
       "note": "Name as determined. POWO does not list var. <i>lutea</i>, as an accepted name or as a synonym. The RHS lists the plant as <i>Aloe arborescens</i> yellow-flowered.",
       "common_names": "Krantz aloe, candelabra aloe (yellow-flowered form)",
-      "native_range": "S. Tropical &amp; S. Africa (species)",
+      "native_range": "S. Tropical & S. Africa (species)",
       "habit": "Succulent shrub or tree; desert or dry shrubland biome",
       "provenance": null,
       "diagnostic": "Many-headed, branching shrub of 2–3 m, each stem ending in a rosette of grey-green, sword-shaped leaves edged with conspicuous pale teeth. Flower spikes in winter, usually two or more per rosette. Normally deep orange to scarlet; the yellow form has green-tipped buds opening pale yellow and is otherwise identical.",
@@ -170,12 +184,14 @@
       "work_done": null,
       "observed": null,
       "sources": "POWO, accessed 2 Oct 2026. Gard. Dict., ed. 8: n.° 3 (1768). SANBI PlantZAfrica; RHS; Ruth Bancroft Garden.",
-      "open_questions": "Diagnostic from secondary sources; check against the plant. Ask THD where the name var. <i>lutea</i> comes from."
+      "open_questions": "Diagnostic from secondary sources; check against the plant. Ask THD where the name var. <i>lutea</i> comes from.",
+      "powo_url": "https://powo.science.kew.org/taxon/urn:lsid:ipni.org:names:529214-1"
     },
     {
       "record_no": "008",
       "date": "2026-08-14",
       "site": "Lullingstone Castle World Garden, Eynsford, Kent",
+      "project": null,
       "location": null,
       "vice_county": "16 W Kent",
       "grid_ref": null,
@@ -193,13 +209,15 @@
       "near_misses": "<i>B. compactus</i> (Proserpine bottle tree): more oval leaves, more compact flower heads, longer ellipsoid follicles.",
       "work_done": null,
       "observed": null,
-      "sources": "POWO, accessed 2 Oct 2026. Engler &amp; Prantl, Nat. Pflanzenfam. 3(6): 96 (1893). Wikipedia, <i>Brachychiton rupestris</i>.",
-      "open_questions": "Diagnostic from secondary sources; check against the plant. IPNI gives the combination as (Lindl.) K.Schum., 1890; POWO followed here."
+      "sources": "POWO, accessed 2 Oct 2026. Engler & Prantl, Nat. Pflanzenfam. 3(6): 96 (1893). Wikipedia, <i>Brachychiton rupestris</i>.",
+      "open_questions": "Diagnostic from secondary sources; check against the plant. IPNI gives the combination as (Lindl.) K.Schum., 1890; POWO followed here.",
+      "powo_url": "https://powo.science.kew.org/taxon/urn:lsid:ipni.org:names:822270-1"
     },
     {
       "record_no": "009",
       "date": "2026-08-21",
       "site": "Lullingstone Castle World Garden, Eynsford, Kent",
+      "project": null,
       "location": null,
       "vice_county": "16 W Kent",
       "grid_ref": null,
@@ -218,12 +236,14 @@
       "work_done": null,
       "observed": null,
       "sources": "POWO, accessed 2 Oct 2026. Anales Hist. Nat. 1: 227 (1799). Trees and Shrubs Online; ClimateWatch; Wikipedia.",
-      "open_questions": "Diagnostic from secondary sources; check against the plant."
+      "open_questions": "Diagnostic from secondary sources; check against the plant.",
+      "powo_url": "https://powo.science.kew.org/taxon/urn:lsid:ipni.org:names:703136-1"
     },
     {
       "record_no": "010",
       "date": "2026-08-28",
       "site": "Lullingstone Castle World Garden, Eynsford, Kent",
+      "project": null,
       "location": null,
       "vice_county": "16 W Kent",
       "grid_ref": null,
@@ -242,21 +262,23 @@
       "work_done": null,
       "observed": null,
       "sources": "POWO, accessed 2 Oct 2026. Phytologia 18: 140 (1969). Tropical Britain (nursery).",
-      "open_questions": "Diagnostic from a nursery page only; check against the plant. Copy the label word for word."
+      "open_questions": "Diagnostic from a nursery page only; check against the plant. Copy the label word for word.",
+      "powo_url": "https://powo.science.kew.org/taxon/urn:lsid:ipni.org:names:214543-2"
     },
     {
       "record_no": "011",
       "date": "2026-08-28",
       "site": "Lullingstone Castle World Garden, Eynsford, Kent",
+      "project": null,
       "location": null,
       "vice_county": "16 W Kent",
       "grid_ref": null,
       "name": "Ceiba speciosa (A.St.-Hil., A.Juss. & Cambess.) Ravenna",
-      "name_html": "<i>Ceiba speciosa</i> (A.St.-Hil., A.Juss. &amp; Cambess.) Ravenna",
+      "name_html": "<i>Ceiba speciosa</i> (A.St.-Hil., A.Juss. & Cambess.) Ravenna",
       "family": "Malvaceae",
       "det": "T. Hart Dyke (verbal), relayed to D.C. Chambers, 28 Aug 2026 — not keyed",
       "label_read": null,
-      "note": "Syn. <i>Chorisia speciosa</i> A.St.-Hil., A.Juss. &amp; Cambess. (basionym, 1828).",
+      "note": "Syn. <i>Chorisia speciosa</i> A.St.-Hil., A.Juss. & Cambess. (basionym, 1828).",
       "common_names": "Silk floss tree, floss silk tree",
       "native_range": "Brazil to Peru and NE. Argentina",
       "habit": "Tree; seasonally dry tropical biome",
@@ -266,12 +288,14 @@
       "work_done": null,
       "observed": null,
       "sources": "POWO, accessed 2 Oct 2026. Onira 3: 46 (1998). Wikipedia, <i>Ceiba speciosa</i>.",
-      "open_questions": "Diagnostic from secondary sources; check against the plant."
+      "open_questions": "Diagnostic from secondary sources; check against the plant.",
+      "powo_url": "https://powo.science.kew.org/taxon/urn:lsid:ipni.org:names:1005661-1"
     },
     {
       "record_no": "012",
       "date": "2026-09-18",
       "site": "Lullingstone Castle World Garden, Eynsford, Kent",
+      "project": null,
       "location": null,
       "vice_county": "16 W Kent",
       "grid_ref": null,
@@ -290,12 +314,14 @@
       "work_done": null,
       "observed": null,
       "sources": "POWO, accessed 2 Oct 2026. Kew Bull. 34: 813 (1980). RHS; Missouri Botanical Garden; Wikipedia.",
-      "open_questions": "Diagnostic from secondary sources; check against the plant. Basionym <i>Wahlenbergia mauritiana</i> I.Richardson (1979). IUCN category not confirmed."
+      "open_questions": "Diagnostic from secondary sources; check against the plant. Basionym <i>Wahlenbergia mauritiana</i> I.Richardson (1979). IUCN category not confirmed.",
+      "powo_url": "https://powo.science.kew.org/taxon/urn:lsid:ipni.org:names:144220-1"
     },
     {
       "record_no": "013",
       "date": "2026-10-01",
       "site": "Lullingstone Castle World Garden, Eynsford, Kent",
+      "project": null,
       "location": null,
       "vice_county": "16 W Kent",
       "grid_ref": null,
@@ -314,12 +340,14 @@
       "work_done": null,
       "observed": null,
       "sources": "POWO, accessed 2 Oct 2026. Fl. Amer. Sept. 2: 731 (1813). Trees and Shrubs Online; Wikipedia.",
-      "open_questions": "Diagnostic from secondary sources; check against the plant. Four-parted flowers are unusual in the genus, which is otherwise five-parted."
+      "open_questions": "Diagnostic from secondary sources; check against the plant. Four-parted flowers are unusual in the genus, which is otherwise five-parted.",
+      "powo_url": "https://powo.science.kew.org/taxon/urn:lsid:ipni.org:names:792998-1"
     },
     {
       "record_no": "014",
       "date": "2026-10-01",
       "site": "Lullingstone Castle World Garden, Eynsford, Kent",
+      "project": null,
       "location": null,
       "vice_county": "16 W Kent",
       "grid_ref": null,
@@ -338,17 +366,19 @@
       "work_done": null,
       "observed": null,
       "sources": "POWO, accessed 2 Oct 2026. Trudy Imp. S.-Peterburgsk. Bot. Sada 8: 648 (1884). RHS; Wikipedia.",
-      "open_questions": "Diagnostic from secondary sources; check against the plant. Yellow and apricot garden forms are sold as Batalinii Group; <i>T. batalinii</i> Regel is a synonym in POWO."
+      "open_questions": "Diagnostic from secondary sources; check against the plant. Yellow and apricot garden forms are sold as Batalinii Group; <i>T. batalinii</i> Regel is a synonym in POWO.",
+      "powo_url": "https://powo.science.kew.org/taxon/urn:lsid:ipni.org:names:542983-1"
     },
     {
       "record_no": "015",
       "date": "2026-10-02",
       "site": "Lullingstone Castle World Garden, Eynsford, Kent",
+      "project": null,
       "location": null,
       "vice_county": "16 W Kent",
       "grid_ref": null,
       "name": "Fuchsia jimenezii Breedlove, P.E.Berry & P.H.Raven",
-      "name_html": "<i>Fuchsia jimenezii</i> Breedlove, P.E.Berry &amp; P.H.Raven",
+      "name_html": "<i>Fuchsia jimenezii</i> Breedlove, P.E.Berry & P.H.Raven",
       "family": "Onagraceae",
       "det": "T. Hart Dyke (verbal), relayed to D.C. Chambers, 2 Oct 2026 — not keyed",
       "label_read": "“Fuchsia jimenezii £7.50 / Schufia type Fuchsia from central USA. Upright habit, deep glossy glabrous foliage and rose pink/ rose red small flowers. Very unusual! / Grown for Lullingstone World Garden”",
@@ -362,12 +392,14 @@
       "work_done": null,
       "observed": null,
       "sources": "POWO, accessed 2 Oct 2026. Ann. Missouri Bot. Gard. 69: 221 (1982). IPNI (sect. <i>Jimenezia</i>); Fuchsietum; Wikipedia.",
-      "open_questions": "Diagnostic from secondary sources; check against the plant. Protologue not read."
+      "open_questions": "Diagnostic from secondary sources; check against the plant. Protologue not read.",
+      "powo_url": "https://powo.science.kew.org/taxon/urn:lsid:ipni.org:names:106204-2"
     },
     {
       "record_no": "016",
       "date": "2026-10-02",
       "site": "Lullingstone Castle World Garden, Eynsford, Kent",
+      "project": null,
       "location": null,
       "vice_county": "16 W Kent",
       "grid_ref": null,
@@ -386,12 +418,14 @@
       "work_done": null,
       "observed": null,
       "sources": "POWO, accessed 2 Oct 2026. Icon. 3: 33 (1795). RHS.",
-      "open_questions": "Diagnostic from secondary sources; check against the plant."
+      "open_questions": "Diagnostic from secondary sources; check against the plant.",
+      "powo_url": "https://powo.science.kew.org/taxon/urn:lsid:ipni.org:names:75821-2"
     },
     {
       "record_no": "017",
       "date": "2026-10-02",
       "site": "Lullingstone Castle World Garden, Eynsford, Kent",
+      "project": null,
       "location": null,
       "vice_county": "16 W Kent",
       "grid_ref": null,
@@ -410,12 +444,14 @@
       "work_done": null,
       "observed": null,
       "sources": "RHS Horticultural Database, accessed 2 Oct 2026. POWO (genus), accessed 2 Oct 2026. Knoll Gardens (nursery).",
-      "open_questions": "Species unsettled: the RHS gives none; nurseries variously give <i>novi-belgii</i> or a <i>laevis</i> hybrid. Named after the garden Le Vasterival, Normandy, per a nursery source only."
+      "open_questions": "Species unsettled: the RHS gives none; nurseries variously give <i>novi-belgii</i> or a <i>laevis</i> hybrid. Named after the garden Le Vasterival, Normandy, per a nursery source only.",
+      "powo_url": null
     },
     {
       "record_no": "018",
       "date": "2026-10-02",
       "site": "Lullingstone Castle World Garden, Eynsford, Kent",
+      "project": null,
       "location": null,
       "vice_county": "16 W Kent",
       "grid_ref": null,
@@ -424,7 +460,7 @@
       "family": "Euphorbiaceae",
       "det": "T. Hart Dyke (verbal), relayed to D.C. Chambers, 2 Oct 2026 — not keyed",
       "label_read": "“EUPHORBIA ENOPLA VAR. VIRIDIS. SOUTH AFRICA” (handwritten)",
-      "note": "Determined and labelled as <i>Euphorbia enopla</i> var. <i>viridis</i> A.C.White, R.A.Dyer &amp; B.Sloane, which POWO treats as a synonym of <i>E. heptagona</i>.",
+      "note": "Determined and labelled as <i>Euphorbia enopla</i> var. <i>viridis</i> A.C.White, R.A.Dyer & B.Sloane, which POWO treats as a synonym of <i>E. heptagona</i>.",
       "common_names": "Milk barrel, pincushion euphorbia",
       "native_range": "Cape Provinces",
       "habit": "Succulent subshrub; subtropical biome",
@@ -434,12 +470,14 @@
       "work_done": null,
       "observed": null,
       "sources": "POWO, accessed 2 Oct 2026. Sp. Pl.: 450 (1753); var. <i>viridis</i>: Succ. Euphorb.: 964 (1941). LLIFLE; Wikipedia.",
-      "open_questions": "Diagnostic from secondary sources; check against the plant. LLIFLE still accepts <i>E. enopla</i> Boiss. Latex is an irritant. CITES listing not confirmed."
+      "open_questions": "Diagnostic from secondary sources; check against the plant. LLIFLE still accepts <i>E. enopla</i> Boiss. Latex is an irritant. CITES listing not confirmed.",
+      "powo_url": "https://powo.science.kew.org/taxon/urn:lsid:ipni.org:names:346763-1"
     },
     {
       "record_no": "019",
       "date": "2026-10-02",
       "site": "Lullingstone Castle World Garden, Eynsford, Kent",
+      "project": null,
       "location": null,
       "vice_county": "16 W Kent",
       "grid_ref": null,
@@ -458,12 +496,14 @@
       "work_done": null,
       "observed": null,
       "sources": "RHS Horticultural Database, accessed 2 Oct 2026. POWO (species), accessed 2 Oct 2026: Gard. Chron. 1860: 792 (1860). US Plant Patent PP26,267.",
-      "open_questions": "A whole-plant mutation of ‘Sprilecpink’, found 2008 (patent). Confirm the species with THD."
+      "open_questions": "A whole-plant mutation of ‘Sprilecpink’, found 2008 (patent). Confirm the species with THD.",
+      "powo_url": "https://powo.science.kew.org/taxon/urn:lsid:ipni.org:names:533546-1"
     },
     {
       "record_no": "020",
       "date": "2026-10-02",
       "site": "Lullingstone Castle World Garden, Eynsford, Kent",
+      "project": null,
       "location": null,
       "vice_county": "16 W Kent",
       "grid_ref": null,
@@ -482,12 +522,14 @@
       "work_done": null,
       "observed": null,
       "sources": "POWO, accessed 2 Oct 2026. Bot. Mag. 103: t. 6294 (1877). Rare Palm Seeds; Adventurous Plants (nurseries).",
-      "open_questions": "Diagnostic from nursery pages only, with no measurements; check against the plant."
+      "open_questions": "Diagnostic from nursery pages only, with no measurements; check against the plant.",
+      "powo_url": "https://powo.science.kew.org/taxon/urn:lsid:ipni.org:names:122727-1"
     },
     {
       "record_no": "021",
       "date": "2026-10-02",
       "site": "Lullingstone Castle World Garden, Eynsford, Kent",
+      "project": null,
       "location": null,
       "vice_county": "16 W Kent",
       "grid_ref": null,
@@ -496,7 +538,7 @@
       "family": "Cleomaceae",
       "det": "T. Hart Dyke (verbal), relayed to D.C. Chambers, 2 Oct 2026 — not keyed",
       "label_read": "“Cleome arborea PW” (handwritten; PW = Plant World Seeds)",
-      "note": "Name as supplied; POWO accepts no <i>Cleome arborea</i>. Probably <i>Cleomella arborea</i> (Nutt.) Roalson &amp; J.C.Hall, inferred from the supplier's common names. Not confirmed.",
+      "note": "Name as supplied; POWO accepts no <i>Cleome arborea</i>. Probably <i>Cleomella arborea</i> (Nutt.) Roalson & J.C.Hall, inferred from the supplier's common names. Not confirmed.",
       "common_names": "Bladderpod, burro-fat, Easter shrub (supplier)",
       "native_range": "If <i>Cleomella arborea</i>: California to Mexico (Baja California)",
       "habit": "If <i>Cleomella arborea</i>: shrub; desert or dry shrubland biome",
@@ -506,7 +548,8 @@
       "work_done": null,
       "observed": null,
       "sources": "POWO, accessed 2 Oct 2026: Phytotaxa 205: 137 (2015). Plant World Seeds catalogue; Wikipedia.",
-      "open_questions": "Confirm the identity against the plant: three leaflets, yellow flowers, inflated pods. The supplier's page is reported to say “Native to South America”, which conflicts with POWO."
+      "open_questions": "Confirm the identity against the plant: three leaflets, yellow flowers, inflated pods. The supplier's page is reported to say “Native to South America”, which conflicts with POWO.",
+      "powo_url": null
     }
   ]
 }

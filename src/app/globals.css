@@ -4,17 +4,27 @@
 
 @custom-variant dark (&:is(.dark *));
 
+/*
+ * Botanical and Horticultural Records — design tokens (see PRD.md, Brand).
+ * A herbarium sheet: paper ground, black ink, and one accent, the oxblood of
+ * the red ink used for later additions in the paper record book.
+ * Serif for text and names; letter-spaced sans capitals for field labels.
+ */
 @theme {
   --font-sans: var(--font-geist-sans), system-ui, sans-serif;
-  --font-heading: var(--font-geist-sans), system-ui, sans-serif;
+  --font-serif: var(--font-newsreader), 'Iowan Old Style', Georgia, serif;
+  --font-heading: var(--font-newsreader), 'Iowan Old Style', Georgia, serif;
 }
 
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
   --font-sans: var(--font-geist-sans), system-ui, sans-serif;
-  --font-heading: var(--font-geist-sans), system-ui, sans-serif;
+  --font-serif: var(--font-newsreader), 'Iowan Old Style', Georgia, serif;
+  --font-heading: var(--font-newsreader), 'Iowan Old Style', Georgia, serif;
   --font-mono: var(--font-geist-mono);
+  --color-stamp: var(--stamp);
+  --color-rule: var(--rule);
   --color-sidebar-ring: var(--sidebar-ring);
   --color-sidebar-border: var(--sidebar-border);
   --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
@@ -55,30 +65,32 @@
 
 /* ── Default light theme (shadcn/ui neutral) ───────────────────────────── */
 :root {
-  --background: #ffffff;
-  --foreground: #09090b;
-  --card: #ffffff;
-  --card-foreground: #09090b;
-  --popover: #ffffff;
-  --popover-foreground: #09090b;
-  --primary: #18181b;
-  --primary-foreground: #fafafa;
-  --secondary: #f4f4f5;
-  --secondary-foreground: #18181b;
-  --muted: #f4f4f5;
-  --muted-foreground: #71717a;
-  --accent: #f4f4f5;
-  --accent-foreground: #18181b;
+  --stamp: #7d1a2a;
+  --rule: #17171a;
+  --background: #fbfaf7;
+  --foreground: #17171a;
+  --card: #fbfaf7;
+  --card-foreground: #17171a;
+  --popover: #fbfaf7;
+  --popover-foreground: #17171a;
+  --primary: #17171a;
+  --primary-foreground: #fbfaf7;
+  --secondary: #f0eee8;
+  --secondary-foreground: #17171a;
+  --muted: #f0eee8;
+  --muted-foreground: #5c5b60;
+  --accent: #f0eee8;
+  --accent-foreground: #17171a;
   --destructive: #ef4444;
-  --border: #e4e4e7;
-  --input: #e4e4e7;
-  --ring: #18181b;
+  --border: #d9d7cf;
+  --input: #c9c6bc;
+  --ring: #7d1a2a;
   --chart-1: #e76e50;
   --chart-2: #2a9d90;
   --chart-3: #274754;
   --chart-4: #e8c468;
   --chart-5: #f4a462;
-  --radius: 0.625rem;
+  --radius: 0.25rem;
   --sidebar: #fafafa;
   --sidebar-foreground: #09090b;
   --sidebar-primary: #18181b;
@@ -91,24 +103,27 @@
 
 /* ── Dark theme ────────────────────────────────────────────────────────── */
 .dark {
-  --background: #09090b;
-  --foreground: #fafafa;
-  --card: #09090b;
-  --card-foreground: #fafafa;
-  --popover: #09090b;
-  --popover-foreground: #fafafa;
-  --primary: #fafafa;
-  --primary-foreground: #18181b;
-  --secondary: #27272a;
-  --secondary-foreground: #fafafa;
-  --muted: #27272a;
-  --muted-foreground: #a1a1aa;
-  --accent: #27272a;
-  --accent-foreground: #fafafa;
+  --stamp: #e58a96;
+  --rule: #eceae4;
+  color-scheme: dark;
+  --background: #131315;
+  --foreground: #eceae4;
+  --card: #131315;
+  --card-foreground: #eceae4;
+  --popover: #1b1b1e;
+  --popover-foreground: #eceae4;
+  --primary: #eceae4;
+  --primary-foreground: #131315;
+  --secondary: #232327;
+  --secondary-foreground: #eceae4;
+  --muted: #232327;
+  --muted-foreground: #a7a59e;
+  --accent: #232327;
+  --accent-foreground: #eceae4;
   --destructive: #ef4444;
-  --border: #27272a;
-  --input: #27272a;
-  --ring: #d4d4d8;
+  --border: #303035;
+  --input: #3d3d44;
+  --ring: #e58a96;
   --chart-1: #3b82f6;
   --chart-2: #10b981;
   --chart-3: #f59e0b;
@@ -132,6 +147,87 @@
     @apply bg-background text-foreground;
   }
   html {
-    @apply font-sans;
+    @apply font-serif;
+  }
+  body {
+    font-size: 1.0625rem;
+    line-height: 1.5;
+    text-rendering: optimizeLegibility;
+  }
+  a:focus-visible,
+  button:focus-visible,
+  input:focus-visible,
+  select:focus-visible,
+  summary:focus-visible {
+    outline: 2px solid var(--ring);
+    outline-offset: 2px;
+  }
+}
+
+@layer components {
+  /* Field label: small letter-spaced capitals, as on the printed sheet. */
+  .label {
+    @apply font-sans text-[0.68rem] font-semibold uppercase tracking-[0.09em] text-muted-foreground;
+  }
+
+  /* A field with nothing recorded: shown as a rule, never omitted. */
+  .blank {
+    display: block;
+  }
+  .blank > span {
+    display: none;
+    height: 1.35rem;
+    border-bottom: 1px solid var(--input);
+  }
+  .blank > span:first-child {
+    display: block;
+    width: 3rem;
+  }
+}
+
+/* ── Print: one A4 sheet per record, with a binding margin ─────────────── */
+@page {
+  size: A4;
+  margin: 16mm 17mm 14mm 27mm;
+}
+
+@media print {
+  :root,
+  .dark {
+    --background: #ffffff;
+    --foreground: #000000;
+    --muted-foreground: #444444;
+    --border: #999999;
+    --input: #aaaaaa;
+    --stamp: #000000;
+    --rule: #000000;
+    color-scheme: light;
+  }
+  html {
+    font-size: 10.3pt;
+  }
+  body {
+    font-size: 1rem;
+    line-height: 1.34;
+  }
+  .no-print {
+    display: none !important;
+  }
+  .sheet {
+    break-after: page;
+  }
+  .sheet:last-of-type {
+    break-after: auto;
+  }
+  a {
+    color: inherit;
+    text-decoration: none;
+  }
+  /* Blank fields become ruled lines to write on. */
+  .blank > span,
+  .blank > span:first-child {
+    display: block;
+    width: auto;
+    height: 6.4mm;
   }
 }
