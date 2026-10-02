@@ -1,6 +1,7 @@
 import type { PlantRecord } from '@/types/record'
 import { formatDate } from '@/lib/records'
 import { Blank, RecordField } from './record-field'
+import { RecordImage } from './record-image'
 import { TaxonName } from './taxon-name'
 
 interface RecordSheetProps {
@@ -29,6 +30,12 @@ export function RecordSheet({ record: r, headingLevel: Heading = 'h1', keptBy }:
           {r.record_no}
         </p>
       </header>
+
+      {r.image && (
+        <div className="border-b border-border py-4">
+          <RecordImage image={r.image} />
+        </div>
+      )}
 
       <dl>
         <div className="grid grid-cols-2 gap-x-6 gap-y-3 border-b border-border py-4 print:py-2.5 sm:grid-cols-[1fr_2fr] print:grid-cols-[1fr_2fr]">

@@ -1,9 +1,11 @@
 'use client'
 
+import Image from 'next/image'
 import Link from 'next/link'
 import type { PlantRecord } from '@/types/record'
 import { EMPTY_FILTERS, type RecordFilters, filterRecords, filtersToHash, uniqueSorted } from '@/lib/filter'
 import { formatDate } from '@/lib/records'
+import { BASE_PATH } from '@/lib/site'
 import { useHashFilters } from '@/hooks/use-hash-filters'
 import { Summary } from './summary'
 import { TaxonName } from './taxon-name'
@@ -121,13 +123,25 @@ export function RecordIndex({ records }: RecordIndexProps) {
             <li key={r.record_no} className="border-b border-border">
               <Link
                 href={`/records/${r.record_no}/`}
-                className="group grid grid-cols-[2.75rem_1fr] gap-x-3 py-3 hover:bg-secondary active:bg-muted sm:grid-cols-[3rem_1fr_9rem_7rem] sm:items-baseline"
+                className="group grid grid-cols-[2.25rem_2.5rem_1fr] gap-x-3 py-3 hover:bg-secondary active:bg-muted sm:grid-cols-[3rem_2.5rem_1fr_9rem_7rem] sm:items-center"
               >
                 <span className="font-sans text-sm leading-7 tabular-nums text-muted-foreground">{r.record_no}</span>
+                {/* Thumbnail of the record's photo; the cell stays empty when a record has none. */}
+                <span className="row-span-2 size-10 sm:row-span-1" aria-hidden="true">
+                  {r.image && (
+                    <Image
+                      src={`${BASE_PATH}${r.image.thumb}`}
+                      alt=""
+                      width={40}
+                      height={40}
+                      className="size-10 border border-border object-cover"
+                    />
+                  )}
+                </span>
                 <span className="min-w-0 text-lg leading-snug group-hover:text-stamp">
                   <TaxonName html={r.name_html} />
                 </span>
-                <span className="col-start-2 font-sans text-sm text-muted-foreground sm:col-start-auto">
+                <span className="col-start-3 font-sans text-sm text-muted-foreground sm:col-start-auto">
                   {r.family}
                   <span className="sm:hidden"> · {formatDate(r.date, 'short')}</span>
                 </span>
