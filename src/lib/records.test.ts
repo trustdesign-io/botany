@@ -37,6 +37,12 @@ describe('schema', () => {
     expect(recordSchema.safeParse({ ...good, extra: 1 }).success).toBe(false)
   })
 
+  it('takes a list of projects and rejects repeats', () => {
+    expect(recordSchema.safeParse({ ...good, projects: ['A', 'B'] }).success).toBe(true)
+    expect(recordSchema.safeParse({ ...good, projects: ['A', 'A'] }).success).toBe(false)
+    expect(recordSchema.safeParse({ ...good, projects: null }).success).toBe(false)
+  })
+
   it('rejects duplicate record numbers', () => {
     const file = { ...raw, records: [raw.records[0], raw.records[0]] }
     expect(() => parseRecordsFile(file)).toThrow(/duplicate/)

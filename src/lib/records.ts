@@ -21,7 +21,7 @@ export const recordSchema = z.strictObject({
   record_no: z.string().regex(/^\d{3,}$/, 'record_no must be zero-padded digits, e.g. 013'),
   date: isoDate,
   site: inlineText,
-  project: optionalText,
+  projects: z.array(inlineText).refine((p) => new Set(p).size === p.length, 'duplicate project'),
   location: optionalText,
   vice_county: optionalText,
   grid_ref: optionalText,
@@ -46,7 +46,7 @@ export const recordSchema = z.strictObject({
 
 export const recordsFileSchema = z
   .strictObject({
-    schema_version: z.literal(2),
+    schema_version: z.literal(3),
     title: z.string().min(1),
     kept_by: z.string().min(1),
     updated: isoDate,

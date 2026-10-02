@@ -27,6 +27,29 @@ describe('filterRecords', () => {
   })
 })
 
+describe('projects', () => {
+  const [a, b, ...rest] = records
+  const withProjects = [
+    { ...a, projects: ['Nesocodon accession', 'Lullingstone volunteering'] },
+    { ...b, projects: ['Lullingstone volunteering'] },
+    ...rest,
+  ]
+
+  it('matches a record under each of its projects, once', () => {
+    const lull = filterRecords(withProjects, { ...EMPTY_FILTERS, project: 'Lullingstone volunteering' })
+    expect(lull.map((r) => r.record_no)).toEqual([a.record_no, b.record_no])
+    const neso = filterRecords(withProjects, { ...EMPTY_FILTERS, project: 'Nesocodon accession' })
+    expect(neso.map((r) => r.record_no)).toEqual([a.record_no])
+  })
+
+  it('lists each project once for the filter', () => {
+    expect(uniqueSorted(withProjects.flatMap((r) => r.projects))).toEqual([
+      'Lullingstone volunteering',
+      'Nesocodon accession',
+    ])
+  })
+})
+
 describe('hash round trip', () => {
   it('survives encoding', () => {
     const f = { ...EMPTY_FILTERS, q: 'aloe vera', family: 'Asphodelaceae' }
