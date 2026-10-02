@@ -3,10 +3,30 @@
 ## Project Overview
 Public dashboard of D.C. Chambers' plant records, served at dannychambers.co.uk/botany. The records live in `public/plant-records.json` (the single source of truth, also read directly by Claude); the site renders them. For Danny and anyone interested in the plants he has worked with.
 
+## Read first
+`PRD.md` and `PLAN.md` are the source of truth for scope, pages and brand.
+
+## Adding or changing a record (runbook)
+The records live in `public/plant-records.json`. The site is built from that file; there is no admin screen.
+
+1. Branch: `feature/records-NNN` (or `fix/record-NNN`).
+2. Edit `public/plant-records.json`:
+   - New records take the next `record_no`, zero-padded (`022`). Numbers run in one sequence across all sites, in the order of the work; never renumber existing records without Danny asking.
+   - `date` is ISO (`2026-10-02`). Set `site`, and `project` if it belongs to one (else `null`).
+   - A field that is not known is `null`. Never fill a field with a guess: it comes from Danny, the plant's label, or a citable authority.
+   - The only markup is `<i>…</i>` around botanical names. No HTML entities; write `&` not `&amp;`.
+   - `name` must equal `name_html` with the tags removed.
+   - `label_read` is the label word for word, errors included.
+   - Lullingstone determinations default to `T. Hart Dyke (verbal), relayed to D.C. Chambers, {date} — not keyed`.
+   - Set `powo_url` to the accepted taxon's POWO page, or `null`.
+   - Bump the top-level `updated` date.
+3. Run `npx vitest run --project unit`. It validates the file against the schema in `src/lib/records.ts`; a malformed file fails CI and never deploys.
+4. Run `npm run build`, then open a PR. Merging to `main` deploys to dannychambers.co.uk/botany.
+
 ## Tech Stack
 | Layer | Choice |
 |-------|--------|
-| Framework | Next.js 15 (App Router) |
+| Framework | Next.js (App Router), static export |
 | Language | TypeScript (strict) |
 | Styling | Tailwind CSS + shadcn/ui |
 | State (client) | Zustand |
