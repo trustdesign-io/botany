@@ -28,21 +28,31 @@ export interface PlantRecord {
   sources: string | null
   open_questions: string | null
   powo_url: string | null
-  reference_image: ReferenceImage | null
+  /** One photo per record. An `own` photo replaces a `reference` one. */
+  image: RecordImage | null
 }
 
-/** A photo of the species from a public source. It is not a photo of the plant recorded. */
-export interface ReferenceImage {
+/**
+ * `own`: D.C. Chambers' photograph of the plant recorded.
+ * `reference`: a photo of the species from a public source, not of the plant recorded;
+ * it must carry a licence and a source.
+ */
+export interface RecordImage {
+  kind: 'own' | 'reference'
   /** Path under the site root, e.g. /images/013.jpg. */
   src: string
+  /** Square thumbnail for the index, e.g. /images/013-thumb.jpg. */
+  thumb: string
   width: number
   height: number
   alt: string
   credit: string
-  licence: string
-  licence_url: string
-  source: string
-  source_url: string
+  licence: string | null
+  licence_url: string | null
+  source: string | null
+  source_url: string | null
+  /** ISO date the photo was taken, when known. */
+  taken: string | null
 }
 
 export interface RecordsFile {

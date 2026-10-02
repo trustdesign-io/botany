@@ -17,17 +17,27 @@ const isoDate = z
   .regex(/^\d{4}-\d{2}-\d{2}$/, 'date must be YYYY-MM-DD')
   .refine((s) => !Number.isNaN(Date.parse(`${s}T00:00:00Z`)), 'not a real date')
 
-const referenceImageSchema = z.strictObject({
-  src: z.string().regex(/^\/images\/[\w.-]+\.(jpg|jpeg|png|webp)$/, 'src must be /images/<file>'),
-  width: z.number().int().positive(),
-  height: z.number().int().positive(),
-  alt: z.string().min(1),
-  credit: z.string().min(1),
-  licence: z.string().min(1),
-  licence_url: z.url(),
-  source: z.string().min(1),
-  source_url: z.url(),
-})
+const imagePath = z.string().regex(/^\/images\/[\w.-]+\.(jpg|jpeg|png|webp)$/, 'must be /images/<file>')
+
+const imageSchema = z
+  .strictObject({
+    kind: z.enum(['own', 'reference']),
+    src: imagePath,
+    thumb: imagePath,
+    width: z.number().int().positive(),
+    height: z.number().int().positive(),
+    alt: z.string().min(1),
+    credit: z.string().min(1),
+    licence: z.string().min(1).nullable(),
+    licence_url: z.url().nullable(),
+    source: z.string().min(1).nullable(),
+    source_url: z.url().nullable(),
+    taken: isoDate.nullable(),
+  })
+  .refine(
+    (i) => i.kind === 'own' || Boolean(i.licence && i.licence_url && i.source && i.source_url),
+    'a reference image needs a licence, licence_url, source and source_url',
+  )
 
 export const recordSchema = z.strictObject({
   record_no: z.string().regex(/^\d{3,}$/, 'record_no must be zero-padded digits, e.g. 013'),
@@ -54,7 +64,7 @@ export const recordSchema = z.strictObject({
   sources: optionalText,
   open_questions: optionalText,
   powo_url: z.string().startsWith('https://powo.science.kew.org/').nullable(),
-  reference_image: referenceImageSchema.nullable(),
+  image: imageSchema.nullable(),
 })
 
 export const recordsFileSchema = z

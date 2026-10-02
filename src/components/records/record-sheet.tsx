@@ -1,7 +1,7 @@
 import type { PlantRecord } from '@/types/record'
 import { formatDate } from '@/lib/records'
 import { Blank, RecordField } from './record-field'
-import { ReferenceImage } from './reference-image'
+import { RecordImage } from './record-image'
 import { TaxonName } from './taxon-name'
 
 interface RecordSheetProps {
@@ -31,9 +31,9 @@ export function RecordSheet({ record: r, headingLevel: Heading = 'h1', keptBy }:
         </p>
       </header>
 
-      {r.reference_image && (
+      {r.image && (
         <div className="border-b border-border py-4">
-          <ReferenceImage image={r.reference_image} />
+          <RecordImage image={r.image} />
         </div>
       )}
 

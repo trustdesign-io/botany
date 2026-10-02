@@ -43,21 +43,31 @@ describe('schema', () => {
     expect(recordSchema.safeParse({ ...good, projects: null }).success).toBe(false)
   })
 
+  const image = {
+    kind: 'reference', src: '/images/001.jpg', thumb: '/images/001-thumb.jpg', width: 800, height: 600,
+    alt: 'A plant', credit: 'A. Person', licence: 'CC BY 4.0',
+    licence_url: 'https://creativecommons.org/licenses/by/4.0/', source: 'iNaturalist',
+    source_url: 'https://www.inaturalist.org/observations/1', taken: null,
+  }
+
   it('requires a credit, licence and source on a reference image', () => {
-    const image = {
-      src: '/images/001.jpg', width: 800, height: 600, alt: 'A plant', credit: 'A. Person',
-      licence: 'CC BY 4.0', licence_url: 'https://creativecommons.org/licenses/by/4.0/',
-      source: 'iNaturalist', source_url: 'https://www.inaturalist.org/observations/1',
-    }
-    expect(recordSchema.safeParse({ ...good, reference_image: image }).success).toBe(true)
-    expect(recordSchema.safeParse({ ...good, reference_image: { ...image, credit: '' } }).success).toBe(false)
-    expect(recordSchema.safeParse({ ...good, reference_image: { ...image, src: 'https://example.com/x.jpg' } }).success).toBe(false)
+    expect(recordSchema.safeParse({ ...good, image }).success).toBe(true)
+    expect(recordSchema.safeParse({ ...good, image: { ...image, credit: '' } }).success).toBe(false)
+    expect(recordSchema.safeParse({ ...good, image: { ...image, licence: null } }).success).toBe(false)
+    expect(recordSchema.safeParse({ ...good, image: { ...image, src: 'https://example.com/x.jpg' } }).success).toBe(false)
   })
 
-  it('every reference image file exists', async () => {
+  it('lets an own photo go without a licence or source', () => {
+    const own = { ...image, kind: 'own', credit: 'D.C. Chambers', licence: null, licence_url: null, source: null, source_url: null, taken: '2026-10-02' }
+    expect(recordSchema.safeParse({ ...good, image: own }).success).toBe(true)
+  })
+
+  it('every image file exists', async () => {
     const { existsSync } = await import('node:fs')
     for (const r of getRecords()) {
-      if (r.reference_image) expect(existsSync(`public${r.reference_image.src}`), r.record_no).toBe(true)
+      if (!r.image) continue
+      expect(existsSync(`public${r.image.src}`), r.record_no).toBe(true)
+      expect(existsSync(`public${r.image.thumb}`), r.record_no).toBe(true)
     }
   })
 
