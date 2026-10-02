@@ -17,6 +17,18 @@ const isoDate = z
   .regex(/^\d{4}-\d{2}-\d{2}$/, 'date must be YYYY-MM-DD')
   .refine((s) => !Number.isNaN(Date.parse(`${s}T00:00:00Z`)), 'not a real date')
 
+const referenceImageSchema = z.strictObject({
+  src: z.string().regex(/^\/images\/[\w.-]+\.(jpg|jpeg|png|webp)$/, 'src must be /images/<file>'),
+  width: z.number().int().positive(),
+  height: z.number().int().positive(),
+  alt: z.string().min(1),
+  credit: z.string().min(1),
+  licence: z.string().min(1),
+  licence_url: z.url(),
+  source: z.string().min(1),
+  source_url: z.url(),
+})
+
 export const recordSchema = z.strictObject({
   record_no: z.string().regex(/^\d{3,}$/, 'record_no must be zero-padded digits, e.g. 013'),
   date: isoDate,
@@ -42,11 +54,12 @@ export const recordSchema = z.strictObject({
   sources: optionalText,
   open_questions: optionalText,
   powo_url: z.string().startsWith('https://powo.science.kew.org/').nullable(),
+  reference_image: referenceImageSchema.nullable(),
 })
 
 export const recordsFileSchema = z
   .strictObject({
-    schema_version: z.literal(3),
+    schema_version: z.literal(4),
     title: z.string().min(1),
     kept_by: z.string().min(1),
     updated: isoDate,

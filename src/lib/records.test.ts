@@ -43,6 +43,24 @@ describe('schema', () => {
     expect(recordSchema.safeParse({ ...good, projects: null }).success).toBe(false)
   })
 
+  it('requires a credit, licence and source on a reference image', () => {
+    const image = {
+      src: '/images/001.jpg', width: 800, height: 600, alt: 'A plant', credit: 'A. Person',
+      licence: 'CC BY 4.0', licence_url: 'https://creativecommons.org/licenses/by/4.0/',
+      source: 'iNaturalist', source_url: 'https://www.inaturalist.org/observations/1',
+    }
+    expect(recordSchema.safeParse({ ...good, reference_image: image }).success).toBe(true)
+    expect(recordSchema.safeParse({ ...good, reference_image: { ...image, credit: '' } }).success).toBe(false)
+    expect(recordSchema.safeParse({ ...good, reference_image: { ...image, src: 'https://example.com/x.jpg' } }).success).toBe(false)
+  })
+
+  it('every reference image file exists', async () => {
+    const { existsSync } = await import('node:fs')
+    for (const r of getRecords()) {
+      if (r.reference_image) expect(existsSync(`public${r.reference_image.src}`), r.record_no).toBe(true)
+    }
+  })
+
   it('rejects duplicate record numbers', () => {
     const file = { ...raw, records: [raw.records[0], raw.records[0]] }
     expect(() => parseRecordsFile(file)).toThrow(/duplicate/)

@@ -1,7 +1,8 @@
+import { BASE_PATH } from '@/lib/site'
 import { formatDate, getFile, getRecords } from '@/lib/records'
 
-/** Path to the published data file. A plain <a>, so the base path is written out. */
-export const DATA_URL = '/botany/plant-records.json'
+/** Path to the published data file. A plain <a>, so the base path is added by hand. */
+export const DATA_URL = `${BASE_PATH}/plant-records.json`
 
 export function Footer() {
   const file = getFile()

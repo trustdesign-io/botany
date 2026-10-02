@@ -1,9 +1,9 @@
 {
-  "schema_version": 3,
+  "schema_version": 4,
   "title": "Botanical and Horticultural Records",
   "kept_by": "D.C. Chambers",
   "updated": "2026-10-02",
-  "conventions": "null means not yet recorded. Text fields are plain text; the only markup allowed is <i>…</i> around botanical names. 'name' is the plain-text form of 'name_html'. Dates are ISO 8601. 'projects' is a list: a record can belong to none, one or several, and never appears twice.",
+  "conventions": "null means not yet recorded. Text fields are plain text; the only markup allowed is <i>…</i> around botanical names. 'name' is the plain-text form of 'name_html'. Dates are ISO 8601. 'projects' is a list: a record can belong to none, one or several, and never appears twice. 'reference_image' is a photo of the species from a public source, not of the plant recorded; it carries its credit, licence and source, or is null.",
   "records": [
     {
       "record_no": "001",
@@ -29,7 +29,8 @@
       "observed": null,
       "sources": "POWO, accessed 28 Sep 2026. IPNI 592709-1: J. Proc. Roy. Soc. New South Wales 58: 177 (1924). EUCLID.",
       "open_questions": "Diagnostic taken from secondary sources; check against the tree. Near misses unsourced.",
-      "powo_url": "https://powo.science.kew.org/taxon/urn:lsid:ipni.org:names:592709-1"
+      "powo_url": "https://powo.science.kew.org/taxon/urn:lsid:ipni.org:names:592709-1",
+      "reference_image": null
     },
     {
       "record_no": "002",
@@ -55,7 +56,8 @@
       "observed": null,
       "sources": "POWO, accessed 7 Sep 2026.",
       "open_questions": "Provenance. What the finisher changed, and why. Whether the wavy form is a shape THD maintains or a one-off.",
-      "powo_url": null
+      "powo_url": null,
+      "reference_image": null
     },
     {
       "record_no": "003",
@@ -81,7 +83,8 @@
       "observed": null,
       "sources": "POWO, accessed 29 Sep 2026. First published in DC., Prodr. 8: 665 (1844).",
       "open_questions": "Synonyms include <i>Stapelia gordonii</i>; confirm the basionym on IPNI. Confirm the CITES listing for the genus.",
-      "powo_url": null
+      "powo_url": null,
+      "reference_image": null
     },
     {
       "record_no": "004",
@@ -107,7 +110,8 @@
       "observed": null,
       "sources": "POWO, accessed 2 Oct 2026. Adansonia, n.s., 1: 43 (1961). Wikipedia, <i>Alluaudia montagnacii</i>.",
       "open_questions": "Diagnostic from secondary sources; check against the plant. Wikipedia calls it probably a natural hybrid of <i>A. ascendens</i> and <i>A. procera</i>, and gives IUCN Endangered; confirm both. Compare record 005.",
-      "powo_url": "https://powo.science.kew.org/taxon/urn:lsid:ipni.org:names:316434-1"
+      "powo_url": "https://powo.science.kew.org/taxon/urn:lsid:ipni.org:names:316434-1",
+      "reference_image": null
     },
     {
       "record_no": "005",
@@ -133,7 +137,8 @@
       "observed": null,
       "sources": "POWO, accessed 2 Oct 2026. Bull. Mus. Hist. Nat. (Paris) 9: 37 (1903). Wikipedia, <i>Alluaudia procera</i>.",
       "open_questions": "Diagnostic from secondary sources; check against the plant. Basionym <i>Didierea procera</i> Drake (1903). Compare record 004.",
-      "powo_url": "https://powo.science.kew.org/taxon/urn:lsid:ipni.org:names:316435-1"
+      "powo_url": "https://powo.science.kew.org/taxon/urn:lsid:ipni.org:names:316435-1",
+      "reference_image": null
     },
     {
       "record_no": "006",
@@ -159,7 +164,8 @@
       "observed": null,
       "sources": "POWO, accessed 2 Oct 2026. Phytotaxa 76: 9 (2013). SANBI PlantZAfrica, <i>Aloidendron barberae</i>.",
       "open_questions": "Diagnostic from secondary sources; check against the plant.",
-      "powo_url": "https://powo.science.kew.org/taxon/urn:lsid:ipni.org:names:77125489-1"
+      "powo_url": "https://powo.science.kew.org/taxon/urn:lsid:ipni.org:names:77125489-1",
+      "reference_image": null
     },
     {
       "record_no": "007",
@@ -185,7 +191,8 @@
       "observed": null,
       "sources": "POWO, accessed 2 Oct 2026. Gard. Dict., ed. 8: n.° 3 (1768). SANBI PlantZAfrica; RHS; Ruth Bancroft Garden.",
       "open_questions": "Diagnostic from secondary sources; check against the plant. Ask THD where the name var. <i>lutea</i> comes from.",
-      "powo_url": "https://powo.science.kew.org/taxon/urn:lsid:ipni.org:names:529214-1"
+      "powo_url": "https://powo.science.kew.org/taxon/urn:lsid:ipni.org:names:529214-1",
+      "reference_image": null
     },
     {
       "record_no": "008",
@@ -211,7 +218,8 @@
       "observed": null,
       "sources": "POWO, accessed 2 Oct 2026. Engler & Prantl, Nat. Pflanzenfam. 3(6): 96 (1893). Wikipedia, <i>Brachychiton rupestris</i>.",
       "open_questions": "Diagnostic from secondary sources; check against the plant. IPNI gives the combination as (Lindl.) K.Schum., 1890; POWO followed here.",
-      "powo_url": "https://powo.science.kew.org/taxon/urn:lsid:ipni.org:names:822270-1"
+      "powo_url": "https://powo.science.kew.org/taxon/urn:lsid:ipni.org:names:822270-1",
+      "reference_image": null
     },
     {
       "record_no": "009",
@@ -237,7 +245,8 @@
       "observed": null,
       "sources": "POWO, accessed 2 Oct 2026. Anales Hist. Nat. 1: 227 (1799). Trees and Shrubs Online; ClimateWatch; Wikipedia.",
       "open_questions": "Diagnostic from secondary sources; check against the plant.",
-      "powo_url": "https://powo.science.kew.org/taxon/urn:lsid:ipni.org:names:703136-1"
+      "powo_url": "https://powo.science.kew.org/taxon/urn:lsid:ipni.org:names:703136-1",
+      "reference_image": null
     },
     {
       "record_no": "010",
@@ -263,7 +272,8 @@
       "observed": null,
       "sources": "POWO, accessed 2 Oct 2026. Phytologia 18: 140 (1969). Tropical Britain (nursery).",
       "open_questions": "Diagnostic from a nursery page only; check against the plant. Copy the label word for word.",
-      "powo_url": "https://powo.science.kew.org/taxon/urn:lsid:ipni.org:names:214543-2"
+      "powo_url": "https://powo.science.kew.org/taxon/urn:lsid:ipni.org:names:214543-2",
+      "reference_image": null
     },
     {
       "record_no": "011",
@@ -289,7 +299,8 @@
       "observed": null,
       "sources": "POWO, accessed 2 Oct 2026. Onira 3: 46 (1998). Wikipedia, <i>Ceiba speciosa</i>.",
       "open_questions": "Diagnostic from secondary sources; check against the plant.",
-      "powo_url": "https://powo.science.kew.org/taxon/urn:lsid:ipni.org:names:1005661-1"
+      "powo_url": "https://powo.science.kew.org/taxon/urn:lsid:ipni.org:names:1005661-1",
+      "reference_image": null
     },
     {
       "record_no": "012",
@@ -315,7 +326,8 @@
       "observed": null,
       "sources": "POWO, accessed 2 Oct 2026. Kew Bull. 34: 813 (1980). RHS; Missouri Botanical Garden; Wikipedia.",
       "open_questions": "Diagnostic from secondary sources; check against the plant. Basionym <i>Wahlenbergia mauritiana</i> I.Richardson (1979). IUCN category not confirmed.",
-      "powo_url": "https://powo.science.kew.org/taxon/urn:lsid:ipni.org:names:144220-1"
+      "powo_url": "https://powo.science.kew.org/taxon/urn:lsid:ipni.org:names:144220-1",
+      "reference_image": null
     },
     {
       "record_no": "013",
@@ -341,7 +353,18 @@
       "observed": null,
       "sources": "POWO, accessed 2 Oct 2026. Fl. Amer. Sept. 2: 731 (1813). Trees and Shrubs Online; Wikipedia.",
       "open_questions": "Diagnostic from secondary sources; check against the plant. Four-parted flowers are unusual in the genus, which is otherwise five-parted.",
-      "powo_url": "https://powo.science.kew.org/taxon/urn:lsid:ipni.org:names:792998-1"
+      "powo_url": "https://powo.science.kew.org/taxon/urn:lsid:ipni.org:names:792998-1",
+      "reference_image": {
+        "src": "/images/013.jpg",
+        "width": 768,
+        "height": 1024,
+        "alt": "A branch of Ribes speciosum held in a hand, with small glossy lobed leaves and hanging red flowers",
+        "credit": "Skyler K",
+        "licence": "CC BY 4.0",
+        "licence_url": "https://creativecommons.org/licenses/by/4.0/",
+        "source": "iNaturalist",
+        "source_url": "https://www.inaturalist.org/observations/263317339"
+      }
     },
     {
       "record_no": "014",
@@ -367,7 +390,8 @@
       "observed": null,
       "sources": "POWO, accessed 2 Oct 2026. Trudy Imp. S.-Peterburgsk. Bot. Sada 8: 648 (1884). RHS; Wikipedia.",
       "open_questions": "Diagnostic from secondary sources; check against the plant. Yellow and apricot garden forms are sold as Batalinii Group; <i>T. batalinii</i> Regel is a synonym in POWO.",
-      "powo_url": "https://powo.science.kew.org/taxon/urn:lsid:ipni.org:names:542983-1"
+      "powo_url": "https://powo.science.kew.org/taxon/urn:lsid:ipni.org:names:542983-1",
+      "reference_image": null
     },
     {
       "record_no": "015",
@@ -393,7 +417,8 @@
       "observed": null,
       "sources": "POWO, accessed 2 Oct 2026. Ann. Missouri Bot. Gard. 69: 221 (1982). IPNI (sect. <i>Jimenezia</i>); Fuchsietum; Wikipedia.",
       "open_questions": "Diagnostic from secondary sources; check against the plant. Protologue not read.",
-      "powo_url": "https://powo.science.kew.org/taxon/urn:lsid:ipni.org:names:106204-2"
+      "powo_url": "https://powo.science.kew.org/taxon/urn:lsid:ipni.org:names:106204-2",
+      "reference_image": null
     },
     {
       "record_no": "016",
@@ -419,7 +444,8 @@
       "observed": null,
       "sources": "POWO, accessed 2 Oct 2026. Icon. 3: 33 (1795). RHS.",
       "open_questions": "Diagnostic from secondary sources; check against the plant.",
-      "powo_url": "https://powo.science.kew.org/taxon/urn:lsid:ipni.org:names:75821-2"
+      "powo_url": "https://powo.science.kew.org/taxon/urn:lsid:ipni.org:names:75821-2",
+      "reference_image": null
     },
     {
       "record_no": "017",
@@ -445,7 +471,8 @@
       "observed": null,
       "sources": "RHS Horticultural Database, accessed 2 Oct 2026. POWO (genus), accessed 2 Oct 2026. Knoll Gardens (nursery).",
       "open_questions": "Species unsettled: the RHS gives none; nurseries variously give <i>novi-belgii</i> or a <i>laevis</i> hybrid. Named after the garden Le Vasterival, Normandy, per a nursery source only.",
-      "powo_url": null
+      "powo_url": null,
+      "reference_image": null
     },
     {
       "record_no": "018",
@@ -471,7 +498,8 @@
       "observed": null,
       "sources": "POWO, accessed 2 Oct 2026. Sp. Pl.: 450 (1753); var. <i>viridis</i>: Succ. Euphorb.: 964 (1941). LLIFLE; Wikipedia.",
       "open_questions": "Diagnostic from secondary sources; check against the plant. LLIFLE still accepts <i>E. enopla</i> Boiss. Latex is an irritant. CITES listing not confirmed.",
-      "powo_url": "https://powo.science.kew.org/taxon/urn:lsid:ipni.org:names:346763-1"
+      "powo_url": "https://powo.science.kew.org/taxon/urn:lsid:ipni.org:names:346763-1",
+      "reference_image": null
     },
     {
       "record_no": "019",
@@ -497,7 +525,8 @@
       "observed": null,
       "sources": "RHS Horticultural Database, accessed 2 Oct 2026. POWO (species), accessed 2 Oct 2026: Gard. Chron. 1860: 792 (1860). US Plant Patent PP26,267.",
       "open_questions": "A whole-plant mutation of ‘Sprilecpink’, found 2008 (patent). Confirm the species with THD.",
-      "powo_url": "https://powo.science.kew.org/taxon/urn:lsid:ipni.org:names:533546-1"
+      "powo_url": "https://powo.science.kew.org/taxon/urn:lsid:ipni.org:names:533546-1",
+      "reference_image": null
     },
     {
       "record_no": "020",
@@ -523,7 +552,8 @@
       "observed": null,
       "sources": "POWO, accessed 2 Oct 2026. Bot. Mag. 103: t. 6294 (1877). Rare Palm Seeds; Adventurous Plants (nurseries).",
       "open_questions": "Diagnostic from nursery pages only, with no measurements; check against the plant.",
-      "powo_url": "https://powo.science.kew.org/taxon/urn:lsid:ipni.org:names:122727-1"
+      "powo_url": "https://powo.science.kew.org/taxon/urn:lsid:ipni.org:names:122727-1",
+      "reference_image": null
     },
     {
       "record_no": "021",
@@ -549,7 +579,8 @@
       "observed": null,
       "sources": "POWO, accessed 2 Oct 2026: Phytotaxa 205: 137 (2015). Plant World Seeds catalogue; Wikipedia.",
       "open_questions": "Confirm the identity against the plant: three leaflets, yellow flowers, inflated pods. The supplier's page is reported to say “Native to South America”, which conflicts with POWO.",
-      "powo_url": null
+      "powo_url": null,
+      "reference_image": null
     }
   ]
 }
