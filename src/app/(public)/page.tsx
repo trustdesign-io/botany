@@ -1,6 +1,5 @@
 import Link from 'next/link'
 import { RecordIndex } from '@/components/records/record-index'
-import { Summary } from '@/components/records/summary'
 import { getRecords } from '@/lib/records'
 
 export default function IndexPage() {
@@ -19,7 +18,6 @@ export default function IndexPage() {
         </p>
       </div>
 
-      <Summary records={records} />
       <RecordIndex records={records} />
 
       <p className="no-print">

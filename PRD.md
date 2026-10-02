@@ -46,8 +46,8 @@ Sources · Open questions
 A field with nothing recorded is shown as blank, never omitted, so gaps stay visible.
 
 ### Summary views (index accordion, collapsed by default)
+- Search and filters
 - Records by family
-- Timeline of work days
 - Native ranges
 
 ---
@@ -92,7 +92,7 @@ A field with nothing recorded is shown as blank, never omitted, so gaps stay vis
 - Light and dark themes.
 
 ### Should have
-- Summary accordion on the index: by family, timeline, native ranges.
+- Index accordion: search and filters, by family, native ranges.
 - Filters for project and date range.
 - Print all records, or a filtered set, in one job.
 - Previous and next links between records.

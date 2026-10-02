@@ -5,6 +5,7 @@ import type { PlantRecord } from '@/types/record'
 import { EMPTY_FILTERS, type RecordFilters, filterRecords, filtersToHash, uniqueSorted } from '@/lib/filter'
 import { formatDate } from '@/lib/records'
 import { useHashFilters } from '@/hooks/use-hash-filters'
+import { Summary } from './summary'
 import { TaxonName } from './taxon-name'
 
 interface RecordIndexProps {
@@ -15,7 +16,7 @@ interface RecordIndexProps {
 const control =
   'h-10 w-full min-w-0 rounded-sm border border-input bg-background px-2.5 font-sans text-sm text-foreground hover:border-foreground'
 
-/** The list of records with search and filters. Newest work day first. */
+/** The index: an accordion holding search, filters and summaries, then the list. Newest work day first. */
 export function RecordIndex({ records }: RecordIndexProps) {
   const [filters, setFilters] = useHashFilters()
   const set = (patch: Partial<RecordFilters>) => setFilters({ ...filters, ...patch })
@@ -27,68 +28,74 @@ export function RecordIndex({ records }: RecordIndexProps) {
   const shown = filterRecords(records, filters).reverse()
   const filtered = filtersToHash(filters) !== ''
 
+  const active = Object.values(filters).filter(Boolean).length
+
+  const form = (
+    <form
+      role="search"
+      aria-label="Search and filter records"
+      onSubmit={(e) => e.preventDefault()}
+      className="grid grid-cols-2 gap-x-3 gap-y-3 sm:grid-cols-4"
+    >
+      <label className="col-span-2 grid gap-1 sm:col-span-4">
+        <span className="label">Search</span>
+        <input
+          id="filter-q"
+          type="search"
+          value={filters.q}
+          onChange={(e) => set({ q: e.target.value })}
+          placeholder="Name, family or record number"
+          className={control}
+        />
+      </label>
+
+      <label className="grid gap-1">
+        <span className="label">Family</span>
+        <select id="filter-family" value={filters.family} onChange={(e) => set({ family: e.target.value })} className={control}>
+          <option value="">All families</option>
+          {families.map((f) => (
+            <option key={f}>{f}</option>
+          ))}
+        </select>
+      </label>
+
+      <label className="grid gap-1">
+        <span className="label">Site</span>
+        <select id="filter-site" value={filters.site} onChange={(e) => set({ site: e.target.value })} className={control}>
+          <option value="">All sites</option>
+          {sites.map((s) => (
+            <option key={s}>{s}</option>
+          ))}
+        </select>
+      </label>
+
+      {projects.length > 0 && (
+        <label className="col-span-2 grid gap-1 sm:col-span-4">
+          <span className="label">Project</span>
+          <select id="filter-project" value={filters.project} onChange={(e) => set({ project: e.target.value })} className={control}>
+            <option value="">All projects</option>
+            {projects.map((p) => (
+              <option key={p}>{p}</option>
+            ))}
+          </select>
+        </label>
+      )}
+
+      <label className="grid gap-1">
+        <span className="label">From</span>
+        <input id="filter-from" type="date" value={filters.from} onChange={(e) => set({ from: e.target.value })} className={control} />
+      </label>
+
+      <label className="grid gap-1">
+        <span className="label">To</span>
+        <input id="filter-to" type="date" value={filters.to} onChange={(e) => set({ to: e.target.value })} className={control} />
+      </label>
+    </form>
+  )
+
   return (
     <div className="grid gap-4">
-      <form
-        role="search"
-        aria-label="Search and filter records"
-        onSubmit={(e) => e.preventDefault()}
-        className="grid grid-cols-2 gap-x-3 gap-y-3 sm:grid-cols-4"
-      >
-        <label className="col-span-2 grid gap-1 sm:col-span-4">
-          <span className="label">Search</span>
-          <input
-            id="filter-q"
-            type="search"
-            value={filters.q}
-            onChange={(e) => set({ q: e.target.value })}
-            placeholder="Name, family or record number"
-            className={control}
-          />
-        </label>
-
-        <label className="grid gap-1">
-          <span className="label">Family</span>
-          <select id="filter-family" value={filters.family} onChange={(e) => set({ family: e.target.value })} className={control}>
-            <option value="">All families</option>
-            {families.map((f) => (
-              <option key={f}>{f}</option>
-            ))}
-          </select>
-        </label>
-
-        <label className="grid gap-1">
-          <span className="label">Site</span>
-          <select id="filter-site" value={filters.site} onChange={(e) => set({ site: e.target.value })} className={control}>
-            <option value="">All sites</option>
-            {sites.map((s) => (
-              <option key={s}>{s}</option>
-            ))}
-          </select>
-        </label>
-
-        {projects.length > 0 && (
-          <label className="col-span-2 grid gap-1 sm:col-span-4">
-            <span className="label">Project</span>
-            <select id="filter-project" value={filters.project} onChange={(e) => set({ project: e.target.value })} className={control}>
-              <option value="">All projects</option>
-              {projects.map((p) => (
-                <option key={p}>{p}</option>
-              ))}
-            </select>
-          </label>
-        )}
-
-        <label className="grid gap-1">
-          <span className="label">From</span>
-          <input id="filter-from" type="date" value={filters.from} onChange={(e) => set({ from: e.target.value })} className={control} />
-        </label>
-
-        <label className="grid gap-1">
-          <span className="label">To</span>
-          <input id="filter-to" type="date" value={filters.to} onChange={(e) => set({ to: e.target.value })} className={control} />
-        </label>
-      </form>
+      <Summary records={records} filters={form} filtersNote={active > 0 ? `${active} set` : undefined} />
 
       <div className="flex min-h-9 items-center justify-between gap-3 border-b-2 border-rule pb-1">
         <p className="label" role="status" aria-live="polite">
