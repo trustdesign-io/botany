@@ -1,9 +1,11 @@
 'use client'
 
+import Image from 'next/image'
 import Link from 'next/link'
 import { usePathname } from 'next/navigation'
 import { cn } from '@/lib/utils'
 import { ThemeToggle } from './theme-toggle'
+import avatar from '../../../public/avatar.jpg'
 
 export interface NavLink {
   label: string
@@ -26,11 +28,21 @@ export function Header() {
   return (
     <header className="no-print border-b border-rule">
       <div className="mx-auto flex max-w-4xl flex-col gap-1 px-4 pt-4 pb-2 sm:flex-row sm:items-end sm:justify-between sm:px-6">
-        <Link href="/" className="group flex flex-col leading-tight">
-          <span className="font-serif text-lg group-hover:text-stamp">
-            Botanical and Horticultural Records
+        <Link href="/" className="group flex items-center gap-3">
+          <Image
+            src={avatar}
+            alt=""
+            width={44}
+            height={44}
+            priority
+            className="size-11 shrink-0 rounded-full border border-border object-cover"
+          />
+          <span className="flex flex-col leading-tight">
+            <span className="font-serif text-lg group-hover:text-stamp">
+              Botanical and Horticultural Records
+            </span>
+            <span className="label">D.C. Chambers</span>
           </span>
-          <span className="label">D.C. Chambers</span>
         </Link>
 
         <div className="flex items-center justify-between gap-2">
