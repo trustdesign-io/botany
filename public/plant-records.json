@@ -1,15 +1,27 @@
 {
+<<<<<<< HEAD
   "schema_version": 3,
   "title": "Botanical and Horticultural Records",
   "kept_by": "D.C. Chambers",
   "updated": "2026-10-02",
   "conventions": "null means not yet recorded. Text fields are plain text; the only markup allowed is <i>…</i> around botanical names. 'name' is the plain-text form of 'name_html'. Dates are ISO 8601. 'projects' is a list: a record can belong to none, one or several, and never appears twice.",
+=======
+  "schema_version": 2,
+  "title": "Botanical and Horticultural Records",
+  "kept_by": "D.C. Chambers",
+  "updated": "2026-10-02",
+  "conventions": "null means not yet recorded. Text fields are plain text; the only markup allowed is <i>…</i> around botanical names. 'name' is the plain-text form of 'name_html'. Dates are ISO 8601.",
+>>>>>>> 3c80d5b0afd58b65e0f08ef397adf154aa82c565
   "records": [
     {
       "record_no": "001",
       "date": "2026-07-18",
       "site": "Lullingstone Castle World Garden, Eynsford, Kent",
+<<<<<<< HEAD
       "projects": [],
+=======
+      "project": null,
+>>>>>>> 3c80d5b0afd58b65e0f08ef397adf154aa82c565
       "location": null,
       "vice_county": "16 W Kent",
       "grid_ref": null,
@@ -35,7 +47,11 @@
       "record_no": "002",
       "date": "2026-07-31",
       "site": "Lullingstone Castle World Garden, Eynsford, Kent",
+<<<<<<< HEAD
       "projects": [],
+=======
+      "project": null,
+>>>>>>> 3c80d5b0afd58b65e0f08ef397adf154aa82c565
       "location": "New Zealand bed",
       "vice_county": "16 W Kent",
       "grid_ref": null,
@@ -61,7 +77,11 @@
       "record_no": "003",
       "date": "2026-08-07",
       "site": "Lullingstone Castle World Garden, Eynsford, Kent",
+<<<<<<< HEAD
       "projects": [],
+=======
+      "project": null,
+>>>>>>> 3c80d5b0afd58b65e0f08ef397adf154aa82c565
       "location": null,
       "vice_county": "16 W Kent",
       "grid_ref": null,
@@ -87,7 +107,11 @@
       "record_no": "004",
       "date": "2026-08-07",
       "site": "Lullingstone Castle World Garden, Eynsford, Kent",
+<<<<<<< HEAD
       "projects": [],
+=======
+      "project": null,
+>>>>>>> 3c80d5b0afd58b65e0f08ef397adf154aa82c565
       "location": null,
       "vice_county": "16 W Kent",
       "grid_ref": null,
@@ -113,7 +137,11 @@
       "record_no": "005",
       "date": "2026-08-07",
       "site": "Lullingstone Castle World Garden, Eynsford, Kent",
+<<<<<<< HEAD
       "projects": [],
+=======
+      "project": null,
+>>>>>>> 3c80d5b0afd58b65e0f08ef397adf154aa82c565
       "location": null,
       "vice_county": "16 W Kent",
       "grid_ref": null,
@@ -139,7 +167,11 @@
       "record_no": "006",
       "date": "2026-08-14",
       "site": "Lullingstone Castle World Garden, Eynsford, Kent",
+<<<<<<< HEAD
       "projects": [],
+=======
+      "project": null,
+>>>>>>> 3c80d5b0afd58b65e0f08ef397adf154aa82c565
       "location": null,
       "vice_county": "16 W Kent",
       "grid_ref": null,
@@ -165,7 +197,11 @@
       "record_no": "007",
       "date": "2026-08-14",
       "site": "Lullingstone Castle World Garden, Eynsford, Kent",
+<<<<<<< HEAD
       "projects": [],
+=======
+      "project": null,
+>>>>>>> 3c80d5b0afd58b65e0f08ef397adf154aa82c565
       "location": null,
       "vice_county": "16 W Kent",
       "grid_ref": null,
@@ -191,7 +227,11 @@
       "record_no": "008",
       "date": "2026-08-14",
       "site": "Lullingstone Castle World Garden, Eynsford, Kent",
+<<<<<<< HEAD
       "projects": [],
+=======
+      "project": null,
+>>>>>>> 3c80d5b0afd58b65e0f08ef397adf154aa82c565
       "location": null,
       "vice_county": "16 W Kent",
       "grid_ref": null,
@@ -217,7 +257,11 @@
       "record_no": "009",
       "date": "2026-08-21",
       "site": "Lullingstone Castle World Garden, Eynsford, Kent",
+<<<<<<< HEAD
       "projects": [],
+=======
+      "project": null,
+>>>>>>> 3c80d5b0afd58b65e0f08ef397adf154aa82c565
       "location": null,
       "vice_county": "16 W Kent",
       "grid_ref": null,
@@ -243,7 +287,11 @@
       "record_no": "010",
       "date": "2026-08-28",
       "site": "Lullingstone Castle World Garden, Eynsford, Kent",
+<<<<<<< HEAD
       "projects": [],
+=======
+      "project": null,
+>>>>>>> 3c80d5b0afd58b65e0f08ef397adf154aa82c565
       "location": null,
       "vice_county": "16 W Kent",
       "grid_ref": null,
@@ -269,7 +317,11 @@
       "record_no": "011",
       "date": "2026-08-28",
       "site": "Lullingstone Castle World Garden, Eynsford, Kent",
+<<<<<<< HEAD
       "projects": [],
+=======
+      "project": null,
+>>>>>>> 3c80d5b0afd58b65e0f08ef397adf154aa82c565
       "location": null,
       "vice_county": "16 W Kent",
       "grid_ref": null,
@@ -295,7 +347,11 @@
       "record_no": "012",
       "date": "2026-09-18",
       "site": "Lullingstone Castle World Garden, Eynsford, Kent",
+<<<<<<< HEAD
       "projects": [],
+=======
+      "project": null,
+>>>>>>> 3c80d5b0afd58b65e0f08ef397adf154aa82c565
       "location": null,
       "vice_county": "16 W Kent",
       "grid_ref": null,
@@ -321,7 +377,11 @@
       "record_no": "013",
       "date": "2026-10-01",
       "site": "Lullingstone Castle World Garden, Eynsford, Kent",
+<<<<<<< HEAD
       "projects": [],
+=======
+      "project": null,
+>>>>>>> 3c80d5b0afd58b65e0f08ef397adf154aa82c565
       "location": null,
       "vice_county": "16 W Kent",
       "grid_ref": null,
@@ -347,7 +407,11 @@
       "record_no": "014",
       "date": "2026-10-01",
       "site": "Lullingstone Castle World Garden, Eynsford, Kent",
+<<<<<<< HEAD
       "projects": [],
+=======
+      "project": null,
+>>>>>>> 3c80d5b0afd58b65e0f08ef397adf154aa82c565
       "location": null,
       "vice_county": "16 W Kent",
       "grid_ref": null,
@@ -373,7 +437,11 @@
       "record_no": "015",
       "date": "2026-10-02",
       "site": "Lullingstone Castle World Garden, Eynsford, Kent",
+<<<<<<< HEAD
       "projects": [],
+=======
+      "project": null,
+>>>>>>> 3c80d5b0afd58b65e0f08ef397adf154aa82c565
       "location": null,
       "vice_county": "16 W Kent",
       "grid_ref": null,
@@ -399,7 +467,11 @@
       "record_no": "016",
       "date": "2026-10-02",
       "site": "Lullingstone Castle World Garden, Eynsford, Kent",
+<<<<<<< HEAD
       "projects": [],
+=======
+      "project": null,
+>>>>>>> 3c80d5b0afd58b65e0f08ef397adf154aa82c565
       "location": null,
       "vice_county": "16 W Kent",
       "grid_ref": null,
@@ -425,7 +497,11 @@
       "record_no": "017",
       "date": "2026-10-02",
       "site": "Lullingstone Castle World Garden, Eynsford, Kent",
+<<<<<<< HEAD
       "projects": [],
+=======
+      "project": null,
+>>>>>>> 3c80d5b0afd58b65e0f08ef397adf154aa82c565
       "location": null,
       "vice_county": "16 W Kent",
       "grid_ref": null,
@@ -451,7 +527,11 @@
       "record_no": "018",
       "date": "2026-10-02",
       "site": "Lullingstone Castle World Garden, Eynsford, Kent",
+<<<<<<< HEAD
       "projects": [],
+=======
+      "project": null,
+>>>>>>> 3c80d5b0afd58b65e0f08ef397adf154aa82c565
       "location": null,
       "vice_county": "16 W Kent",
       "grid_ref": null,
@@ -477,7 +557,11 @@
       "record_no": "019",
       "date": "2026-10-02",
       "site": "Lullingstone Castle World Garden, Eynsford, Kent",
+<<<<<<< HEAD
       "projects": [],
+=======
+      "project": null,
+>>>>>>> 3c80d5b0afd58b65e0f08ef397adf154aa82c565
       "location": null,
       "vice_county": "16 W Kent",
       "grid_ref": null,
@@ -503,7 +587,11 @@
       "record_no": "020",
       "date": "2026-10-02",
       "site": "Lullingstone Castle World Garden, Eynsford, Kent",
+<<<<<<< HEAD
       "projects": [],
+=======
+      "project": null,
+>>>>>>> 3c80d5b0afd58b65e0f08ef397adf154aa82c565
       "location": null,
       "vice_county": "16 W Kent",
       "grid_ref": null,
@@ -529,7 +617,11 @@
       "record_no": "021",
       "date": "2026-10-02",
       "site": "Lullingstone Castle World Garden, Eynsford, Kent",
+<<<<<<< HEAD
       "projects": [],
+=======
+      "project": null,
+>>>>>>> 3c80d5b0afd58b65e0f08ef397adf154aa82c565
       "location": null,
       "vice_county": "16 W Kent",
       "grid_ref": null,

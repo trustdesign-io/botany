@@ -21,7 +21,11 @@ export function filterRecords(records: PlantRecord[], f: RecordFilters): PlantRe
   const q = fold(f.q.trim())
   return records.filter((r) => {
     if (f.site && r.site !== f.site) return false
+<<<<<<< HEAD
     if (f.project && !r.projects.includes(f.project)) return false
+=======
+    if (f.project && r.project !== f.project) return false
+>>>>>>> 3c80d5b0afd58b65e0f08ef397adf154aa82c565
     if (f.family && r.family !== f.family) return false
     if (f.from && r.date < f.from) return false
     if (f.to && r.date > f.to) return false
