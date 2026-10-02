@@ -1,9 +1,7 @@
-# [Project Name]
-
-> Replace everything in square brackets before using this template.
+# botany
 
 ## Project Overview
-[One paragraph: what this project does, who it's for, core value proposition.]
+Public dashboard of D.C. Chambers' plant records, served at dannychambers.co.uk/botany. The records live in `public/plant-records.json` (the single source of truth, also read directly by Claude); the site renders them. For Danny and anyone interested in the plants he has worked with.
 
 ## Tech Stack
 | Layer | Choice |
@@ -13,7 +11,7 @@
 | Styling | Tailwind CSS + shadcn/ui |
 | State (client) | Zustand |
 | Testing | Vitest + Playwright + React Testing Library |
-| Deployment | Vercel |
+| Deployment | Static export (`output: 'export'`, basePath `/botany`) uploaded to cPanel `public_html/botany` by `.github/workflows/deploy.yml` — not Vercel |
 
 > This is a static starter — no database, no auth, no server-side user state.
 
@@ -74,7 +72,8 @@ Copy `.env.example` to `.env.local` and fill in values. Never commit `.env.local
 ## Key Contacts & Links
 | Resource | Link |
 |----------|------|
-| Vercel dashboard | [link] |
+| Live site | https://dannychambers.co.uk/botany/ |
+| Data file | https://dannychambers.co.uk/botany/plant-records.json |
 | Figma designs | [link] |
-| GitHub repo | [link] |
+| GitHub repo | https://github.com/trustdesign-io/botany |
 | Linear / project board | [link] |
