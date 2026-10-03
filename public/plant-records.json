@@ -954,7 +954,22 @@
       "open_questions": "A whole-plant mutation of ‘Sprilecpink’, found 2008 (patent). Confirm the species with THD.",
       "powo_url": "https://powo.science.kew.org/taxon/urn:lsid:ipni.org:names:533546-1",
       "log": [],
-      "images": []
+      "images": [
+        {
+          "kind": "own",
+          "src": "/images/019.jpg",
+          "thumb": "/images/019-thumb.jpg",
+          "width": 770,
+          "height": 1024,
+          "alt": "Cordyline 'Sprilecflash' newly planted: long arching leaves striped purple and cream, behind the trunk of a labelled Corymbia ficifolia, with a spiny euphorbia in front and a spade and trug beside",
+          "credit": "D.C. Chambers",
+          "licence": null,
+          "licence_url": null,
+          "source": null,
+          "source_url": null,
+          "taken": null
+        }
+      ]
     },
     {
       "record_no": "020",
