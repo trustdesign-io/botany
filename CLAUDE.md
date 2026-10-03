@@ -9,9 +9,22 @@ Public dashboard of D.C. Chambers' plant records, served at dannychambers.co.uk/
 ## Adding or changing a record (runbook)
 The records live in `public/plant-records.json`. The site is built from that file; there is no admin screen.
 
+Every entry has a `type`, and each type has its own number sequence:
+
+| `type` | What it is | `record_no` | Extra fields |
+|---|---|---|---|
+| `worked` | A plant Danny worked with | `001`, `002`… | location, vice_county, grid_ref, det, label_read, provenance, work_done |
+| `studied` | A species investigated but not worked with | `S001`, `S002`… | how_studied; `site` may be `null` |
+| `event` | A lecture, visit, course or other attendance | `E001`, `E002`… | title, event_kind (`lecture`, `visit`, `course`, `other`), organiser, notes, species (list), url; no plant fields |
+
+- If Danny does not say which type, ask. "Worked with" means hands on the plant.
+- An event is one entry. Species seen go in its `species` list (names in `<i>…</i>`); do not create a record per species unless Danny asks for one.
+- Never add an event or studied species on your own initiative, and never guess a date: Danny gives each one with its date.
+- The schema in `src/lib/records.ts` and the types in `src/types/record.ts` list every field per type.
+
 1. Branch: `feature/records-NNN` (or `fix/record-NNN`).
 2. Edit `public/plant-records.json`:
-   - New records take the next `record_no`, zero-padded (`022`). Numbers run in one sequence across all sites, in the order of the work; never renumber existing records without Danny asking.
+   - New entries take the next `record_no` in their own type's sequence (`023`, `S001`, `E001`). Each sequence runs across all sites, in the order of the work; never renumber existing records without Danny asking.
    - `date` is ISO (`2026-10-02`). Set `site`. `projects` is a list: `[]` for none, or one or more project names. A record with several projects still appears once; never duplicate a record.
    - A field that is not known is `null`. Never fill a field with a guess: it comes from Danny, the plant's label, or a citable authority.
    - The only markup is `<i>…</i>` around botanical names. No HTML entities; write `&` not `&amp;`.

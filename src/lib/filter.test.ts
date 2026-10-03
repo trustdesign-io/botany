@@ -1,5 +1,6 @@
 import { describe, expect, it } from 'vitest'
 import { EMPTY_FILTERS, filterRecords, filtersToHash, hashToFilters, uniqueSorted } from './filter'
+import { EVENT_EXAMPLE, STUDIED_EXAMPLE } from './fixtures'
 import { getRecords } from './records'
 
 const records = getRecords()
@@ -47,6 +48,26 @@ describe('projects', () => {
       'Lullingstone volunteering',
       'Nesocodon accession',
     ])
+  })
+})
+
+describe('types', () => {
+  const mixed = [...records, STUDIED_EXAMPLE, EVENT_EXAMPLE]
+
+  it('filters to one type, giving that type\'s own sequence', () => {
+    expect(filterRecords(mixed, { ...EMPTY_FILTERS, type: 'worked' })).toHaveLength(records.length)
+    expect(filterRecords(mixed, { ...EMPTY_FILTERS, type: 'studied' }).map((r) => r.record_no)).toEqual(['S001'])
+    expect(filterRecords(mixed, { ...EMPTY_FILTERS, type: 'event' }).map((r) => r.record_no)).toEqual(['E001'])
+  })
+
+  it('searches event titles and the species they list', () => {
+    expect(filterRecords(mixed, { ...EMPTY_FILTERS, q: 'lecture' }).map((r) => r.record_no)).toEqual(['E001'])
+    expect(filterRecords(mixed, { ...EMPTY_FILTERS, q: 'titanum' }).map((r) => r.record_no)).toEqual(['S001', 'E001'])
+  })
+
+  it('leaves events out when filtering by family', () => {
+    const found = filterRecords(mixed, { ...EMPTY_FILTERS, family: 'Araceae' })
+    expect(found.map((r) => r.record_no)).toEqual(['S001'])
   })
 })
 

@@ -4,7 +4,7 @@ import { notFound } from 'next/navigation'
 import { PrintButton } from '@/components/records/print-button'
 import { RecordSheet } from '@/components/records/record-sheet'
 import { TaxonName } from '@/components/records/taxon-name'
-import { getFile, getNeighbours, getRecord, getRecords } from '@/lib/records'
+import { TYPE_LABELS, entryShortTitleHtml, entryTitle, getFile, getNeighbours, getRecord, getRecords, isPlant } from '@/lib/records'
 
 interface PageProps {
   params: Promise<{ no: string }>
@@ -20,8 +20,14 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
   const record = getRecord((await params).no)
   if (!record) return {}
   return {
-    title: `${record.record_no} ${record.name}`,
-    description: `Record ${record.record_no}: ${record.name}, ${record.family}. ${record.site}.`,
+    title: `${record.record_no} ${entryTitle(record)}`,
+    description: [
+      `${TYPE_LABELS[record.type]} ${record.record_no}: ${entryTitle(record)}`,
+      isPlant(record) ? record.family : null,
+      record.site,
+    ]
+      .filter(Boolean)
+      .join('. '),
   }
 }
 
@@ -31,7 +37,6 @@ export default async function RecordPage({ params }: PageProps) {
   if (!record) notFound()
 
   const { previous, next } = getNeighbours(no)
-  const shortName = (html: string) => html.replace(/<\/i>.*$/, '</i>')
 
   return (
     <div className="grid gap-6">
@@ -50,7 +55,7 @@ export default async function RecordPage({ params }: PageProps) {
             <Link href={`/records/${previous.record_no}/`} className="group grid gap-0.5">
               <span className="label">Previous · {previous.record_no}</span>
               <span className="group-hover:text-stamp">
-                <TaxonName html={shortName(previous.name_html)} />
+                <TaxonName html={entryShortTitleHtml(previous)} />
               </span>
             </Link>
           )}
@@ -60,7 +65,7 @@ export default async function RecordPage({ params }: PageProps) {
             <Link href={`/records/${next.record_no}/`} className="group grid gap-0.5">
               <span className="label">Next · {next.record_no}</span>
               <span className="group-hover:text-stamp">
-                <TaxonName html={shortName(next.name_html)} />
+                <TaxonName html={entryShortTitleHtml(next)} />
               </span>
             </Link>
           )}

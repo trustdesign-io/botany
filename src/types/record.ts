@@ -1,35 +1,75 @@
-/** One entry in the record book. `null` means the field has not been recorded yet. */
-export interface PlantRecord {
+/**
+ * One entry in the records. Three types share one list:
+ * - `worked`: a plant worked with. Numbered 001, 002…
+ * - `studied`: a species investigated but not worked with. Numbered S001, S002…
+ * - `event`: a lecture, visit, course or other attendance. Numbered E001, E002…
+ * `null` means the field has not been recorded yet.
+ */
+export type Entry = WorkedRecord | StudiedRecord | EventRecord
+
+export type EntryType = Entry['type']
+
+export type EventKind = 'lecture' | 'visit' | 'course' | 'other'
+
+interface BaseEntry {
   record_no: string
-  /** ISO 8601 date of the work, e.g. 2026-10-01. */
+  /** ISO 8601 date, e.g. 2026-10-01. */
   date: string
-  site: string
-  /** Projects this record belongs to. Empty when it belongs to none. */
+  /** Projects this entry belongs to. Empty when it belongs to none. */
   projects: string[]
-  location: string | null
-  vice_county: string | null
-  grid_ref: string | null
+  note: string | null
+  sources: string | null
+  open_questions: string | null
+  /** One photo per entry. An `own` photo replaces a `reference` one. */
+  image: RecordImage | null
+}
+
+interface PlantFields {
   /** Plain-text form of `name_html`. */
   name: string
   /** Name with botanical names wrapped in <i>…</i>. */
   name_html: string
   family: string
-  det: string | null
-  label_read: string | null
-  note: string | null
   common_names: string | null
   native_range: string | null
   habit: string | null
-  provenance: string | null
   diagnostic: string | null
   near_misses: string | null
-  work_done: string | null
   observed: string | null
-  sources: string | null
-  open_questions: string | null
   powo_url: string | null
-  /** One photo per record. An `own` photo replaces a `reference` one. */
-  image: RecordImage | null
+}
+
+export interface WorkedRecord extends BaseEntry, PlantFields {
+  type: 'worked'
+  site: string
+  location: string | null
+  vice_county: string | null
+  grid_ref: string | null
+  det: string | null
+  label_read: string | null
+  provenance: string | null
+  work_done: string | null
+}
+
+export interface StudiedRecord extends BaseEntry, PlantFields {
+  type: 'studied'
+  /** Where it was studied, if anywhere in particular. */
+  site: string | null
+  /** How it was studied: a book, a glasshouse visit, a herbarium sheet. */
+  how_studied: string | null
+}
+
+export interface EventRecord extends BaseEntry {
+  type: 'event'
+  title: string
+  event_kind: EventKind
+  /** The place. */
+  site: string
+  organiser: string | null
+  notes: string | null
+  /** Species seen or covered, each with botanical names wrapped in <i>…</i>. */
+  species: string[]
+  url: string | null
 }
 
 /**
@@ -61,5 +101,5 @@ export interface RecordsFile {
   kept_by: string
   updated: string
   conventions: string
-  records: PlantRecord[]
+  records: Entry[]
 }

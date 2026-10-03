@@ -7,6 +7,12 @@ export const metadata: Metadata = {
   description: 'How the records are kept: what each field means and which authorities are used.',
 }
 
+const TYPES: [string, string][] = [
+  ['Worked with', 'A plant I have had my hands on: planted, pruned, potted or otherwise worked. Numbered 001, 002 and so on.'],
+  ['Studied', 'A species I have investigated without working on it. Numbered S001, S002 and so on.'],
+  ['Event', 'A lecture, visit or course I attended. The species seen are listed in the entry. Numbered E001, E002 and so on.'],
+]
+
 const FIELDS: [string, ReactNode][] = [
   ['Record no.', 'Records are numbered in one sequence across every site, in the order of the work. Within a single day the order carries no meaning.'],
   ['Date', 'The day I worked with the plant.'],
@@ -37,10 +43,23 @@ export default function AboutPage() {
       <div>
         <h1 className="text-3xl leading-tight text-balance sm:text-4xl">How the records are kept</h1>
         <p className="mt-3">
-          These are the records of D.C. Chambers: one record for each plant worked with, at Lullingstone Castle
-          World Garden and elsewhere. They began as a handwritten book and follow the same fields in the same order.
+          These are the records of D.C. Chambers: plants worked with, species studied and events attended, at
+          Lullingstone Castle World Garden and elsewhere. They began as a handwritten book and follow the same fields in the same order.
         </p>
       </div>
+
+      <section className="grid gap-3">
+        <h2 className="label border-b-2 border-rule pb-1">Three kinds of record</h2>
+        <dl className="grid gap-3">
+          {TYPES.map(([term, text]) => (
+            <div key={term} className="grid gap-x-4 gap-y-0.5 sm:grid-cols-[9rem_1fr]">
+              <dt className="label pt-1">{term}</dt>
+              <dd>{text}</dd>
+            </div>
+          ))}
+        </dl>
+        <p>Each kind has its own number sequence. The list shows all three together by date, and can be filtered to one.</p>
+      </section>
 
       <section className="grid gap-3">
         <h2 className="label border-b-2 border-rule pb-1">Blanks</h2>

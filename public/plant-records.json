@@ -1,12 +1,13 @@
 {
-  "schema_version": 4,
+  "schema_version": 5,
   "title": "Botanical and Horticultural Records",
   "kept_by": "D.C. Chambers",
   "updated": "2026-10-03",
-  "conventions": "null means not yet recorded. Text fields are plain text; the only markup allowed is <i>…</i> around botanical names. 'name' is the plain-text form of 'name_html'. Dates are ISO 8601. 'projects' is a list: a record can belong to none, one or several, and never appears twice. 'image' is one photo per record, or null. kind 'own' is D.C. Chambers' photograph of the plant recorded; kind 'reference' is a photo of the species from a public source, with its credit, licence and source. An 'own' photo replaces a 'reference' one.",
+  "conventions": "Every entry has a 'type'. 'worked': a plant worked with, numbered 001, 002… 'studied': a species investigated but not worked with, numbered S001, S002… 'event': a lecture, visit, course or other attendance, numbered E001, E002… Each type has its own sequence. null means not yet recorded. Text fields are plain text; the only markup allowed is <i>…</i> around botanical names. For plants, 'name' is the plain-text form of 'name_html'. Dates are ISO 8601. 'projects' is a list: an entry can belong to none, one or several, and never appears twice. 'image' is one photo per entry, or null. kind 'own' is D.C. Chambers' photograph; kind 'reference' is a photo of the species from a public source, with its credit, licence and source. An 'own' photo replaces a 'reference' one.",
   "records": [
     {
       "record_no": "001",
+      "type": "worked",
       "date": "2026-07-18",
       "site": "Lullingstone Castle World Garden, Eynsford, Kent",
       "projects": [],
@@ -34,6 +35,7 @@
     },
     {
       "record_no": "002",
+      "type": "worked",
       "date": "2026-07-31",
       "site": "Lullingstone Castle World Garden, Eynsford, Kent",
       "projects": [],
@@ -61,6 +63,7 @@
     },
     {
       "record_no": "003",
+      "type": "worked",
       "date": "2026-08-07",
       "site": "Lullingstone Castle World Garden, Eynsford, Kent",
       "projects": [],
@@ -88,6 +91,7 @@
     },
     {
       "record_no": "004",
+      "type": "worked",
       "date": "2026-08-07",
       "site": "Lullingstone Castle World Garden, Eynsford, Kent",
       "projects": [],
@@ -115,6 +119,7 @@
     },
     {
       "record_no": "005",
+      "type": "worked",
       "date": "2026-08-07",
       "site": "Lullingstone Castle World Garden, Eynsford, Kent",
       "projects": [],
@@ -142,6 +147,7 @@
     },
     {
       "record_no": "006",
+      "type": "worked",
       "date": "2026-08-14",
       "site": "Lullingstone Castle World Garden, Eynsford, Kent",
       "projects": [],
@@ -169,6 +175,7 @@
     },
     {
       "record_no": "007",
+      "type": "worked",
       "date": "2026-08-14",
       "site": "Lullingstone Castle World Garden, Eynsford, Kent",
       "projects": [],
@@ -196,6 +203,7 @@
     },
     {
       "record_no": "008",
+      "type": "worked",
       "date": "2026-08-14",
       "site": "Lullingstone Castle World Garden, Eynsford, Kent",
       "projects": [],
@@ -223,6 +231,7 @@
     },
     {
       "record_no": "009",
+      "type": "worked",
       "date": "2026-08-21",
       "site": "Lullingstone Castle World Garden, Eynsford, Kent",
       "projects": [],
@@ -250,6 +259,7 @@
     },
     {
       "record_no": "010",
+      "type": "worked",
       "date": "2026-08-28",
       "site": "Lullingstone Castle World Garden, Eynsford, Kent",
       "projects": [],
@@ -277,6 +287,7 @@
     },
     {
       "record_no": "011",
+      "type": "worked",
       "date": "2026-08-28",
       "site": "Lullingstone Castle World Garden, Eynsford, Kent",
       "projects": [],
@@ -304,6 +315,7 @@
     },
     {
       "record_no": "012",
+      "type": "worked",
       "date": "2026-09-18",
       "site": "Lullingstone Castle World Garden, Eynsford, Kent",
       "projects": [],
@@ -331,6 +343,7 @@
     },
     {
       "record_no": "013",
+      "type": "worked",
       "date": "2026-10-01",
       "site": "Lullingstone Castle World Garden, Eynsford, Kent",
       "projects": [],
@@ -371,6 +384,7 @@
     },
     {
       "record_no": "014",
+      "type": "worked",
       "date": "2026-10-01",
       "site": "Lullingstone Castle World Garden, Eynsford, Kent",
       "projects": [],
@@ -398,6 +412,7 @@
     },
     {
       "record_no": "015",
+      "type": "worked",
       "date": "2026-10-02",
       "site": "Lullingstone Castle World Garden, Eynsford, Kent",
       "projects": [],
@@ -425,6 +440,7 @@
     },
     {
       "record_no": "016",
+      "type": "worked",
       "date": "2026-10-02",
       "site": "Lullingstone Castle World Garden, Eynsford, Kent",
       "projects": [],
@@ -452,6 +468,7 @@
     },
     {
       "record_no": "017",
+      "type": "worked",
       "date": "2026-10-02",
       "site": "Lullingstone Castle World Garden, Eynsford, Kent",
       "projects": [],
@@ -479,6 +496,7 @@
     },
     {
       "record_no": "018",
+      "type": "worked",
       "date": "2026-10-02",
       "site": "Lullingstone Castle World Garden, Eynsford, Kent",
       "projects": [],
@@ -506,6 +524,7 @@
     },
     {
       "record_no": "019",
+      "type": "worked",
       "date": "2026-10-02",
       "site": "Lullingstone Castle World Garden, Eynsford, Kent",
       "projects": [],
@@ -533,6 +552,7 @@
     },
     {
       "record_no": "020",
+      "type": "worked",
       "date": "2026-10-02",
       "site": "Lullingstone Castle World Garden, Eynsford, Kent",
       "projects": [],
@@ -560,6 +580,7 @@
     },
     {
       "record_no": "021",
+      "type": "worked",
       "date": "2026-10-02",
       "site": "Lullingstone Castle World Garden, Eynsford, Kent",
       "projects": [],
@@ -587,6 +608,7 @@
     },
     {
       "record_no": "022",
+      "type": "worked",
       "date": "2026-10-02",
       "site": "Lullingstone Castle World Garden, Eynsford, Kent",
       "projects": [],

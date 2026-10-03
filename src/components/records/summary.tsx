@@ -1,20 +1,23 @@
 'use client'
 
 import type { ReactNode } from 'react'
-import type { PlantRecord } from '@/types/record'
+import type { Entry, StudiedRecord, WorkedRecord } from '@/types/record'
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from '@/components/ui/accordion'
+import { entryShortTitleHtml, isPlant } from '@/lib/records'
 import { TaxonName } from './taxon-name'
 
 interface SummaryProps {
-  records: PlantRecord[]
+  records: Entry[]
   /** Search and filter controls, shown as the first panel. */
   filters?: ReactNode
   /** Short note beside the filter heading, e.g. how many filters are set. */
   filtersNote?: string
 }
 
-function countBy(records: PlantRecord[], key: (r: PlantRecord) => string): [string, PlantRecord[]][] {
-  const groups = new Map<string, PlantRecord[]>()
+type Plant = WorkedRecord | StudiedRecord
+
+function countBy(records: Plant[], key: (r: Plant) => string): [string, Plant[]][] {
+  const groups = new Map<string, Plant[]>()
   for (const r of records) groups.set(key(r), [...(groups.get(key(r)) ?? []), r])
   return [...groups.entries()]
 }
@@ -24,10 +27,12 @@ function countBy(records: PlantRecord[], key: (r: PlantRecord) => string): [stri
  * Every panel starts closed, so the index stays a plain list.
  */
 export function Summary({ records, filters, filtersNote }: SummaryProps) {
-  const families = countBy(records, (r) => r.family).sort(
+  // Family and range only apply to plants; events are left out of these two views.
+  const plants = records.filter(isPlant)
+  const families = countBy(plants, (r) => r.family).sort(
     (a, b) => b[1].length - a[1].length || a[0].localeCompare(b[0]),
   )
-  const most = Math.max(...families.map(([, rs]) => rs.length))
+  const most = Math.max(1, ...families.map(([, rs]) => rs.length))
   const trigger = 'label cursor-pointer py-3 hover:text-stamp hover:no-underline'
 
   return (
@@ -68,9 +73,9 @@ export function Summary({ records, filters, filtersNote }: SummaryProps) {
         </AccordionTrigger>
         <AccordionContent>
           <ul className="grid gap-2 pb-4 text-base">
-            {records.map((r) => (
+            {plants.map((r) => (
               <li key={r.record_no} className="grid gap-x-4 sm:grid-cols-[2fr_3fr]">
-                <TaxonName html={r.name_html.replace(/<\/i>.*$/, '</i>')} />
+                <TaxonName html={entryShortTitleHtml(r)} />
                 <span className="text-muted-foreground">
                   {r.native_range ? <TaxonName html={r.native_range} /> : 'Not recorded'}
                 </span>
