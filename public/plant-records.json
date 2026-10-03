@@ -88,7 +88,36 @@
       "sources": "POWO, accessed 7 Sep 2026.",
       "open_questions": "Provenance. What the finisher changed, and why. Whether the wavy form is a shape THD maintains or a one-off.",
       "powo_url": null,
-      "images": []
+      "images": [
+        {
+          "kind": "own",
+          "src": "/images/002.jpg",
+          "thumb": "/images/002-thumb.jpg",
+          "width": 1024,
+          "height": 768,
+          "alt": "Muehlenbeckia complexa covering a rock bank in a dense mat of wiry stems and small round leaves, beneath a taller shrub",
+          "credit": "D.C. Chambers",
+          "licence": null,
+          "licence_url": null,
+          "source": null,
+          "source_url": null,
+          "taken": null
+        },
+        {
+          "kind": "own",
+          "src": "/images/002-2.jpg",
+          "thumb": null,
+          "width": 1024,
+          "height": 768,
+          "alt": "Muehlenbeckia complexa cut back from the path edge, with the cut stems in a wheelbarrow",
+          "credit": "D.C. Chambers",
+          "licence": null,
+          "licence_url": null,
+          "source": null,
+          "source_url": null,
+          "taken": null
+        }
+      ]
     },
     {
       "record_no": "003",
