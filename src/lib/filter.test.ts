@@ -13,13 +13,13 @@ describe('filterRecords', () => {
 
   it('searches names, ignoring case and accents', () => {
     const found = filterRecords(records, { ...EMPTY_FILTERS, q: 'RIBES' })
-    expect(found.map((r) => r.record_no)).toEqual(['013'])
+    expect(found.map((r) => r.record_no)).toEqual(['014'])
     expect(filterRecords(records, { ...EMPTY_FILTERS, q: 'pohuehue' })).toHaveLength(1)
   })
 
   it('filters by family and date range', () => {
     const brom = filterRecords(records, { ...EMPTY_FILTERS, family: 'Bromeliaceae' })
-    expect(brom.map((r) => r.record_no)).toEqual(['010', '020'])
+    expect(brom.map((r) => r.record_no)).toEqual(['009', '017'])
     const oct = filterRecords(records, { ...EMPTY_FILTERS, from: '2026-10-01', to: '2026-10-01' })
     expect(oct.map((r) => r.record_no)).toEqual(['013', '014'])
   })
@@ -118,7 +118,7 @@ describe('buildBlocks', () => {
     const blocks = buildBlocks(matched, all)
     expect(blocks).toHaveLength(1)
     expect(blocks[0].entry.date).toBe('2026-10-01')
-    expect(blocks[0].plants.map((p) => p.record_no)).toEqual(['013'])
+    expect(blocks[0].plants.map((p) => p.record_no)).toEqual(['014'])
   })
 
   it('keeps studied species and events as rows of their own', () => {

@@ -138,7 +138,7 @@ describe('entry types', () => {
 
   it('links a species named in an event to its record', () => {
     const all = [...getRecords(), STUDIED_EXAMPLE]
-    expect(findPlantByName('<i>Ribes speciosum</i>', all)?.record_no).toBe('013')
+    expect(findPlantByName('<i>Ribes speciosum</i>', all)?.record_no).toBe('014')
     expect(findPlantByName('<i>Amorphophallus titanum</i>', all)?.record_no).toBe('S001')
     expect(findPlantByName('<i>Quercus robur</i>', all)).toBeUndefined()
   })
