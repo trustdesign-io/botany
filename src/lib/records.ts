@@ -97,6 +97,7 @@ const workedSchema = z.strictObject({
   label_read: optionalText,
   provenance: optionalText,
   work_done: optionalText,
+  how_studied: optionalText,
   log: z
     .array(logEntrySchema)
     .refine((log) => log.every((e, i) => i === 0 || log[i - 1].date <= e.date), 'log entries must be in date order'),
@@ -140,7 +141,7 @@ export const recordSchema = z.discriminatedUnion('type', [workedSchema, studiedS
 
 export const recordsFileSchema = z
   .strictObject({
-    schema_version: z.literal(9),
+    schema_version: z.literal(10),
     title: z.string().min(1),
     kept_by: z.string().min(1),
     updated: isoDate,

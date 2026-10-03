@@ -52,6 +52,8 @@ export interface WorkedRecord extends BaseEntry, PlantFields {
   label_read: string | null
   provenance: string | null
   work_done: string | null
+  /** Set when the plant was also studied, not only worked with: how. Null when it was not. */
+  how_studied: string | null
   /** Dated additions, oldest first: later work on the plant, or what was seen. */
   log: LogEntry[]
 }

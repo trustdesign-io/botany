@@ -87,6 +87,17 @@ describe('work days', () => {
   })
 })
 
+describe('studied filter', () => {
+  it('shows studied species and worked-with plants that were also studied', () => {
+    const worked = all.find((r) => r.type === 'worked')
+    if (!worked || worked.type !== 'worked') throw new Error('no worked record')
+    const both = { ...worked, record_no: '999', how_studied: 'Keyed out with Stace.' }
+    const got = filterRecords([worked, both], { ...EMPTY_FILTERS, type: 'studied' })
+    expect(got.map((r) => r.record_no)).toEqual(['999'])
+    expect(filterRecords([worked, both], { ...EMPTY_FILTERS, type: 'worked' })).toHaveLength(2)
+  })
+})
+
 describe('buildBlocks', () => {
   it('puts each plant under its work day, so a visit appears once', () => {
     const blocks = buildBlocks(all, all)

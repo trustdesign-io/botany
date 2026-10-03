@@ -190,6 +190,7 @@ function WorkedBody({ r }: { r: WorkedRecord }) {
       <div className={group}>
         <RecordField label="Work done" value={r.work_done} lines={4} />
         <RecordField label="Observed" value={r.observed} lines={4} />
+        {r.how_studied && <RecordField label="How studied" value={r.how_studied} />}
       </div>
 
       <Log entries={r.log} />

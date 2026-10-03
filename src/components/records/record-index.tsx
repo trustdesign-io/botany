@@ -38,7 +38,8 @@ const control =
 function meta(r: Entry): string {
   if (r.type === 'event') return EVENT_KIND_LABELS[r.event_kind]
   if (r.type === 'day') return `${TYPE_LABELS.day} · ${CAPACITY_LABELS[r.capacity]}`
-  return r.type === 'studied' ? `${TYPE_LABELS.studied} · ${r.family}` : r.family
+  if (r.type === 'studied') return `${TYPE_LABELS.studied} · ${r.family}`
+  return r.how_studied ? `${r.family} · also studied` : r.family
 }
 
 interface RowProps {
