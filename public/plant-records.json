@@ -496,7 +496,22 @@
       "sources": "POWO, accessed 2 Oct 2026. Onira 3: 46 (1998). Wikipedia, <i>Ceiba speciosa</i>.",
       "open_questions": "Diagnostic from secondary sources; check against the plant.",
       "powo_url": "https://powo.science.kew.org/taxon/urn:lsid:ipni.org:names:1005661-1",
-      "images": []
+      "images": [
+        {
+          "kind": "own",
+          "src": "/images/011.jpg",
+          "thumb": "/images/011-thumb.jpg",
+          "width": 1024,
+          "height": 768,
+          "alt": "Ceiba speciosa under cover: a green trunk branching wide beneath the roof, with palmate leaves, against a blue painted wall among cacti",
+          "credit": "D.C. Chambers",
+          "licence": null,
+          "licence_url": null,
+          "source": null,
+          "source_url": null,
+          "taken": null
+        }
+      ]
     },
     {
       "record_no": "012",
