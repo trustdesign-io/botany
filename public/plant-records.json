@@ -202,7 +202,22 @@
       "sources": "POWO, accessed 2 Oct 2026. Adansonia, n.s., 1: 43 (1961). Wikipedia, <i>Alluaudia montagnacii</i>.",
       "open_questions": "Diagnostic from secondary sources; check against the plant. Wikipedia calls it probably a natural hybrid of <i>A. ascendens</i> and <i>A. procera</i>, and gives IUCN Endangered; confirm both. Compare record 005.",
       "powo_url": "https://powo.science.kew.org/taxon/urn:lsid:ipni.org:names:316434-1",
-      "images": []
+      "images": [
+        {
+          "kind": "own",
+          "src": "/images/004.jpg",
+          "thumb": "/images/004-thumb.jpg",
+          "width": 768,
+          "height": 1024,
+          "alt": "Alluaudia montagnacii potted up: a single upright stem with long white spines and small dark green leaves",
+          "credit": "D.C. Chambers",
+          "licence": null,
+          "licence_url": null,
+          "source": null,
+          "source_url": null,
+          "taken": null
+        }
+      ]
     },
     {
       "record_no": "005",
