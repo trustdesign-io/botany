@@ -288,7 +288,22 @@
       "sources": "POWO, accessed 2 Oct 2026. Phytotaxa 76: 9 (2013). SANBI PlantZAfrica, <i>Aloidendron barberae</i>.",
       "open_questions": "Diagnostic from secondary sources; check against the plant.",
       "powo_url": "https://powo.science.kew.org/taxon/urn:lsid:ipni.org:names:77125489-1",
-      "images": []
+      "images": [
+        {
+          "kind": "own",
+          "src": "/images/006.jpg",
+          "thumb": "/images/006-thumb.jpg",
+          "width": 770,
+          "height": 1024,
+          "alt": "Aloidendron barberae being planted: a tall bare stem topped by a rosette of long channelled leaves, with a person in a straw hat working at its base",
+          "credit": "D.C. Chambers",
+          "licence": null,
+          "licence_url": null,
+          "source": null,
+          "source_url": null,
+          "taken": null
+        }
+      ]
     },
     {
       "record_no": "007",
