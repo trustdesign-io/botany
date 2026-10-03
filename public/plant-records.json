@@ -245,7 +245,22 @@
       "sources": "POWO, accessed 2 Oct 2026. Bull. Mus. Hist. Nat. (Paris) 9: 37 (1903). Wikipedia, <i>Alluaudia procera</i>.",
       "open_questions": "Diagnostic from secondary sources; check against the plant. Basionym <i>Didierea procera</i> Drake (1903). Compare record 004.",
       "powo_url": "https://powo.science.kew.org/taxon/urn:lsid:ipni.org:names:316435-1",
-      "images": []
+      "images": [
+        {
+          "kind": "own",
+          "src": "/images/005.jpg",
+          "thumb": "/images/005-thumb.jpg",
+          "width": 768,
+          "height": 1024,
+          "alt": "Alluaudia procera: two upright grey stems with short spines and paired rounded leaves, green below and dark at the tips",
+          "credit": "D.C. Chambers",
+          "licence": null,
+          "licence_url": null,
+          "source": null,
+          "source_url": null,
+          "taken": null
+        }
+      ]
     },
     {
       "record_no": "006",
