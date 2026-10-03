@@ -24,7 +24,8 @@ interface BaseEntry {
   sources: string | null
   open_questions: string | null
   /** One photo per entry. An `own` photo replaces a `reference` one. */
-  image: RecordImage | null
+  /** Photos, in order. The first is the one shown in the index. Empty when there are none. */
+  images: RecordImage[]
 }
 
 interface PlantFields {
@@ -100,8 +101,8 @@ export interface RecordImage {
   kind: 'own' | 'reference'
   /** Path under the site root, e.g. /images/013.jpg. */
   src: string
-  /** Square thumbnail for the index, e.g. /images/013-thumb.jpg. */
-  thumb: string
+  /** Square thumbnail for the index, e.g. /images/013-thumb.jpg. Needed on the first photo only. */
+  thumb: string | null
   width: number
   height: number
   alt: string

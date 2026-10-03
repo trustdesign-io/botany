@@ -48,6 +48,7 @@ interface RowProps {
 }
 
 function Row({ r, nested = false }: RowProps) {
+  const first = r.images[0]
   return (
     <Link
       href={`/records/${r.record_no}/`}
@@ -59,16 +60,16 @@ function Row({ r, nested = false }: RowProps) {
       <span className="font-sans text-sm leading-7 tabular-nums text-muted-foreground">{r.record_no}</span>
       {/* Thumbnail of the record's photo; the cell stays empty when a record has none. */}
       <span className="row-span-2 size-10 sm:row-span-1" aria-hidden="true">
-        {r.image && (
+        {first?.thumb && (
           <Image
-            src={`${BASE_PATH}${r.image.thumb}`}
+            src={`${BASE_PATH}${first.thumb}`}
             alt=""
             width={40}
             height={40}
             className={cn(
               'size-10 border object-cover',
               // A coloured border marks a reference photo, i.e. not Danny's own.
-              r.image.kind === 'reference' ? 'border-stamp' : 'border-border',
+              first.kind === 'reference' ? 'border-stamp' : 'border-border',
             )}
           />
         )}

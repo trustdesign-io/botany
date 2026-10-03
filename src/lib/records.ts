@@ -32,7 +32,7 @@ const imageSchema = z
   .strictObject({
     kind: z.enum(['own', 'reference']),
     src: imagePath,
-    thumb: imagePath,
+    thumb: imagePath.nullable(),
     width: z.number().int().positive(),
     height: z.number().int().positive(),
     alt: z.string().min(1),
@@ -54,7 +54,11 @@ const base = {
   note: optionalText,
   sources: optionalText,
   open_questions: optionalText,
-  image: imageSchema.nullable(),
+  images: z
+    .array(imageSchema)
+    .refine((list) => list.length === 0 || list[0].thumb !== null, 'the first photo needs a thumb')
+    .refine((list) => new Set(list.map((i) => i.kind)).size <= 1, 'own and reference photos cannot be mixed')
+    .refine((list) => new Set(list.map((i) => i.src)).size === list.length, 'duplicate photo'),
 }
 
 const plantFields = {
@@ -123,7 +127,7 @@ export const recordSchema = z.discriminatedUnion('type', [workedSchema, studiedS
 
 export const recordsFileSchema = z
   .strictObject({
-    schema_version: z.literal(7),
+    schema_version: z.literal(8),
     title: z.string().min(1),
     kept_by: z.string().min(1),
     updated: isoDate,
