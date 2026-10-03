@@ -999,7 +999,22 @@
       "open_questions": "Diagnostic from nursery pages only, with no measurements; check against the plant.",
       "powo_url": "https://powo.science.kew.org/taxon/urn:lsid:ipni.org:names:122727-1",
       "log": [],
-      "images": []
+      "images": [
+        {
+          "kind": "own",
+          "src": "/images/020.jpg",
+          "thumb": "/images/020-thumb.jpg",
+          "width": 768,
+          "height": 1024,
+          "alt": "Dyckia frigida newly planted: a rosette of stiff, spine-edged grey-green leaves beside its garden label, which reads Bromeliaceae, Dyckia frigida, \"Syringe Leaved Dyckia\", Parana State, Brazil",
+          "credit": "D.C. Chambers",
+          "licence": null,
+          "licence_url": null,
+          "source": null,
+          "source_url": null,
+          "taken": null
+        }
+      ]
     },
     {
       "record_no": "021",
