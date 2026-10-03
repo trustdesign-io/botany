@@ -551,7 +551,7 @@
       "name_html": "<i>Nesocodon mauritianus</i> (I.Richardson) Thulin",
       "family": "Campanulaceae",
       "det": "T. Hart Dyke (verbal), relayed to D.C. Chambers, 18 Sep 2026 — not keyed",
-      "label_read": null,
+      "label_read": "Nescodon mauritianus / Danny Chambers",
       "note": null,
       "common_names": "Blue Mauritius bellflower",
       "native_range": "Mauritius",
@@ -565,7 +565,36 @@
       "open_questions": "Diagnostic from secondary sources; check against the plant. Basionym <i>Wahlenbergia mauritiana</i> I.Richardson (1979). IUCN category not confirmed.",
       "powo_url": "https://powo.science.kew.org/taxon/urn:lsid:ipni.org:names:144220-1",
       "log": [],
-      "images": []
+      "images": [
+        {
+          "kind": "own",
+          "src": "/images/012.jpg",
+          "thumb": "/images/012-thumb.jpg",
+          "width": 768,
+          "height": 1024,
+          "alt": "Two men standing in the garden at Lullingstone, one holding the two potted Nesocodon mauritianus plants on the day they arrived",
+          "credit": "D.C. Chambers",
+          "licence": null,
+          "licence_url": null,
+          "source": null,
+          "source_url": null,
+          "taken": null
+        },
+        {
+          "kind": "own",
+          "src": "/images/012-2.jpg",
+          "thumb": null,
+          "width": 1024,
+          "height": 768,
+          "alt": "Two young Nesocodon mauritianus plants in pots, with narrow toothed leaves; the labels read Nescodon mauritianus, Danny Chambers and Tom Hart Dyke",
+          "credit": "D.C. Chambers",
+          "licence": null,
+          "licence_url": null,
+          "source": null,
+          "source_url": null,
+          "taken": null
+        }
+      ]
     },
     {
       "record_no": "013",
