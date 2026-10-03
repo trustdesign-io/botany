@@ -865,7 +865,36 @@
       "open_questions": "Species unsettled: the RHS gives none; nurseries variously give <i>novi-belgii</i> or a <i>laevis</i> hybrid. Named after the garden Le Vasterival, Normandy, per a nursery source only.",
       "powo_url": null,
       "log": [],
-      "images": []
+      "images": [
+        {
+          "kind": "own",
+          "src": "/images/017.jpg",
+          "thumb": "/images/017-thumb.jpg",
+          "width": 768,
+          "height": 1024,
+          "alt": "Symphyotrichum 'Vasterival' newly planted: dark red stems with narrow leaves and small pale lilac daisy flowers",
+          "credit": "D.C. Chambers",
+          "licence": null,
+          "licence_url": null,
+          "source": null,
+          "source_url": null,
+          "taken": null
+        },
+        {
+          "kind": "own",
+          "src": "/images/017-2.jpg",
+          "thumb": null,
+          "width": 768,
+          "height": 1024,
+          "alt": "Symphyotrichum 'Vasterival' being watered in after planting, by a man in a red cap with a watering can",
+          "credit": "D.C. Chambers",
+          "licence": null,
+          "licence_url": null,
+          "source": null,
+          "source_url": null,
+          "taken": null
+        }
+      ]
     },
     {
       "record_no": "018",
