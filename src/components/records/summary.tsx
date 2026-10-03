@@ -3,8 +3,8 @@
 import type { ReactNode } from 'react'
 import type { DayRecord, Entry, StudiedRecord, WorkedRecord } from '@/types/record'
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from '@/components/ui/accordion'
-import { entryShortTitleHtml, formatDate, isPlant } from '@/lib/records'
-import { TaxonName } from './taxon-name'
+import { formatDate, isPlant } from '@/lib/records'
+import { cn } from '@/lib/utils'
 
 interface SummaryProps {
   records: Entry[]
@@ -12,6 +12,10 @@ interface SummaryProps {
   filters?: ReactNode
   /** Short note beside the filter heading, e.g. how many filters are set. */
   filtersNote?: string
+  /** The family the list is filtered to, or '' for none. */
+  family?: string
+  /** Called with a family to filter the list to it, or '' to clear. Without it the rows are plain text. */
+  onFamily?: (family: string) => void
 }
 
 type Plant = WorkedRecord | StudiedRecord
@@ -26,8 +30,8 @@ function countBy(records: Plant[], key: (r: Plant) => string): [string, Plant[]]
  * The index's accordion: search and filters, then summary views of all records.
  * Every panel starts closed, so the index stays a plain list.
  */
-export function Summary({ records, filters, filtersNote }: SummaryProps) {
-  // Family and range only apply to plants; events are left out of these two views.
+export function Summary({ records, filters, filtersNote, family: selected = '', onFamily }: SummaryProps) {
+  // Family only applies to plants; events and work days are left out of this view.
   const plants = records.filter(isPlant)
   const families = countBy(plants, (r) => r.family).sort(
     (a, b) => b[1].length - a[1].length || a[0].localeCompare(b[0]),
@@ -109,34 +113,39 @@ export function Summary({ records, filters, filtersNote }: SummaryProps) {
           By family ({families.length})
         </AccordionTrigger>
         <AccordionContent>
-          <ul className="grid gap-1.5 pb-4 text-base">
-            {families.map(([family, rs]) => (
-              <li key={family} className="grid grid-cols-[9.5rem_1fr_1.5rem] items-center gap-2">
-                <span className="truncate">{family}</span>
-                <span className="h-2 bg-secondary" aria-hidden="true">
-                  <span className="block h-2 bg-stamp" style={{ width: `${(rs.length / most) * 100}%` }} />
-                </span>
-                <span className="text-right font-sans text-sm tabular-nums">{rs.length}</span>
-              </li>
-            ))}
-          </ul>
-        </AccordionContent>
-      </AccordionItem>
-
-      <AccordionItem value="ranges">
-        <AccordionTrigger className={trigger}>
-          Native ranges
-        </AccordionTrigger>
-        <AccordionContent>
-          <ul className="grid gap-2 pb-4 text-base">
-            {plants.map((r) => (
-              <li key={r.record_no} className="grid gap-x-4 sm:grid-cols-[2fr_3fr]">
-                <TaxonName html={entryShortTitleHtml(r)} />
-                <span className="text-muted-foreground">
-                  {r.native_range ? <TaxonName html={r.native_range} /> : 'Not recorded'}
-                </span>
-              </li>
-            ))}
+          <ul className="grid gap-0.5 pb-4 text-base">
+            {families.map(([family, rs]) => {
+              const row = (
+                <>
+                  <span className="truncate">{family}</span>
+                  <span className="h-2 bg-secondary" aria-hidden="true">
+                    <span className="block h-2 bg-stamp" style={{ width: `${(rs.length / most) * 100}%` }} />
+                  </span>
+                  <span className="text-right font-sans text-sm tabular-nums">{rs.length}</span>
+                </>
+              )
+              const grid = 'grid grid-cols-[9.5rem_1fr_1.5rem] items-center gap-2'
+              return (
+                <li key={family}>
+                  {onFamily ? (
+                    <button
+                      type="button"
+                      aria-pressed={selected === family}
+                      onClick={() => onFamily(selected === family ? '' : family)}
+                      className={cn(
+                        grid,
+                        'min-h-9 w-full cursor-pointer text-left hover:text-stamp active:bg-muted',
+                        selected === family && 'font-semibold text-stamp',
+                      )}
+                    >
+                      {row}
+                    </button>
+                  ) : (
+                    <span className={grid}>{row}</span>
+                  )}
+                </li>
+              )
+            })}
           </ul>
         </AccordionContent>
       </AccordionItem>
