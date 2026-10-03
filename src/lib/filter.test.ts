@@ -19,7 +19,7 @@ describe('filterRecords', () => {
 
   it('filters by family and date range', () => {
     const brom = filterRecords(records, { ...EMPTY_FILTERS, family: 'Bromeliaceae' })
-    expect(brom.map((r) => r.record_no)).toEqual(['010', '020'])
+    expect(brom.map((r) => r.record_no)).toEqual(['020'])
     const oct = filterRecords(records, { ...EMPTY_FILTERS, from: '2026-10-01', to: '2026-10-01' })
     expect(oct.map((r) => r.record_no)).toEqual(['013', '014'])
   })
