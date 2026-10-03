@@ -6,6 +6,7 @@ import type { PlantRecord } from '@/types/record'
 import { EMPTY_FILTERS, type RecordFilters, filterRecords, filtersToHash, uniqueSorted } from '@/lib/filter'
 import { formatDate } from '@/lib/records'
 import { BASE_PATH } from '@/lib/site'
+import { cn } from '@/lib/utils'
 import { useHashFilters } from '@/hooks/use-hash-filters'
 import { Summary } from './summary'
 import { TaxonName } from './taxon-name'
@@ -134,7 +135,11 @@ export function RecordIndex({ records }: RecordIndexProps) {
                       alt=""
                       width={40}
                       height={40}
-                      className="size-10 border border-border object-cover"
+                      className={cn(
+                        'size-10 border object-cover',
+                        // A coloured border marks a reference photo, i.e. not Danny's own.
+                        r.image.kind === 'reference' ? 'border-stamp' : 'border-border',
+                      )}
                     />
                   )}
                 </span>
