@@ -50,6 +50,8 @@ interface RowProps {
 
 function Row({ r, nested = false }: RowProps) {
   const first = r.images[0]
+  // A work day or event with no photo gives its thumbnail column to the title, so the title does not wrap early.
+  const wide = !first?.thumb && (r.type === 'day' || r.type === 'event')
   return (
     <Link
       href={`/records/${r.record_no}/`}
@@ -60,25 +62,38 @@ function Row({ r, nested = false }: RowProps) {
     >
       <span className="font-sans text-sm leading-7 tabular-nums text-muted-foreground">{r.record_no}</span>
       {/* Thumbnail of the record's photo; the cell stays empty when a record has none. */}
-      <span className="row-span-2 size-10 sm:row-span-1" aria-hidden="true">
-        {first?.thumb && (
-          <Image
-            src={`${BASE_PATH}${first.thumb}`}
-            alt=""
-            width={40}
-            height={40}
-            className={cn(
-              'size-10 border object-cover',
-              // A coloured border marks a reference photo, i.e. not Danny's own.
-              first.kind === 'reference' ? 'border-stamp' : 'border-border',
-            )}
-          />
+      {!wide && (
+        <span className="row-span-2 size-10 sm:row-span-1" aria-hidden="true">
+          {first?.thumb && (
+            <Image
+              src={`${BASE_PATH}${first.thumb}`}
+              alt=""
+              width={40}
+              height={40}
+              className={cn(
+                'size-10 border object-cover',
+                // A coloured border marks a reference photo, i.e. not Danny's own.
+                first.kind === 'reference' ? 'border-stamp' : 'border-border',
+              )}
+            />
+          )}
+        </span>
+      )}
+      <span
+        className={cn(
+          'min-w-0 leading-snug group-hover:text-stamp',
+          nested ? 'text-base' : 'text-lg',
+          wide && 'col-span-2',
         )}
-      </span>
-      <span className={cn('min-w-0 leading-snug group-hover:text-stamp', nested ? 'text-base' : 'text-lg')}>
+      >
         <TaxonName html={r.type === 'day' ? r.site.split(',')[0] : entryTitleHtml(r)} />
       </span>
-      <span className="col-start-3 font-sans text-sm text-muted-foreground sm:col-start-auto">
+      <span
+        className={cn(
+          'font-sans text-sm text-muted-foreground sm:col-span-1 sm:col-start-auto',
+          wide ? 'col-span-2 col-start-2' : 'col-start-3',
+        )}
+      >
         {meta(r)}
         {!nested && <span className="sm:hidden"> · {formatDate(r.date, 'short')}</span>}
       </span>
