@@ -1,6 +1,6 @@
 import type { ReactNode } from 'react'
 import Link from 'next/link'
-import type { DayRecord, Entry, EventRecord, StudiedRecord, WorkedRecord } from '@/types/record'
+import type { DayRecord, Entry, EventRecord, LogEntry, StudiedRecord, WorkedRecord } from '@/types/record'
 import {
   CAPACITY_LABELS,
   EVENT_KIND_LABELS,
@@ -9,6 +9,7 @@ import {
   formatDate,
   getDayFor,
   getPlantsForDay,
+  getRecords,
   weekday,
 } from '@/lib/records'
 import { Blank, RecordField } from './record-field'
@@ -85,6 +86,52 @@ function Sources({ r }: { r: Entry }) {
 
 const quietLink = 'underline decoration-border underline-offset-2 hover:text-stamp hover:decoration-stamp'
 
+/** Dated additions to a plant's record, oldest first, each with its own photos. */
+function Log({ entries }: { entries: LogEntry[] }) {
+  if (entries.length === 0) return null
+  return (
+    <div className={group}>
+      <dt className="label">Log</dt>
+      <dd>
+        <ol className="grid gap-4 print:gap-2">
+          {entries.map((e, i) => {
+            const day = e.site ? getRecords().find((d) => d.type === 'day' && d.date === e.date && d.site === e.site) : undefined
+            const place = [e.location, e.site?.split(',')[0]].filter(Boolean).join(', ')
+            return (
+              <li key={`${e.date}-${i}`} className="grid gap-2 border-l border-stamp pl-3">
+                <p className="font-sans text-sm text-muted-foreground">
+                  <time dateTime={e.date} className="text-foreground">
+                    {formatDate(e.date)}
+                  </time>
+                  {place && ` · ${place}`}
+                  {day && (
+                    <span className="no-print">
+                      {' · '}
+                      <Link href={`/records/${day.record_no}/`} className={quietLink}>
+                        {day.record_no}
+                      </Link>
+                    </span>
+                  )}
+                </p>
+                <p className="min-w-0 break-words">
+                  <TaxonName html={e.text} />
+                </p>
+                {e.images.length > 0 && (
+                  <div className="no-print grid grid-cols-1 items-start gap-4 sm:grid-cols-2">
+                    {e.images.map((image) => (
+                      <RecordImage key={image.src} image={image} ownLabel={formatDate(e.date)} />
+                    ))}
+                  </div>
+                )}
+              </li>
+            )
+          })}
+        </ol>
+      </dd>
+    </div>
+  )
+}
+
 /** A plant worked with: the record book's fixed field order. */
 function WorkedBody({ r }: { r: WorkedRecord }) {
   const day = getDayFor(r)
@@ -143,7 +190,10 @@ function WorkedBody({ r }: { r: WorkedRecord }) {
       <div className={group}>
         <RecordField label="Work done" value={r.work_done} lines={4} />
         <RecordField label="Observed" value={r.observed} lines={4} />
+        {r.how_studied && <RecordField label="How studied" value={r.how_studied} />}
       </div>
+
+      <Log entries={r.log} />
 
       <Sources r={r} />
     </dl>

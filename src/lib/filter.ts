@@ -27,10 +27,15 @@ function searchText(r: Entry): string {
   return fold(parts.filter(Boolean).join(' ').replace(/<\/?i>/g, ''))
 }
 
+/** A species studied, or a worked-with plant that was also studied. */
+export function wasStudied(r: Entry): boolean {
+  return r.type === 'studied' || (r.type === 'worked' && r.how_studied !== null)
+}
+
 export function filterRecords(records: Entry[], f: RecordFilters): Entry[] {
   const q = fold(f.q.trim())
   return records.filter((r) => {
-    if (f.type && r.type !== f.type) return false
+    if (f.type && r.type !== f.type && !(f.type === 'studied' && wasStudied(r))) return false
     if (f.site && r.site !== f.site) return false
     if (f.project && !r.projects.includes(f.project)) return false
     if (f.family && (!('family' in r) || r.family !== f.family)) return false

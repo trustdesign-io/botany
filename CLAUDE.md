@@ -13,12 +13,13 @@ Every entry has a `type`, and each type has its own number sequence:
 
 | `type` | What it is | `record_no` | Extra fields |
 |---|---|---|---|
-| `worked` | A plant Danny worked with | `001`, `002`… | location, vice_county, grid_ref, det, label_read, provenance, work_done |
+| `worked` | A plant Danny worked with | `001`, `002`… | location, vice_county, grid_ref, det, label_read, provenance, work_done, how_studied, log |
 | `studied` | A species investigated but not worked with | `S001`, `S002`… | how_studied; `site` may be `null` |
 | `event` | A lecture, visit, course or other attendance | `E001`, `E002`… | title, event_kind (`lecture`, `visit`, `course`, `other`), organiser, notes, species (list), url; no plant fields |
 | `day` | A day worked at a site | `D001`, `D002`… | organisation, capacity (`volunteer`, `contract`, `own`), hours, with_whom, tasks (list); no plant fields |
 
 - If Danny does not say which type, ask. "Worked with" means hands on the plant.
+- A plant both worked with and studied stays one `worked` record: set its `how_studied` (how, in Danny's words). It then also shows under the Studied filter. `how_studied` is `null` on a worked plant he did not study; never set it on your own initiative.
 - An event is one entry. Species seen go in its `species` list (names in `<i>…</i>`); do not create a record per species unless Danny asks for one.
 - Never add an event or studied species on your own initiative, and never guess a date: Danny gives each one with its date.
 - A work day is linked to the plants worked with by date and site, not stored: the `worked` entries with the same `date` and the same `site` string appear on the day's page, and each links back. So when adding a `worked` record, make sure a `day` exists for that date and site (add one if not), and copy the `site` string exactly. One work day per date and site.
@@ -40,6 +41,7 @@ Every entry has a `type`, and each type has its own number sequence:
    - `images` is a list of photos, `[]` for none, in the order Danny gives them. The first is the one shown in the index. Save them as `public/images/NNN.jpg`, `NNN-2.jpg`, `NNN-3.jpg`… (about 1024px on the long side). The first also needs a 96px square crop, `public/images/NNN-thumb.jpg`; `thumb` is `null` on the rest. Own and reference photos are never mixed in one record.
      - `kind: "own"`: a photo Danny took of the plant recorded. Credit `D.C. Chambers`, set `taken` if known, licence and source `null`. **An own photo always replaces a reference one.**
      - `kind: "reference"`: a photo of the species from a public source, never presented as Danny's plant. Use iNaturalist (API `api.inaturalist.org/v1`, filter `photo_license=cc0,cc-by,cc-by-sa`, research grade); Wikimedia Commons rate-limits the build environment. Check the photo against the record's diagnostic before using it, and record `credit`, `licence`, `licence_url`, `source` and `source_url`. No openly licensed photo that matches: leave `images` as `[]`.
+   - `log` (worked-with plants only) is a list of dated additions, oldest first, for a plant Danny returns to: `{ date, site, location, text, images }`. Return work on a plant is a log entry, never a second record. `site` is the work day's site string copied exactly when it happened on a work day (the plant then shows on that day's page), otherwise `null`; `location` is where exactly (a polytunnel, his terrarium at home). `text` is Danny's account. Log photos are own photos, saved as `NNN-YYYYMMDD.jpg`, `NNN-YYYYMMDD-2.jpg`…, `thumb` `null`.
    - Bump the top-level `updated` date.
 3. Run `npx vitest run --project unit`. It validates the file against the schema in `src/lib/records.ts`; a malformed file fails CI and never deploys.
 4. Run `npm run build`, then open a PR. Merging to `main` deploys to dannychambers.co.uk/botany.
