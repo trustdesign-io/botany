@@ -1044,7 +1044,22 @@
       "open_questions": "Confirm the identity against the plant: three leaflets, yellow flowers, inflated pods. The supplier's page is reported to say “Native to South America”, which conflicts with POWO.",
       "powo_url": null,
       "log": [],
-      "images": []
+      "images": [
+        {
+          "kind": "own",
+          "src": "/images/021.jpg",
+          "thumb": "/images/021-thumb.jpg",
+          "width": 768,
+          "height": 1024,
+          "alt": "Cleome arborea in an air-pot on a wooden stool: hairy, purple-tinged stems carrying large palmate leaves of about seven leaflets",
+          "credit": "D.C. Chambers",
+          "licence": null,
+          "licence_url": null,
+          "source": null,
+          "source_url": null,
+          "taken": null
+        }
+      ]
     },
     {
       "record_no": "022",
