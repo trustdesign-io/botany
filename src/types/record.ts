@@ -23,7 +23,6 @@ interface BaseEntry {
   note: string | null
   sources: string | null
   open_questions: string | null
-  /** One photo per entry. An `own` photo replaces a `reference` one. */
   /** Photos, in order. The first is the one shown in the index. Empty when there are none. */
   images: RecordImage[]
 }
@@ -53,6 +52,19 @@ export interface WorkedRecord extends BaseEntry, PlantFields {
   label_read: string | null
   provenance: string | null
   work_done: string | null
+  /** Dated additions, oldest first: later work on the plant, or what was seen. */
+  log: LogEntry[]
+}
+
+export interface LogEntry {
+  /** ISO 8601 date. */
+  date: string
+  /** A work day's site string, so the entry appears on that day; null when elsewhere. */
+  site: string | null
+  /** Where exactly: a polytunnel, a terrarium at home. */
+  location: string | null
+  text: string
+  images: RecordImage[]
 }
 
 export interface StudiedRecord extends BaseEntry, PlantFields {

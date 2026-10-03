@@ -48,6 +48,16 @@ const imageSchema = z
     'a reference image needs a licence, licence_url, source and source_url',
   )
 
+/** A dated addition to a plant's record: later work or observation, with its own photos. */
+const logEntrySchema = z.strictObject({
+  date: isoDate,
+  /** The site string of a work day, so the entry shows on that day's page; null when elsewhere. */
+  site: optionalText,
+  location: optionalText,
+  text: inlineText,
+  images: z.array(imageSchema).refine((list) => list.every((i) => i.kind === 'own'), 'log photos are own photos'),
+})
+
 const base = {
   date: isoDate,
   projects: z.array(inlineText).refine((p) => new Set(p).size === p.length, 'duplicate project'),
@@ -87,6 +97,9 @@ const workedSchema = z.strictObject({
   label_read: optionalText,
   provenance: optionalText,
   work_done: optionalText,
+  log: z
+    .array(logEntrySchema)
+    .refine((log) => log.every((e, i) => i === 0 || log[i - 1].date <= e.date), 'log entries must be in date order'),
 })
 
 const studiedSchema = z.strictObject({
@@ -127,7 +140,7 @@ export const recordSchema = z.discriminatedUnion('type', [workedSchema, studiedS
 
 export const recordsFileSchema = z
   .strictObject({
-    schema_version: z.literal(8),
+    schema_version: z.literal(9),
     title: z.string().min(1),
     kept_by: z.string().min(1),
     updated: isoDate,
@@ -216,10 +229,18 @@ export function getDayFor(r: WorkedRecord, records: Entry[] = file.records): Day
   return records.find((d): d is DayRecord => d.type === 'day' && d.date === r.date && d.site === r.site)
 }
 
-/** The plants worked with on a work day: same date, same site, in record order. */
+/**
+ * The plants worked with on a work day, in record order: those first recorded
+ * that day at that site, and those with a log entry for it.
+ */
 export function getPlantsForDay(day: DayRecord, records: Entry[] = file.records): WorkedRecord[] {
   return records
-    .filter((r): r is WorkedRecord => r.type === 'worked' && r.date === day.date && r.site === day.site)
+    .filter(
+      (r): r is WorkedRecord =>
+        r.type === 'worked' &&
+        ((r.date === day.date && r.site === day.site) ||
+          r.log.some((e) => e.date === day.date && e.site === day.site)),
+    )
     .sort((a, b) => a.record_no.localeCompare(b.record_no))
 }
 

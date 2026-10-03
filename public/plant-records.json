@@ -1,5 +1,5 @@
 {
-  "schema_version": 8,
+  "schema_version": 9,
   "title": "Botanical and Horticultural Records",
   "kept_by": "D.C. Chambers",
   "updated": "2026-10-03",
@@ -31,6 +31,7 @@
       "sources": "POWO, accessed 28 Sep 2026. IPNI 592709-1: J. Proc. Roy. Soc. New South Wales 58: 177 (1924). EUCLID.",
       "open_questions": "Diagnostic taken from secondary sources; check against the tree. Near misses unsourced.",
       "powo_url": "https://powo.science.kew.org/taxon/urn:lsid:ipni.org:names:592709-1",
+      "log": [],
       "images": [
         {
           "kind": "own",
@@ -88,6 +89,7 @@
       "sources": "POWO, accessed 7 Sep 2026.",
       "open_questions": "Provenance. What the finisher changed, and why. Whether the wavy form is a shape THD maintains or a one-off.",
       "powo_url": null,
+      "log": [],
       "images": [
         {
           "kind": "own",
@@ -145,6 +147,7 @@
       "sources": "POWO, accessed 29 Sep 2026. First published in DC., Prodr. 8: 665 (1844).",
       "open_questions": "Synonyms include <i>Stapelia gordonii</i>; confirm the basionym on IPNI. Confirm the CITES listing for the genus.",
       "powo_url": null,
+      "log": [],
       "images": [
         {
           "kind": "own",
@@ -202,6 +205,7 @@
       "sources": "POWO, accessed 2 Oct 2026. Adansonia, n.s., 1: 43 (1961). Wikipedia, <i>Alluaudia montagnacii</i>.",
       "open_questions": "Diagnostic from secondary sources; check against the plant. Wikipedia calls it probably a natural hybrid of <i>A. ascendens</i> and <i>A. procera</i>, and gives IUCN Endangered; confirm both. Compare record 005.",
       "powo_url": "https://powo.science.kew.org/taxon/urn:lsid:ipni.org:names:316434-1",
+      "log": [],
       "images": [
         {
           "kind": "own",
@@ -245,6 +249,7 @@
       "sources": "POWO, accessed 2 Oct 2026. Bull. Mus. Hist. Nat. (Paris) 9: 37 (1903). Wikipedia, <i>Alluaudia procera</i>.",
       "open_questions": "Diagnostic from secondary sources; check against the plant. Basionym <i>Didierea procera</i> Drake (1903). Compare record 004.",
       "powo_url": "https://powo.science.kew.org/taxon/urn:lsid:ipni.org:names:316435-1",
+      "log": [],
       "images": [
         {
           "kind": "own",
@@ -288,6 +293,7 @@
       "sources": "POWO, accessed 2 Oct 2026. Phytotaxa 76: 9 (2013). SANBI PlantZAfrica, <i>Aloidendron barberae</i>.",
       "open_questions": "Diagnostic from secondary sources; check against the plant.",
       "powo_url": "https://powo.science.kew.org/taxon/urn:lsid:ipni.org:names:77125489-1",
+      "log": [],
       "images": [
         {
           "kind": "own",
@@ -331,6 +337,7 @@
       "sources": "POWO, accessed 2 Oct 2026. Gard. Dict., ed. 8: n.° 3 (1768). SANBI PlantZAfrica; RHS; Ruth Bancroft Garden.",
       "open_questions": "Diagnostic from secondary sources; check against the plant. Ask THD where the name var. <i>lutea</i> comes from.",
       "powo_url": "https://powo.science.kew.org/taxon/urn:lsid:ipni.org:names:529214-1",
+      "log": [],
       "images": [
         {
           "kind": "own",
@@ -374,6 +381,7 @@
       "sources": "POWO, accessed 2 Oct 2026. Engler & Prantl, Nat. Pflanzenfam. 3(6): 96 (1893). Wikipedia, <i>Brachychiton rupestris</i>.",
       "open_questions": "Diagnostic from secondary sources; check against the plant. IPNI gives the combination as (Lindl.) K.Schum., 1890; POWO followed here.",
       "powo_url": "https://powo.science.kew.org/taxon/urn:lsid:ipni.org:names:822270-1",
+      "log": [],
       "images": [
         {
           "kind": "own",
@@ -468,6 +476,7 @@
       "sources": "POWO, accessed 2 Oct 2026. Phytologia 18: 140 (1969). Tropical Britain (nursery).",
       "open_questions": "Diagnostic from a nursery page only; check against the plant. Copy the label word for word.",
       "powo_url": "https://powo.science.kew.org/taxon/urn:lsid:ipni.org:names:214543-2",
+      "log": [],
       "images": [
         {
           "kind": "own",
@@ -511,6 +520,7 @@
       "sources": "POWO, accessed 2 Oct 2026. Onira 3: 46 (1998). Wikipedia, <i>Ceiba speciosa</i>.",
       "open_questions": "Diagnostic from secondary sources; check against the plant.",
       "powo_url": "https://powo.science.kew.org/taxon/urn:lsid:ipni.org:names:1005661-1",
+      "log": [],
       "images": [
         {
           "kind": "own",
@@ -554,6 +564,7 @@
       "sources": "POWO, accessed 2 Oct 2026. Kew Bull. 34: 813 (1980). RHS; Missouri Botanical Garden; Wikipedia.",
       "open_questions": "Diagnostic from secondary sources; check against the plant. Basionym <i>Wahlenbergia mauritiana</i> I.Richardson (1979). IUCN category not confirmed.",
       "powo_url": "https://powo.science.kew.org/taxon/urn:lsid:ipni.org:names:144220-1",
+      "log": [],
       "images": []
     },
     {
@@ -582,6 +593,7 @@
       "sources": "POWO, accessed 2 Oct 2026. Fl. Amer. Sept. 2: 731 (1813). Trees and Shrubs Online; Wikipedia.",
       "open_questions": "Diagnostic from secondary sources; check against the plant. Four-parted flowers are unusual in the genus, which is otherwise five-parted.",
       "powo_url": "https://powo.science.kew.org/taxon/urn:lsid:ipni.org:names:792998-1",
+      "log": [],
       "images": [
         {
           "kind": "reference",
@@ -625,6 +637,7 @@
       "sources": "POWO, accessed 2 Oct 2026. Trudy Imp. S.-Peterburgsk. Bot. Sada 8: 648 (1884). RHS; Wikipedia.",
       "open_questions": "Diagnostic from secondary sources; check against the plant. Yellow and apricot garden forms are sold as Batalinii Group; <i>T. batalinii</i> Regel is a synonym in POWO.",
       "powo_url": "https://powo.science.kew.org/taxon/urn:lsid:ipni.org:names:542983-1",
+      "log": [],
       "images": []
     },
     {
@@ -653,6 +666,7 @@
       "sources": "POWO, accessed 2 Oct 2026. Ann. Missouri Bot. Gard. 69: 221 (1982). IPNI (sect. <i>Jimenezia</i>); Fuchsietum; Wikipedia.",
       "open_questions": "Diagnostic from secondary sources; check against the plant. Protologue not read.",
       "powo_url": "https://powo.science.kew.org/taxon/urn:lsid:ipni.org:names:106204-2",
+      "log": [],
       "images": []
     },
     {
@@ -681,6 +695,7 @@
       "sources": "POWO, accessed 2 Oct 2026. Icon. 3: 33 (1795). RHS.",
       "open_questions": "Diagnostic from secondary sources; check against the plant.",
       "powo_url": "https://powo.science.kew.org/taxon/urn:lsid:ipni.org:names:75821-2",
+      "log": [],
       "images": []
     },
     {
@@ -709,6 +724,7 @@
       "sources": "RHS Horticultural Database, accessed 2 Oct 2026. POWO (genus), accessed 2 Oct 2026. Knoll Gardens (nursery).",
       "open_questions": "Species unsettled: the RHS gives none; nurseries variously give <i>novi-belgii</i> or a <i>laevis</i> hybrid. Named after the garden Le Vasterival, Normandy, per a nursery source only.",
       "powo_url": null,
+      "log": [],
       "images": []
     },
     {
@@ -737,6 +753,7 @@
       "sources": "POWO, accessed 2 Oct 2026. Sp. Pl.: 450 (1753); var. <i>viridis</i>: Succ. Euphorb.: 964 (1941). LLIFLE; Wikipedia.",
       "open_questions": "Diagnostic from secondary sources; check against the plant. LLIFLE still accepts <i>E. enopla</i> Boiss. Latex is an irritant. CITES listing not confirmed.",
       "powo_url": "https://powo.science.kew.org/taxon/urn:lsid:ipni.org:names:346763-1",
+      "log": [],
       "images": []
     },
     {
@@ -765,6 +782,7 @@
       "sources": "RHS Horticultural Database, accessed 2 Oct 2026. POWO (species), accessed 2 Oct 2026: Gard. Chron. 1860: 792 (1860). US Plant Patent PP26,267.",
       "open_questions": "A whole-plant mutation of ‘Sprilecpink’, found 2008 (patent). Confirm the species with THD.",
       "powo_url": "https://powo.science.kew.org/taxon/urn:lsid:ipni.org:names:533546-1",
+      "log": [],
       "images": []
     },
     {
@@ -793,6 +811,7 @@
       "sources": "POWO, accessed 2 Oct 2026. Bot. Mag. 103: t. 6294 (1877). Rare Palm Seeds; Adventurous Plants (nurseries).",
       "open_questions": "Diagnostic from nursery pages only, with no measurements; check against the plant.",
       "powo_url": "https://powo.science.kew.org/taxon/urn:lsid:ipni.org:names:122727-1",
+      "log": [],
       "images": []
     },
     {
@@ -821,6 +840,7 @@
       "sources": "POWO, accessed 2 Oct 2026: Phytotaxa 205: 137 (2015). Plant World Seeds catalogue; Wikipedia.",
       "open_questions": "Confirm the identity against the plant: three leaflets, yellow flowers, inflated pods. The supplier's page is reported to say “Native to South America”, which conflicts with POWO.",
       "powo_url": null,
+      "log": [],
       "images": []
     },
     {
@@ -849,6 +869,7 @@
       "sources": "POWO, accessed 3 Oct 2026. Acta Phytotax. Geobot. 8: 268 (1939). University of Florida IFAS Gardening Solutions.",
       "open_questions": "Read the full label and copy it word for word. Confirm whether it is a cultivar, such as ‘Crispatum’ or ‘Shishi Botan’. Diagnostic from a secondary source; check against the plant. Basionym <i>Tussilago japonica</i> L. (1767).",
       "powo_url": "https://powo.science.kew.org/taxon/urn:lsid:ipni.org:names:207632-1",
+      "log": [],
       "images": [
         {
           "kind": "own",

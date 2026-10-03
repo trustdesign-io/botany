@@ -88,11 +88,19 @@ describe('schema', () => {
   it('every image file exists', async () => {
     const { existsSync } = await import('node:fs')
     for (const r of getRecords()) {
-      for (const image of r.images) {
+      const logged = r.type === 'worked' ? r.log.flatMap((e) => e.images) : []
+      for (const image of [...r.images, ...logged]) {
         expect(existsSync(`public${image.src}`), r.record_no).toBe(true)
         if (image.thumb) expect(existsSync(`public${image.thumb}`), r.record_no).toBe(true)
       }
     }
+  })
+
+  it('takes a dated log on a worked-with plant, in date order', () => {
+    const entry = { date: '2026-09-18', site: null, location: 'Terrarium at home', text: 'Planted.', images: [] }
+    expect(recordSchema.safeParse({ ...good, log: [entry, { ...entry, date: '2026-09-25' }] }).success).toBe(true)
+    expect(recordSchema.safeParse({ ...good, log: [{ ...entry, date: '2026-09-25' }, entry] }).success).toBe(false)
+    expect(recordSchema.safeParse({ ...good, log: [{ ...entry, text: '' }] }).success).toBe(false)
   })
 
   it('rejects duplicate record numbers', () => {

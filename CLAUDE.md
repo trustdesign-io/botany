@@ -13,7 +13,7 @@ Every entry has a `type`, and each type has its own number sequence:
 
 | `type` | What it is | `record_no` | Extra fields |
 |---|---|---|---|
-| `worked` | A plant Danny worked with | `001`, `002`… | location, vice_county, grid_ref, det, label_read, provenance, work_done |
+| `worked` | A plant Danny worked with | `001`, `002`… | location, vice_county, grid_ref, det, label_read, provenance, work_done, log |
 | `studied` | A species investigated but not worked with | `S001`, `S002`… | how_studied; `site` may be `null` |
 | `event` | A lecture, visit, course or other attendance | `E001`, `E002`… | title, event_kind (`lecture`, `visit`, `course`, `other`), organiser, notes, species (list), url; no plant fields |
 | `day` | A day worked at a site | `D001`, `D002`… | organisation, capacity (`volunteer`, `contract`, `own`), hours, with_whom, tasks (list); no plant fields |
@@ -40,6 +40,7 @@ Every entry has a `type`, and each type has its own number sequence:
    - `images` is a list of photos, `[]` for none, in the order Danny gives them. The first is the one shown in the index. Save them as `public/images/NNN.jpg`, `NNN-2.jpg`, `NNN-3.jpg`… (about 1024px on the long side). The first also needs a 96px square crop, `public/images/NNN-thumb.jpg`; `thumb` is `null` on the rest. Own and reference photos are never mixed in one record.
      - `kind: "own"`: a photo Danny took of the plant recorded. Credit `D.C. Chambers`, set `taken` if known, licence and source `null`. **An own photo always replaces a reference one.**
      - `kind: "reference"`: a photo of the species from a public source, never presented as Danny's plant. Use iNaturalist (API `api.inaturalist.org/v1`, filter `photo_license=cc0,cc-by,cc-by-sa`, research grade); Wikimedia Commons rate-limits the build environment. Check the photo against the record's diagnostic before using it, and record `credit`, `licence`, `licence_url`, `source` and `source_url`. No openly licensed photo that matches: leave `images` as `[]`.
+   - `log` (worked-with plants only) is a list of dated additions, oldest first, for a plant Danny returns to: `{ date, site, location, text, images }`. Return work on a plant is a log entry, never a second record. `site` is the work day's site string copied exactly when it happened on a work day (the plant then shows on that day's page), otherwise `null`; `location` is where exactly (a polytunnel, his terrarium at home). `text` is Danny's account. Log photos are own photos, saved as `NNN-YYYYMMDD.jpg`, `NNN-YYYYMMDD-2.jpg`…, `thumb` `null`.
    - Bump the top-level `updated` date.
 3. Run `npx vitest run --project unit`. It validates the file against the schema in `src/lib/records.ts`; a malformed file fails CI and never deploys.
 4. Run `npm run build`, then open a PR. Merging to `main` deploys to dannychambers.co.uk/botany.
