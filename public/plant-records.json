@@ -564,7 +564,30 @@
       "sources": "POWO, accessed 2 Oct 2026. Kew Bull. 34: 813 (1980). RHS; Missouri Botanical Garden; Wikipedia.",
       "open_questions": "Diagnostic from secondary sources; check against the plant. Basionym <i>Wahlenbergia mauritiana</i> I.Richardson (1979). IUCN category not confirmed.",
       "powo_url": "https://powo.science.kew.org/taxon/urn:lsid:ipni.org:names:144220-1",
-      "log": [],
+      "log": [
+        {
+          "date": "2026-10-03",
+          "site": null,
+          "location": "Terrarium at home",
+          "text": "At home in the terrarium.",
+          "images": [
+            {
+              "kind": "own",
+              "src": "/images/012-20261003.jpg",
+              "thumb": null,
+              "width": 768,
+              "height": 1024,
+              "alt": "Nesocodon mauritianus in its pot inside a glass terrarium at home, beside lava rock, under a ring lamp",
+              "credit": "D.C. Chambers",
+              "licence": null,
+              "licence_url": null,
+              "source": null,
+              "source_url": null,
+              "taken": "2026-10-03"
+            }
+          ]
+        }
+      ],
       "images": [
         {
           "kind": "own",
