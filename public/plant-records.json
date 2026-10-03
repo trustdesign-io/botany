@@ -515,7 +515,22 @@
       "sources": "POWO, accessed 3 Oct 2026. Gard. Chron., n.s., 23: 566 (1885).",
       "open_questions": null,
       "powo_url": "https://powo.science.kew.org/taxon/urn:lsid:ipni.org:names:643733-1",
-      "images": []
+      "images": [
+        {
+          "kind": "own",
+          "src": "/images/S003.jpg",
+          "thumb": "/images/S003-thumb.jpg",
+          "width": 545,
+          "height": 971,
+          "alt": "Maxillaria praestans in flower: yellow sepals, the inner parts spotted red-brown, and a dark maroon lip, among strap-shaped leaves",
+          "credit": "D.C. Chambers",
+          "licence": null,
+          "licence_url": null,
+          "source": null,
+          "source_url": null,
+          "taken": null
+        }
+      ]
     },
     {
       "record_no": "009",
