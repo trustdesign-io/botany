@@ -468,7 +468,22 @@
       "sources": "POWO, accessed 2 Oct 2026. Phytologia 18: 140 (1969). Tropical Britain (nursery).",
       "open_questions": "Diagnostic from a nursery page only; check against the plant. Copy the label word for word.",
       "powo_url": "https://powo.science.kew.org/taxon/urn:lsid:ipni.org:names:214543-2",
-      "images": []
+      "images": [
+        {
+          "kind": "own",
+          "src": "/images/010.jpg",
+          "thumb": "/images/010-thumb.jpg",
+          "width": 1024,
+          "height": 768,
+          "alt": "Puya castellanosii being pruned: a rosette of narrow grey-green leaves with a flower stem, among cacti, with a man in a cap and gloves reaching in to cut at its base",
+          "credit": "D.C. Chambers",
+          "licence": null,
+          "licence_url": null,
+          "source": null,
+          "source_url": null,
+          "taken": null
+        }
+      ]
     },
     {
       "record_no": "011",
