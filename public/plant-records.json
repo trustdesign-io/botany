@@ -731,7 +731,36 @@
       "open_questions": "Diagnostic from secondary sources; check against the plant. Yellow and apricot garden forms are sold as Batalinii Group; <i>T. batalinii</i> Regel is a synonym in POWO.",
       "powo_url": "https://powo.science.kew.org/taxon/urn:lsid:ipni.org:names:542983-1",
       "log": [],
-      "images": []
+      "images": [
+        {
+          "kind": "own",
+          "src": "/images/014.jpg",
+          "thumb": "/images/014-thumb.jpg",
+          "width": 768,
+          "height": 1024,
+          "alt": "Tulipa linifolia bulbs set out on a bed of sand in a gravel border, with more bulbs in a gloved hand and a hand fork and trowel beside the packet",
+          "credit": "D.C. Chambers",
+          "licence": null,
+          "licence_url": null,
+          "source": null,
+          "source_url": null,
+          "taken": null
+        },
+        {
+          "kind": "own",
+          "src": "/images/014-2.jpg",
+          "thumb": null,
+          "width": 768,
+          "height": 1024,
+          "alt": "The bulb packet label: Tulip linifolia, 25 bulbs, plant in autumn, height 10-20 cm, colour red, planting depth 10-15 cm, with plant passport details",
+          "credit": "D.C. Chambers",
+          "licence": null,
+          "licence_url": null,
+          "source": null,
+          "source_url": null,
+          "taken": null
+        }
+      ]
     },
     {
       "record_no": "015",
