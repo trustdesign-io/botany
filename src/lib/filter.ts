@@ -20,10 +20,10 @@ function fold(text: string): string {
 
 /** The text a search looks through for one entry. */
 function searchText(r: Entry): string {
-  const parts: (string | null)[] =
-    r.type === 'event'
-      ? [r.record_no, r.title, r.organiser, r.site, ...r.species, r.note]
-      : [r.record_no, r.name, r.family, r.common_names, r.note]
+  let parts: (string | null)[]
+  if (r.type === 'event') parts = [r.record_no, r.title, r.organiser, r.site, ...r.species, r.note]
+  else if (r.type === 'day') parts = [r.record_no, r.site, r.organisation, r.with_whom, r.work_done, r.note]
+  else parts = [r.record_no, r.name, r.family, r.common_names, r.note]
   return fold(parts.filter(Boolean).join(' ').replace(/<\/?i>/g, ''))
 }
 
@@ -33,7 +33,7 @@ export function filterRecords(records: Entry[], f: RecordFilters): Entry[] {
     if (f.type && r.type !== f.type) return false
     if (f.site && r.site !== f.site) return false
     if (f.project && !r.projects.includes(f.project)) return false
-    if (f.family && (r.type === 'event' || r.family !== f.family)) return false
+    if (f.family && (!('family' in r) || r.family !== f.family)) return false
     if (f.from && r.date < f.from) return false
     if (f.to && r.date > f.to) return false
     if (!q) return true

@@ -1,7 +1,11 @@
 import { describe, expect, it } from 'vitest'
 import raw from '../../public/plant-records.json'
 import { EVENT_EXAMPLE, STUDIED_EXAMPLE } from './fixtures'
+import type { DayRecord, WorkedRecord } from '@/types/record'
 import {
+  getDayFor,
+  getPlantsForDay,
+  weekday,
   entryTitle,
   findPlantByName,
   formatDate,
@@ -19,7 +23,7 @@ describe('plant-records.json', () => {
   it('has unique record numbers, each in its type\'s sequence', () => {
     const all = getRecords()
     expect(new Set(all.map((r) => r.record_no)).size).toBe(all.length)
-    const pattern = { worked: /^\d{3,}$/, studied: /^S\d{3,}$/, event: /^E\d{3,}$/ }
+    const pattern = { worked: /^\d{3,}$/, studied: /^S\d{3,}$/, event: /^E\d{3,}$/, day: /^D\d{3,}$/ }
     for (const r of all) expect(r.record_no).toMatch(pattern[r.type])
   })
 
@@ -122,14 +126,44 @@ describe('entry types', () => {
   })
 })
 
+describe('work days', () => {
+  const all = getRecords()
+  const days = all.filter((r): r is DayRecord => r.type === 'day')
+  const worked = all.filter((r): r is WorkedRecord => r.type === 'worked')
+
+  it('every plant worked with belongs to a work day', () => {
+    for (const r of worked) expect(getDayFor(r), r.record_no).toBeDefined()
+  })
+
+  it('lists a day\'s plants from their own records', () => {
+    const oct2 = days.find((d) => d.date === '2026-10-02')
+    expect(oct2 && getPlantsForDay(oct2).map((p) => p.record_no)).toEqual(['015', '016', '017', '018', '019', '020', '021', '022'])
+  })
+
+  it('has no plants on a day at another site', () => {
+    const shorne = days.find((d) => d.site.startsWith('Shorne'))
+    expect(shorne && getPlantsForDay(shorne)).toEqual([])
+  })
+
+  it('allows only one work day per date and site', () => {
+    const file = { ...raw, records: [...raw.records, { ...days[0], record_no: 'D999' }] }
+    expect(() => parseRecordsFile(file)).toThrow(/two work days/)
+  })
+
+  it('names the weekday', () => {
+    expect(weekday('2026-10-02')).toBe('Friday')
+    expect(weekday('2026-07-18')).toBe('Saturday')
+  })
+})
+
 describe('helpers', () => {
   it('formats dates without locale APIs', () => {
     expect(formatDate('2026-10-01')).toBe('1 October 2026')
     expect(formatDate('2026-07-18', 'short')).toBe('18 Jul 2026')
   })
 
-  it('finds neighbours', () => {
-    const all = getRecords()
+  it('finds neighbours within a type', () => {
+    const all = getRecords().filter((r) => r.type === 'worked')
     expect(getNeighbours(all[0].record_no).previous).toBeUndefined()
     expect(getNeighbours(all[0].record_no).next?.record_no).toBe(all[1].record_no)
   })
