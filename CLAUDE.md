@@ -37,9 +37,9 @@ Every entry has a `type`, and each type has its own number sequence:
    - `label_read` is the label word for word, errors included.
    - Lullingstone determinations default to `T. Hart Dyke (verbal), relayed to D.C. Chambers, {date} — not keyed`.
    - Set `powo_url` to the accepted taxon's POWO page, or `null`.
-   - `image` is one photo per record, or `null`. Save it as `public/images/NNN.jpg` (about 1024px on the long side) with a 96px square crop as `public/images/NNN-thumb.jpg` for the index.
+   - `images` is a list of photos, `[]` for none, in the order Danny gives them. The first is the one shown in the index. Save them as `public/images/NNN.jpg`, `NNN-2.jpg`, `NNN-3.jpg`… (about 1024px on the long side). The first also needs a 96px square crop, `public/images/NNN-thumb.jpg`; `thumb` is `null` on the rest. Own and reference photos are never mixed in one record.
      - `kind: "own"`: a photo Danny took of the plant recorded. Credit `D.C. Chambers`, set `taken` if known, licence and source `null`. **An own photo always replaces a reference one.**
-     - `kind: "reference"`: a photo of the species from a public source, never presented as Danny's plant. Use iNaturalist (API `api.inaturalist.org/v1`, filter `photo_license=cc0,cc-by,cc-by-sa`, research grade); Wikimedia Commons rate-limits the build environment. Check the photo against the record's diagnostic before using it, and record `credit`, `licence`, `licence_url`, `source` and `source_url`. No openly licensed photo that matches: leave `image` as `null`.
+     - `kind: "reference"`: a photo of the species from a public source, never presented as Danny's plant. Use iNaturalist (API `api.inaturalist.org/v1`, filter `photo_license=cc0,cc-by,cc-by-sa`, research grade); Wikimedia Commons rate-limits the build environment. Check the photo against the record's diagnostic before using it, and record `credit`, `licence`, `licence_url`, `source` and `source_url`. No openly licensed photo that matches: leave `images` as `[]`.
    - Bump the top-level `updated` date.
 3. Run `npx vitest run --project unit`. It validates the file against the schema in `src/lib/records.ts`; a malformed file fails CI and never deploys.
 4. Run `npm run build`, then open a PR. Merging to `main` deploys to dannychambers.co.uk/botany.

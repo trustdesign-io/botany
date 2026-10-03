@@ -21,7 +21,7 @@ export const STUDIED_EXAMPLE: StudiedRecord = {
   sources: 'Example source.',
   open_questions: null,
   powo_url: null,
-  image: null,
+  images: [],
 }
 
 export const EVENT_EXAMPLE: EventRecord = {
@@ -39,5 +39,5 @@ export const EVENT_EXAMPLE: EventRecord = {
   note: null,
   sources: null,
   open_questions: null,
-  image: null,
+  images: [],
 }

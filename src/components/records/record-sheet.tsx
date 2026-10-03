@@ -345,12 +345,11 @@ export function RecordSheet({ record: r, headingLevel: Heading = 'h1', keptBy }:
         </p>
       </header>
 
-      {r.image && (
-        <div className="border-b border-border py-4">
-          <RecordImage
-            image={r.image}
-            ownLabel={OWN_PHOTO_LABELS[r.type]}
-          />
+      {r.images.length > 0 && (
+        <div className="no-print grid grid-cols-1 items-start gap-4 border-b border-border py-4 sm:grid-cols-2">
+          {r.images.map((image) => (
+            <RecordImage key={image.src} image={image} ownLabel={OWN_PHOTO_LABELS[r.type]} />
+          ))}
         </div>
       )}
 

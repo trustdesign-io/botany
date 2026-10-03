@@ -18,7 +18,7 @@ const link = 'underline underline-offset-2 hover:text-stamp'
  */
 export function RecordImage({ image, ownLabel = 'The plant recorded' }: RecordImageProps) {
   return (
-    <figure className="no-print grid gap-2 sm:max-w-xs">
+    <figure className="no-print grid gap-2">
       <Image
         src={`${BASE_PATH}${image.src}`}
         alt={image.alt}
