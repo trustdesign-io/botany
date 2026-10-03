@@ -2,7 +2,7 @@
 
 import Image from 'next/image'
 import Link from 'next/link'
-import type { Entry } from '@/types/record'
+import type { DayRecord, Entry } from '@/types/record'
 import {
   type Block,
   EMPTY_FILTERS,
@@ -19,6 +19,7 @@ import {
   entryTitleHtml,
   formatDate,
   isPlant,
+  weekday,
 } from '@/lib/records'
 import { BASE_PATH } from '@/lib/site'
 import { cn } from '@/lib/utils'
@@ -41,21 +42,17 @@ function meta(r: Entry): string {
   return r.type === 'studied' ? `${TYPE_LABELS.studied} · ${r.family}` : r.family
 }
 
+const rowGrid = 'grid grid-cols-[2.75rem_2.5rem_1fr] gap-x-3 sm:grid-cols-[3rem_2.5rem_1fr_10rem_7rem] sm:items-center'
+
 interface RowProps {
   r: Entry
-  /** A plant shown beneath its work day: the date is left out, since the day row carries it. */
-  nested?: boolean
+  /** A plant shown under its work day: the date is left out, since the day's heading carries it. */
+  underDay?: boolean
 }
 
-function Row({ r, nested = false }: RowProps) {
+function Row({ r, underDay = false }: RowProps) {
   return (
-    <Link
-      href={`/records/${r.record_no}/`}
-      className={cn(
-        'group grid grid-cols-[2.75rem_2.5rem_1fr] gap-x-3 hover:bg-secondary active:bg-muted sm:grid-cols-[3rem_2.5rem_1fr_10rem_7rem] sm:items-center',
-        nested ? 'py-2' : 'py-3',
-      )}
-    >
+    <Link href={`/records/${r.record_no}/`} className={cn('group py-3 hover:bg-secondary active:bg-muted', rowGrid)}>
       <span className="font-sans text-sm leading-7 tabular-nums text-muted-foreground">{r.record_no}</span>
       {/* Thumbnail of the record's photo; the cell stays empty when a record has none. */}
       <span className="row-span-2 size-10 sm:row-span-1" aria-hidden="true">
@@ -73,18 +70,45 @@ function Row({ r, nested = false }: RowProps) {
           />
         )}
       </span>
-      <span className={cn('min-w-0 leading-snug group-hover:text-stamp', nested ? 'text-base' : 'text-lg')}>
-        <TaxonName html={r.type === 'day' ? r.site.split(',')[0] : entryTitleHtml(r)} />
+      <span className="min-w-0 text-lg leading-snug group-hover:text-stamp">
+        <TaxonName html={entryTitleHtml(r)} />
       </span>
       <span className="col-start-3 font-sans text-sm text-muted-foreground sm:col-start-auto">
         {meta(r)}
-        {!nested && <span className="sm:hidden"> · {formatDate(r.date, 'short')}</span>}
+        {!underDay && <span className="sm:hidden"> · {formatDate(r.date, 'short')}</span>}
       </span>
-      {!nested && (
+      {!underDay && (
         <time dateTime={r.date} className="hidden text-right font-sans text-sm tabular-nums text-muted-foreground sm:block">
           {formatDate(r.date, 'short')}
         </time>
       )}
+    </Link>
+  )
+}
+
+/**
+ * The heading of a work day's block: a tinted band on the same columns as every
+ * other row, so the number and name edges never move and the eye runs straight down.
+ */
+function DayHeading({ day }: { day: DayRecord }) {
+  return (
+    <Link
+      href={`/records/${day.record_no}/`}
+      className={cn('group bg-secondary py-2 font-sans text-sm hover:bg-muted active:bg-muted', rowGrid)}
+    >
+      <span className="tabular-nums text-muted-foreground">{day.record_no}</span>
+      <span aria-hidden="true" />
+      <span className="min-w-0 font-semibold group-hover:text-stamp">{day.site.split(',')[0]}</span>
+      <span className="col-start-3 text-muted-foreground sm:col-start-auto">
+        {CAPACITY_LABELS[day.capacity]}
+        <span className="sm:hidden">
+          {' '}
+          · {weekday(day.date).slice(0, 3)} {formatDate(day.date, 'short')}
+        </span>
+      </span>
+      <time dateTime={day.date} className="hidden text-right tabular-nums text-muted-foreground sm:block">
+        {weekday(day.date).slice(0, 3)} {formatDate(day.date, 'short')}
+      </time>
     </Link>
   )
 }
@@ -204,33 +228,37 @@ export function RecordIndex({ records }: RecordIndexProps) {
         <p className="py-6 text-muted-foreground">No records match. Clear the filters to see all {records.length}.</p>
       ) : (
         <ol className="-mt-4">
-          {blocks.map(({ entry, plants }) => (
-            <li key={entry.record_no} className="border-b border-border">
-              <Row r={entry} />
-              {entry.type === 'day' && grouped && (entry.tasks.length > 0 || plants.length > 0) && (
-                <div className="mb-3 ml-3 border-l border-border pl-3 sm:ml-[3.75rem]">
-                  {entry.tasks.length > 0 && (
-                    <ul aria-label="Work done" className="py-1">
-                      {entry.tasks.map((task) => (
-                        <li key={task} className="py-1 leading-snug">
+          {blocks.map(({ entry, plants }) =>
+            entry.type === 'day' && grouped ? (
+              <li key={entry.record_no} className="border-b border-border">
+                <DayHeading day={entry} />
+                {entry.tasks.length > 0 && (
+                  <ul aria-label="Work done">
+                    {entry.tasks.map((task) => (
+                      <li key={task} className={cn('border-t border-border py-2.5', rowGrid)}>
+                        <span className="col-start-3 min-w-0 leading-snug sm:col-span-3">
                           <TaxonName html={task} />
-                        </li>
-                      ))}
-                    </ul>
-                  )}
-                  {plants.length > 0 && (
-                    <ol aria-label="Plants worked with">
-                      {plants.map((p) => (
-                        <li key={p.record_no}>
-                          <Row r={p} nested />
-                        </li>
-                      ))}
-                    </ol>
-                  )}
-                </div>
-              )}
-            </li>
-          ))}
+                        </span>
+                      </li>
+                    ))}
+                  </ul>
+                )}
+                {plants.length > 0 && (
+                  <ol aria-label="Plants worked with">
+                    {plants.map((p) => (
+                      <li key={p.record_no} className="border-t border-border">
+                        <Row r={p} underDay />
+                      </li>
+                    ))}
+                  </ol>
+                )}
+              </li>
+            ) : (
+              <li key={entry.record_no} className="border-b border-border">
+                <Row r={entry} />
+              </li>
+            ),
+          )}
         </ol>
       )}
     </div>
