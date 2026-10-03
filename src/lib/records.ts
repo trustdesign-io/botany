@@ -1,6 +1,15 @@
 import { z } from 'zod'
 import data from '../../public/plant-records.json'
-import type { Entry, EntryType, EventKind, RecordsFile, StudiedRecord, WorkedRecord } from '@/types/record'
+import type {
+  Capacity,
+  DayRecord,
+  Entry,
+  EntryType,
+  EventKind,
+  RecordsFile,
+  StudiedRecord,
+  WorkedRecord,
+} from '@/types/record'
 
 /** Only <i>…</i> is allowed as markup, and no HTML entities. */
 const inlineText = z
@@ -98,11 +107,23 @@ const eventSchema = z.strictObject({
   url: z.url().nullable(),
 })
 
-export const recordSchema = z.discriminatedUnion('type', [workedSchema, studiedSchema, eventSchema])
+const daySchema = z.strictObject({
+  record_no: z.string().regex(/^D\d{3,}$/, 'a work day record_no is D and zero-padded digits, e.g. D001'),
+  type: z.literal('day'),
+  ...base,
+  site: inlineText,
+  organisation: optionalText,
+  capacity: z.enum(['volunteer', 'contract', 'own']),
+  hours: z.number().positive().max(24).nullable(),
+  with_whom: optionalText,
+  work_done: optionalText,
+})
+
+export const recordSchema = z.discriminatedUnion('type', [workedSchema, studiedSchema, eventSchema, daySchema])
 
 export const recordsFileSchema = z
   .strictObject({
-    schema_version: z.literal(5),
+    schema_version: z.literal(6),
     title: z.string().min(1),
     kept_by: z.string().min(1),
     updated: isoDate,
@@ -111,12 +132,18 @@ export const recordsFileSchema = z
   })
   .superRefine((file, ctx) => {
     const seen = new Set<string>()
+    const days = new Set<string>()
     for (const r of file.records) {
       if (seen.has(r.record_no)) {
         ctx.addIssue({ code: 'custom', message: `duplicate record_no ${r.record_no}` })
       }
       seen.add(r.record_no)
-      if (r.type !== 'event' && stripTags(r.name_html) !== r.name) {
+      if (r.type === 'day') {
+        const key = `${r.date}|${r.site}`
+        if (days.has(key)) ctx.addIssue({ code: 'custom', message: `two work days for ${r.date} at ${r.site}` })
+        days.add(key)
+      }
+      if ((r.type === 'worked' || r.type === 'studied') && stripTags(r.name_html) !== r.name) {
         ctx.addIssue({ code: 'custom', message: `record ${r.record_no}: name does not match name_html` })
       }
     }
@@ -160,6 +187,13 @@ export const TYPE_LABELS: Record<EntryType, string> = {
   worked: 'Worked with',
   studied: 'Studied',
   event: 'Event',
+  day: 'Work day',
+}
+
+export const CAPACITY_LABELS: Record<Capacity, string> = {
+  volunteer: 'Volunteer',
+  contract: 'Contract',
+  own: 'Own project',
 }
 
 export const EVENT_KIND_LABELS: Record<EventKind, string> = {
@@ -170,12 +204,25 @@ export const EVENT_KIND_LABELS: Record<EventKind, string> = {
 }
 
 export function isPlant(r: Entry): r is WorkedRecord | StudiedRecord {
-  return r.type !== 'event'
+  return r.type === 'worked' || r.type === 'studied'
+}
+
+/** The work day a plant was worked with on: same date, same site. */
+export function getDayFor(r: WorkedRecord, records: Entry[] = file.records): DayRecord | undefined {
+  return records.find((d): d is DayRecord => d.type === 'day' && d.date === r.date && d.site === r.site)
+}
+
+/** The plants worked with on a work day: same date, same site, in record order. */
+export function getPlantsForDay(day: DayRecord, records: Entry[] = file.records): WorkedRecord[] {
+  return records
+    .filter((r): r is WorkedRecord => r.type === 'worked' && r.date === day.date && r.site === day.site)
+    .sort((a, b) => a.record_no.localeCompare(b.record_no))
 }
 
 /** What an entry is called: the plant name, or the event title. May contain <i> tags. */
 export function entryTitleHtml(r: Entry): string {
-  return isPlant(r) ? r.name_html : r.title
+  if (isPlant(r)) return r.name_html
+  return r.type === 'event' ? r.title : r.site
 }
 
 export function entryTitle(r: Entry): string {
@@ -184,7 +231,8 @@ export function entryTitle(r: Entry): string {
 
 /** The title without the authority, for tight spaces: "<i>Ribes speciosum</i>". */
 export function entryShortTitleHtml(r: Entry): string {
-  return isPlant(r) ? r.name_html.replace(/<\/i>.*$/, '</i>') : r.title
+  if (isPlant(r)) return r.name_html.replace(/<\/i>.*$/, '</i>')
+  return r.type === 'event' ? r.title : `${r.site.split(',')[0]}, ${formatDate(r.date, 'short')}`
 }
 
 /** Finds the plant entry for a species named in an event, by its binomial. */
@@ -193,6 +241,13 @@ export function findPlantByName(nameHtml: string, records: Entry[] = file.record
   if (!wanted.includes(' ')) return undefined
   const matches = records.filter((r) => isPlant(r) && r.name.toLowerCase().startsWith(`${wanted}`))
   return matches.find((r) => r.type === 'worked') ?? matches[0]
+}
+
+const WEEKDAYS = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday']
+
+/** 2026-10-02 → "Friday". Uses UTC so server and client always agree. */
+export function weekday(iso: string): string {
+  return WEEKDAYS[new Date(`${iso}T00:00:00Z`).getUTCDay()]
 }
 
 const MONTHS = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December']

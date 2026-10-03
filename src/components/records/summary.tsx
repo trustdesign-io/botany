@@ -1,9 +1,9 @@
 'use client'
 
 import type { ReactNode } from 'react'
-import type { Entry, StudiedRecord, WorkedRecord } from '@/types/record'
+import type { DayRecord, Entry, StudiedRecord, WorkedRecord } from '@/types/record'
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from '@/components/ui/accordion'
-import { entryShortTitleHtml, isPlant } from '@/lib/records'
+import { entryShortTitleHtml, formatDate, isPlant } from '@/lib/records'
 import { TaxonName } from './taxon-name'
 
 interface SummaryProps {
@@ -35,6 +35,14 @@ export function Summary({ records, filters, filtersNote }: SummaryProps) {
   const most = Math.max(1, ...families.map(([, rs]) => rs.length))
   const trigger = 'label cursor-pointer py-3 hover:text-stamp hover:no-underline'
 
+  // Work days per month, split by site: how often, and where.
+  const days = records.filter((r): r is DayRecord => r.type === 'day')
+  const daySites = [...new Set(days.map((d) => d.site))].sort((a, b) => a.localeCompare(b))
+  const months = [...new Set(days.map((d) => d.date.slice(0, 7)))].sort()
+  const count = (month: string | null, site: string | null) =>
+    days.filter((d) => (!month || d.date.startsWith(month)) && (!site || d.site === site)).length
+  const hours = days.reduce((sum, d) => sum + (d.hours ?? 0), 0)
+
   return (
     <Accordion className="border-y border-border">
       {filters && (
@@ -44,6 +52,54 @@ export function Summary({ records, filters, filtersNote }: SummaryProps) {
           </AccordionTrigger>
           <AccordionContent>
             <div className="pb-4">{filters}</div>
+          </AccordionContent>
+        </AccordionItem>
+      )}
+
+      {days.length > 0 && (
+        <AccordionItem value="days">
+          <AccordionTrigger className={trigger}>
+            Work days ({days.length})
+          </AccordionTrigger>
+          <AccordionContent>
+            <div className="overflow-x-auto pb-4">
+              <table className="w-full border-collapse text-base">
+                <thead>
+                  <tr className="border-b border-border text-left">
+                    <th scope="col" className="label py-1.5 pr-3 font-semibold">Month</th>
+                    {daySites.map((s) => (
+                      <th key={s} scope="col" className="label py-1.5 pr-3 text-right font-semibold">
+                        {s.split(',')[0]}
+                      </th>
+                    ))}
+                    <th scope="col" className="label py-1.5 text-right font-semibold">All</th>
+                  </tr>
+                </thead>
+                <tbody className="font-sans text-sm tabular-nums">
+                  {months.map((m) => (
+                    <tr key={m} className="border-b border-border">
+                      <th scope="row" className="py-1.5 pr-3 text-left font-normal">
+                        {formatDate(`${m}-01`).replace(/^1 /, '')}
+                      </th>
+                      {daySites.map((s) => (
+                        <td key={s} className="py-1.5 pr-3 text-right">{count(m, s)}</td>
+                      ))}
+                      <td className="py-1.5 text-right">{count(m, null)}</td>
+                    </tr>
+                  ))}
+                  <tr className="font-semibold">
+                    <th scope="row" className="py-1.5 pr-3 text-left">Total</th>
+                    {daySites.map((s) => (
+                      <td key={s} className="py-1.5 pr-3 text-right">{count(null, s)}</td>
+                    ))}
+                    <td className="py-1.5 text-right">{days.length}</td>
+                  </tr>
+                </tbody>
+              </table>
+              {hours > 0 && (
+                <p className="pt-2 font-sans text-sm text-muted-foreground">{hours} hours recorded.</p>
+              )}
+            </div>
           </AccordionContent>
         </AccordionItem>
       )}

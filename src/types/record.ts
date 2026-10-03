@@ -1,15 +1,18 @@
 /**
- * One entry in the records. Three types share one list:
+ * One entry in the records. Four types share one list:
  * - `worked`: a plant worked with. Numbered 001, 002…
  * - `studied`: a species investigated but not worked with. Numbered S001, S002…
  * - `event`: a lecture, visit, course or other attendance. Numbered E001, E002…
+ * - `day`: a day worked at a site. Numbered D001, D002…
  * `null` means the field has not been recorded yet.
  */
-export type Entry = WorkedRecord | StudiedRecord | EventRecord
+export type Entry = WorkedRecord | StudiedRecord | EventRecord | DayRecord
 
 export type EntryType = Entry['type']
 
 export type EventKind = 'lecture' | 'visit' | 'course' | 'other'
+
+export type Capacity = 'volunteer' | 'contract' | 'own'
 
 interface BaseEntry {
   record_no: string
@@ -70,6 +73,22 @@ export interface EventRecord extends BaseEntry {
   /** Species seen or covered, each with botanical names wrapped in <i>…</i>. */
   species: string[]
   url: string | null
+}
+
+/**
+ * A day worked at a site. The plants worked with that day are not stored here:
+ * they are the `worked` entries with the same date and site.
+ */
+export interface DayRecord extends BaseEntry {
+  type: 'day'
+  site: string
+  /** Who the work was for. */
+  organisation: string | null
+  capacity: Capacity
+  hours: number | null
+  with_whom: string | null
+  /** What was done, in plain words. Work that is not about a single plant lives here. */
+  work_done: string | null
 }
 
 /**

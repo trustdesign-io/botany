@@ -3,7 +3,8 @@ import { EMPTY_FILTERS, filterRecords, filtersToHash, hashToFilters, uniqueSorte
 import { EVENT_EXAMPLE, STUDIED_EXAMPLE } from './fixtures'
 import { getRecords } from './records'
 
-const records = getRecords()
+const all = getRecords()
+const records = all.filter((r) => r.type === 'worked')
 
 describe('filterRecords', () => {
   it('returns everything with no filters', () => {
@@ -68,6 +69,21 @@ describe('types', () => {
   it('leaves events out when filtering by family', () => {
     const found = filterRecords(mixed, { ...EMPTY_FILTERS, family: 'Araceae' })
     expect(found.map((r) => r.record_no)).toEqual(['S001'])
+  })
+})
+
+describe('work days', () => {
+  it('filters to work days and by site', () => {
+    const days = filterRecords(all, { ...EMPTY_FILTERS, type: 'day' })
+    expect(days).toHaveLength(19)
+    const shorne = filterRecords(all, { ...EMPTY_FILTERS, type: 'day', site: 'Shorne Woods Country Park, Kent' })
+    expect(shorne).toHaveLength(6)
+  })
+
+  it('keeps the worked-with list clean', () => {
+    const worked = filterRecords(all, { ...EMPTY_FILTERS, type: 'worked' })
+    expect(worked.every((r) => r.type === 'worked')).toBe(true)
+    expect(worked).toHaveLength(22)
   })
 })
 

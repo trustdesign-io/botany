@@ -4,7 +4,14 @@ import Image from 'next/image'
 import Link from 'next/link'
 import type { Entry } from '@/types/record'
 import { EMPTY_FILTERS, type RecordFilters, filterRecords, filtersToHash, uniqueSorted } from '@/lib/filter'
-import { EVENT_KIND_LABELS, TYPE_LABELS, entryTitleHtml, formatDate, isPlant } from '@/lib/records'
+import {
+  CAPACITY_LABELS,
+  EVENT_KIND_LABELS,
+  TYPE_LABELS,
+  entryTitleHtml,
+  formatDate,
+  isPlant,
+} from '@/lib/records'
 import { BASE_PATH } from '@/lib/site'
 import { cn } from '@/lib/utils'
 import { useHashFilters } from '@/hooks/use-hash-filters'
@@ -22,6 +29,7 @@ const control =
 /** Second line of a row: what kind of entry it is. Worked-with plants show only their family. */
 function meta(r: Entry): string {
   if (r.type === 'event') return EVENT_KIND_LABELS[r.event_kind]
+  if (r.type === 'day') return `${TYPE_LABELS.day} · ${CAPACITY_LABELS[r.capacity]}`
   return r.type === 'studied' ? `${TYPE_LABELS.studied} · ${r.family}` : r.family
 }
 
@@ -53,7 +61,7 @@ export function RecordIndex({ records }: RecordIndexProps) {
           type="search"
           value={filters.q}
           onChange={(e) => set({ q: e.target.value })}
-          placeholder="Name, family, event or record number"
+          placeholder="Name, family, site or record number"
           className={control}
         />
       </label>
@@ -65,6 +73,7 @@ export function RecordIndex({ records }: RecordIndexProps) {
           <option value="worked">Worked with</option>
           <option value="studied">Studied</option>
           <option value="event">Events</option>
+          <option value="day">Work days</option>
         </select>
       </label>
 

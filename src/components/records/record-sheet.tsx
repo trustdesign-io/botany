@@ -1,7 +1,16 @@
 import type { ReactNode } from 'react'
 import Link from 'next/link'
-import type { Entry, EventRecord, StudiedRecord, WorkedRecord } from '@/types/record'
-import { EVENT_KIND_LABELS, entryTitleHtml, findPlantByName, formatDate } from '@/lib/records'
+import type { DayRecord, Entry, EventRecord, StudiedRecord, WorkedRecord } from '@/types/record'
+import {
+  CAPACITY_LABELS,
+  EVENT_KIND_LABELS,
+  entryTitleHtml,
+  findPlantByName,
+  formatDate,
+  getDayFor,
+  getPlantsForDay,
+  weekday,
+} from '@/lib/records'
 import { Blank, RecordField } from './record-field'
 import { RecordImage } from './record-image'
 import { TaxonName } from './taxon-name'
@@ -13,6 +22,13 @@ interface RecordSheetProps {
   keptBy: string
 }
 
+const OWN_PHOTO_LABELS: Record<Entry['type'], string> = {
+  worked: 'The plant recorded',
+  studied: 'The plant studied',
+  event: 'At the event',
+  day: 'On the day',
+}
+
 const group = 'grid gap-3 print:gap-2 border-b border-border py-4 print:py-2.5'
 const lastGroup = 'grid gap-3 print:gap-2 py-4 print:py-2.5'
 const topGrid =
@@ -22,6 +38,7 @@ const topGrid =
 function kicker(r: Entry): string {
   if (r.type === 'worked') return 'Plant record'
   if (r.type === 'studied') return 'Species studied'
+  if (r.type === 'day') return `Work day · ${CAPACITY_LABELS[r.capacity]}`
   return `Event · ${EVENT_KIND_LABELS[r.event_kind]}`
 }
 
@@ -44,7 +61,7 @@ function Projects({ projects }: { projects: string[] }) {
 }
 
 function Sources({ r }: { r: Entry }) {
-  const powo = r.type === 'event' ? null : r.powo_url
+  const powo = 'powo_url' in r ? r.powo_url : null
   return (
     <div className={lastGroup}>
       <RecordField label="Sources" value={r.sources} small>
@@ -66,8 +83,11 @@ function Sources({ r }: { r: Entry }) {
   )
 }
 
+const quietLink = 'underline decoration-border underline-offset-2 hover:text-stamp hover:decoration-stamp'
+
 /** A plant worked with: the record book's fixed field order. */
 function WorkedBody({ r }: { r: WorkedRecord }) {
+  const day = getDayFor(r)
   return (
     <dl>
       <div className={topGrid}>
@@ -83,6 +103,21 @@ function WorkedBody({ r }: { r: WorkedRecord }) {
           <TopCell label="VC">{r.vice_county ?? <Blank />}</TopCell>
           <TopCell label="Grid">{r.grid_ref ?? <Blank />}</TopCell>
         </div>
+        {day && (
+          <div className="no-print col-span-2">
+            <dt className="label">Work day</dt>
+            <dd>
+              <Link href={`/records/${day.record_no}/`} className={quietLink}>
+                {day.record_no}
+              </Link>
+              <span className="text-muted-foreground">
+                {' '}
+                · {CAPACITY_LABELS[day.capacity]}
+                {day.organisation && `, ${day.organisation}`}
+              </span>
+            </dd>
+          </div>
+        )}
         <Projects projects={r.projects} />
       </div>
 
@@ -199,7 +234,7 @@ function EventBody({ r }: { r: EventRecord }) {
                       {record ? (
                         <Link
                           href={`/records/${record.record_no}/`}
-                          className="underline decoration-border underline-offset-2 hover:text-stamp hover:decoration-stamp"
+                          className={quietLink}
                         >
                           <TaxonName html={name} />
                           <span className="font-sans text-sm text-muted-foreground"> · {record.record_no}</span>
@@ -210,6 +245,60 @@ function EventBody({ r }: { r: EventRecord }) {
                     </li>
                   )
                 })}
+              </ul>
+            )}
+          </dd>
+        </div>
+      </div>
+
+      <Sources r={r} />
+    </dl>
+  )
+}
+
+/** A day worked at a site, with the plants worked with that day listed from their own records. */
+function DayBody({ r }: { r: DayRecord }) {
+  const plants = getPlantsForDay(r)
+  return (
+    <dl>
+      <div className={topGrid}>
+        <TopCell label="Date">
+          <time dateTime={r.date}>
+            {weekday(r.date)} {formatDate(r.date)}
+          </time>
+        </TopCell>
+        <TopCell label="Site">{r.site}</TopCell>
+        <Projects projects={r.projects} />
+      </div>
+
+      <div className={group}>
+        <RecordField label="For" value={r.organisation} />
+        <RecordField label="Capacity" value={CAPACITY_LABELS[r.capacity]} />
+        <RecordField label="Hours" value={r.hours === null ? null : String(r.hours)} />
+        <RecordField label="With" value={r.with_whom} />
+        {r.note && <RecordField label="Note" value={r.note} small />}
+      </div>
+
+      <div className={group}>
+        <RecordField label="Work done" value={r.work_done} lines={6} />
+      </div>
+
+      <div className={group}>
+        <div className="grid gap-x-4 gap-y-0.5 sm:grid-cols-[7.5rem_1fr] print:grid-cols-[7.5rem_1fr]">
+          <dt className="label pt-1">Plants worked with</dt>
+          <dd className="min-w-0">
+            {plants.length === 0 ? (
+              <span className="text-muted-foreground">None recorded for this day.</span>
+            ) : (
+              <ul className="grid gap-1">
+                {plants.map((p) => (
+                  <li key={p.record_no}>
+                    <Link href={`/records/${p.record_no}/`} className={quietLink}>
+                      <span className="font-sans text-sm tabular-nums text-muted-foreground">{p.record_no} </span>
+                      <TaxonName html={p.name_html} />
+                    </Link>
+                  </li>
+                ))}
               </ul>
             )}
           </dd>
@@ -245,7 +334,7 @@ export function RecordSheet({ record: r, headingLevel: Heading = 'h1', keptBy }:
         <div className="border-b border-border py-4">
           <RecordImage
             image={r.image}
-            ownLabel={r.type === 'worked' ? 'The plant recorded' : r.type === 'studied' ? 'The plant studied' : 'At the event'}
+            ownLabel={OWN_PHOTO_LABELS[r.type]}
           />
         </div>
       )}
@@ -253,6 +342,7 @@ export function RecordSheet({ record: r, headingLevel: Heading = 'h1', keptBy }:
       {r.type === 'worked' && <WorkedBody r={r} />}
       {r.type === 'studied' && <StudiedBody r={r} />}
       {r.type === 'event' && <EventBody r={r} />}
+      {r.type === 'day' && <DayBody r={r} />}
 
       <p className="label hidden justify-between pt-2 font-medium print:flex">
         <span>Records · {keptBy}</span>
