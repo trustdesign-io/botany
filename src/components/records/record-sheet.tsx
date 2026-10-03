@@ -280,7 +280,22 @@ function DayBody({ r }: { r: DayRecord }) {
       </div>
 
       <div className={group}>
-        <RecordField label="Work done" value={r.work_done} lines={6} />
+        <div className="grid gap-x-4 gap-y-0.5 sm:grid-cols-[7.5rem_1fr] print:grid-cols-[7.5rem_1fr]">
+          <dt className="label pt-1">Work done</dt>
+          <dd className="min-w-0">
+            {r.tasks.length === 0 ? (
+              <Blank lines={4} />
+            ) : (
+              <ul className="grid gap-1">
+                {r.tasks.map((task) => (
+                  <li key={task}>
+                    <TaxonName html={task} />
+                  </li>
+                ))}
+              </ul>
+            )}
+          </dd>
+        </div>
       </div>
 
       <div className={group}>

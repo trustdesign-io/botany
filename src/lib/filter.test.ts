@@ -1,5 +1,5 @@
 import { describe, expect, it } from 'vitest'
-import { EMPTY_FILTERS, filterRecords, filtersToHash, hashToFilters, uniqueSorted } from './filter'
+import { EMPTY_FILTERS, buildBlocks, filterRecords, filtersToHash, hashToFilters, uniqueSorted } from './filter'
 import { EVENT_EXAMPLE, STUDIED_EXAMPLE } from './fixtures'
 import { getRecords } from './records'
 
@@ -84,6 +84,35 @@ describe('work days', () => {
     const worked = filterRecords(all, { ...EMPTY_FILTERS, type: 'worked' })
     expect(worked.every((r) => r.type === 'worked')).toBe(true)
     expect(worked).toHaveLength(22)
+  })
+})
+
+describe('buildBlocks', () => {
+  it('puts each plant under its work day, so a visit appears once', () => {
+    const blocks = buildBlocks(all, all)
+    expect(blocks.filter((b) => b.entry.type === 'worked')).toHaveLength(0)
+    expect(blocks.filter((b) => b.entry.type === 'day')).toHaveLength(19)
+    const oct2 = blocks.find((b) => b.entry.date === '2026-10-02')
+    expect(oct2?.plants.map((p) => p.record_no)).toEqual(['015', '016', '017', '018', '019', '020', '021', '022'])
+    expect(blocks.reduce((n, b) => n + b.plants.length, 0)).toBe(22)
+  })
+
+  it('is newest first', () => {
+    const dates = buildBlocks(all, all).map((b) => b.entry.date)
+    expect(dates).toEqual([...dates].sort().reverse())
+  })
+
+  it('shows only the days that hold a match, with only the matching plants', () => {
+    const matched = filterRecords(all, { ...EMPTY_FILTERS, q: 'ribes' })
+    const blocks = buildBlocks(matched, all)
+    expect(blocks).toHaveLength(1)
+    expect(blocks[0].entry.date).toBe('2026-10-01')
+    expect(blocks[0].plants.map((p) => p.record_no)).toEqual(['013'])
+  })
+
+  it('keeps studied species and events as rows of their own', () => {
+    const blocks = buildBlocks([STUDIED_EXAMPLE, EVENT_EXAMPLE], all)
+    expect(blocks.map((b) => b.entry.record_no).sort()).toEqual(['E001', 'S001'])
   })
 })
 

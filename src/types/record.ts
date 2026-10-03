@@ -87,8 +87,8 @@ export interface DayRecord extends BaseEntry {
   capacity: Capacity
   hours: number | null
   with_whom: string | null
-  /** What was done, in plain words. Work that is not about a single plant lives here. */
-  work_done: string | null
+  /** Work that did not involve a specific plant, one item each: "Watering the Australis tunnel". */
+  tasks: string[]
 }
 
 /**

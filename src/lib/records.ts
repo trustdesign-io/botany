@@ -116,14 +116,14 @@ const daySchema = z.strictObject({
   capacity: z.enum(['volunteer', 'contract', 'own']),
   hours: z.number().positive().max(24).nullable(),
   with_whom: optionalText,
-  work_done: optionalText,
+  tasks: z.array(inlineText),
 })
 
 export const recordSchema = z.discriminatedUnion('type', [workedSchema, studiedSchema, eventSchema, daySchema])
 
 export const recordsFileSchema = z
   .strictObject({
-    schema_version: z.literal(6),
+    schema_version: z.literal(7),
     title: z.string().min(1),
     kept_by: z.string().min(1),
     updated: isoDate,
