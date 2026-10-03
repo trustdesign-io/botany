@@ -790,7 +790,22 @@
       "open_questions": "Diagnostic from secondary sources; check against the plant. Protologue not read.",
       "powo_url": "https://powo.science.kew.org/taxon/urn:lsid:ipni.org:names:106204-2",
       "log": [],
-      "images": []
+      "images": [
+        {
+          "kind": "own",
+          "src": "/images/015.jpg",
+          "thumb": "/images/015-thumb.jpg",
+          "width": 768,
+          "height": 1024,
+          "alt": "Fuchsia jimenezii being planted: a man in a red cap and gloves setting the young plant into a hole in a border",
+          "credit": "D.C. Chambers",
+          "licence": null,
+          "licence_url": null,
+          "source": null,
+          "source_url": null,
+          "taken": null
+        }
+      ]
     },
     {
       "record_no": "016",
