@@ -5,6 +5,8 @@ import { BASE_PATH } from '@/lib/site'
 
 interface RecordImageProps {
   image: RecordImageData
+  /** Caption label for an own photo. Events are not plants, so they pass their own. */
+  ownLabel?: string
 }
 
 const link = 'underline underline-offset-2 hover:text-stamp'
@@ -14,7 +16,7 @@ const link = 'underline underline-offset-2 hover:text-stamp'
  * photo is of the species, from a public source, and is labelled so it is
  * never mistaken for the plant recorded.
  */
-export function RecordImage({ image }: RecordImageProps) {
+export function RecordImage({ image, ownLabel = 'The plant recorded' }: RecordImageProps) {
   return (
     <figure className="no-print grid gap-2 sm:max-w-xs">
       <Image
@@ -28,7 +30,7 @@ export function RecordImage({ image }: RecordImageProps) {
       <figcaption className="font-sans text-xs leading-snug text-muted-foreground">
         {image.kind === 'own' ? (
           <>
-            <span className="label block">The plant recorded</span>
+            <span className="label block">{ownLabel}</span>
             Photo: {image.credit}
             {image.taken && `, ${formatDate(image.taken)}`}.
           </>

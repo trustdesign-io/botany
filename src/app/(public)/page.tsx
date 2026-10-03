@@ -10,7 +10,7 @@ export default function IndexPage() {
       <div>
         <h1 className="text-3xl leading-tight text-balance sm:text-4xl">Records</h1>
         <p className="mt-2 max-w-prose text-muted-foreground">
-          Every plant I have worked with, one record each, numbered in the order of the work.{' '}
+          Plants I have worked with, species I have studied and events I have attended, one record each.{' '}
           <Link href="/about/" className="underline underline-offset-2 hover:text-stamp">
             How the records are kept
           </Link>

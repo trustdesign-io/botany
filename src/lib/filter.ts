@@ -1,7 +1,8 @@
-import type { PlantRecord } from '@/types/record'
+import type { Entry } from '@/types/record'
 
 export interface RecordFilters {
   q: string
+  type: string
   site: string
   project: string
   family: string
@@ -9,24 +10,34 @@ export interface RecordFilters {
   to: string
 }
 
-export const EMPTY_FILTERS: RecordFilters = { q: '', site: '', project: '', family: '', from: '', to: '' }
+export const EMPTY_FILTERS: RecordFilters = { q: '', type: '', site: '', project: '', family: '', from: '', to: '' }
 
 const KEYS = Object.keys(EMPTY_FILTERS) as (keyof RecordFilters)[]
 
 function fold(text: string): string {
-  return text.normalize('NFD').replace(/[̀-ͯ]/g, '').toLowerCase()
+  return text.normalize('NFD').replace(/[\u0300-\u036f]/g, '').toLowerCase()
 }
 
-export function filterRecords(records: PlantRecord[], f: RecordFilters): PlantRecord[] {
+/** The text a search looks through for one entry. */
+function searchText(r: Entry): string {
+  const parts: (string | null)[] =
+    r.type === 'event'
+      ? [r.record_no, r.title, r.organiser, r.site, ...r.species, r.note]
+      : [r.record_no, r.name, r.family, r.common_names, r.note]
+  return fold(parts.filter(Boolean).join(' ').replace(/<\/?i>/g, ''))
+}
+
+export function filterRecords(records: Entry[], f: RecordFilters): Entry[] {
   const q = fold(f.q.trim())
   return records.filter((r) => {
+    if (f.type && r.type !== f.type) return false
     if (f.site && r.site !== f.site) return false
     if (f.project && !r.projects.includes(f.project)) return false
-    if (f.family && r.family !== f.family) return false
+    if (f.family && (r.type === 'event' || r.family !== f.family)) return false
     if (f.from && r.date < f.from) return false
     if (f.to && r.date > f.to) return false
     if (!q) return true
-    const haystack = fold([r.record_no, r.name, r.family, r.common_names ?? '', r.note ?? ''].join(' '))
+    const haystack = searchText(r)
     return q.split(/\s+/).every((word) => haystack.includes(word))
   })
 }

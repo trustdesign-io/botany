@@ -91,6 +91,8 @@ A field with nothing recorded is shown as blank, never omitted, so gaps stay vis
 - Typed schema and a validation test for `plant-records.json`, so a malformed edit fails CI and never deploys.
 - Light and dark themes.
 
+- Three entry types in one list, each with its own number sequence and a Type filter: plants worked with (001…), species studied (S001…) and events attended (E001…). An event lists the species seen inside it.
+
 ### Should have
 - Index accordion: search and filters, by family, native ranges.
 - Filters for project and date range.

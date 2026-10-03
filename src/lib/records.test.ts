@@ -1,16 +1,26 @@
 import { describe, expect, it } from 'vitest'
 import raw from '../../public/plant-records.json'
-import { formatDate, getNeighbours, getRecords, parseRecordsFile, recordSchema } from './records'
+import { EVENT_EXAMPLE, STUDIED_EXAMPLE } from './fixtures'
+import {
+  entryTitle,
+  findPlantByName,
+  formatDate,
+  getNeighbours,
+  getRecords,
+  parseRecordsFile,
+  recordSchema,
+} from './records'
 
 describe('plant-records.json', () => {
   it('is valid against the schema', () => {
     expect(() => parseRecordsFile(raw)).not.toThrow()
   })
 
-  it('has unique, zero-padded record numbers', () => {
-    const nos = getRecords().map((r) => r.record_no)
-    expect(new Set(nos).size).toBe(nos.length)
-    for (const no of nos) expect(no).toMatch(/^\d{3,}$/)
+  it('has unique record numbers, each in its type\'s sequence', () => {
+    const all = getRecords()
+    expect(new Set(all.map((r) => r.record_no)).size).toBe(all.length)
+    const pattern = { worked: /^\d{3,}$/, studied: /^S\d{3,}$/, event: /^E\d{3,}$/ }
+    for (const r of all) expect(r.record_no).toMatch(pattern[r.type])
   })
 
   it('sorts oldest first', () => {
@@ -74,6 +84,41 @@ describe('schema', () => {
   it('rejects duplicate record numbers', () => {
     const file = { ...raw, records: [raw.records[0], raw.records[0]] }
     expect(() => parseRecordsFile(file)).toThrow(/duplicate/)
+  })
+})
+
+describe('entry types', () => {
+  it('accepts a studied species and an event', () => {
+    expect(recordSchema.safeParse(STUDIED_EXAMPLE).success).toBe(true)
+    expect(recordSchema.safeParse(EVENT_EXAMPLE).success).toBe(true)
+  })
+
+  it('ties the number prefix to the type', () => {
+    expect(recordSchema.safeParse({ ...STUDIED_EXAMPLE, record_no: '023' }).success).toBe(false)
+    expect(recordSchema.safeParse({ ...EVENT_EXAMPLE, record_no: 'S001' }).success).toBe(false)
+    expect(recordSchema.safeParse({ ...getRecords()[0], record_no: 'E001' }).success).toBe(false)
+  })
+
+  it('keeps hands-on fields off a studied species', () => {
+    expect(recordSchema.safeParse({ ...STUDIED_EXAMPLE, work_done: 'Pruned' }).success).toBe(false)
+  })
+
+  it('requires a title, kind and place on an event', () => {
+    expect(recordSchema.safeParse({ ...EVENT_EXAMPLE, title: '' }).success).toBe(false)
+    expect(recordSchema.safeParse({ ...EVENT_EXAMPLE, event_kind: 'party' }).success).toBe(false)
+    expect(recordSchema.safeParse({ ...EVENT_EXAMPLE, site: null }).success).toBe(false)
+  })
+
+  it('titles an event by its title and a plant by its name', () => {
+    expect(entryTitle(EVENT_EXAMPLE)).toBe('Example lecture on glasshouse plants')
+    expect(entryTitle(STUDIED_EXAMPLE)).toBe('Amorphophallus titanum (Becc.) Becc.')
+  })
+
+  it('links a species named in an event to its record', () => {
+    const all = [...getRecords(), STUDIED_EXAMPLE]
+    expect(findPlantByName('<i>Ribes speciosum</i>', all)?.record_no).toBe('013')
+    expect(findPlantByName('<i>Amorphophallus titanum</i>', all)?.record_no).toBe('S001')
+    expect(findPlantByName('<i>Quercus robur</i>', all)).toBeUndefined()
   })
 })
 

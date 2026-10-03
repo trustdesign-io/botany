@@ -2,9 +2,9 @@
 
 import Image from 'next/image'
 import Link from 'next/link'
-import type { PlantRecord } from '@/types/record'
+import type { Entry } from '@/types/record'
 import { EMPTY_FILTERS, type RecordFilters, filterRecords, filtersToHash, uniqueSorted } from '@/lib/filter'
-import { formatDate } from '@/lib/records'
+import { EVENT_KIND_LABELS, TYPE_LABELS, entryTitleHtml, formatDate, isPlant } from '@/lib/records'
 import { BASE_PATH } from '@/lib/site'
 import { cn } from '@/lib/utils'
 import { useHashFilters } from '@/hooks/use-hash-filters'
@@ -13,11 +13,17 @@ import { TaxonName } from './taxon-name'
 
 interface RecordIndexProps {
   /** All records, oldest first. */
-  records: PlantRecord[]
+  records: Entry[]
 }
 
 const control =
   'h-10 w-full min-w-0 rounded-sm border border-input bg-background px-2.5 font-sans text-sm text-foreground hover:border-foreground'
+
+/** Second line of a row: what kind of entry it is. Worked-with plants show only their family. */
+function meta(r: Entry): string {
+  if (r.type === 'event') return EVENT_KIND_LABELS[r.event_kind]
+  return r.type === 'studied' ? `${TYPE_LABELS.studied} · ${r.family}` : r.family
+}
 
 /** The index: an accordion holding search, filters and summaries, then the list. Newest work day first. */
 export function RecordIndex({ records }: RecordIndexProps) {
@@ -26,7 +32,7 @@ export function RecordIndex({ records }: RecordIndexProps) {
 
   const sites = uniqueSorted(records.map((r) => r.site))
   const projects = uniqueSorted(records.flatMap((r) => r.projects))
-  const families = uniqueSorted(records.map((r) => r.family))
+  const families = uniqueSorted(records.map((r) => (isPlant(r) ? r.family : null)))
 
   const shown = filterRecords(records, filters).reverse()
   const filtered = filtersToHash(filters) !== ''
@@ -38,18 +44,28 @@ export function RecordIndex({ records }: RecordIndexProps) {
       role="search"
       aria-label="Search and filter records"
       onSubmit={(e) => e.preventDefault()}
-      className="grid grid-cols-2 gap-x-3 gap-y-3 sm:grid-cols-4"
+      className="grid grid-cols-2 gap-x-3 gap-y-3 sm:grid-cols-5"
     >
-      <label className="col-span-2 grid gap-1 sm:col-span-4">
+      <label className="col-span-2 grid gap-1 sm:col-span-5">
         <span className="label">Search</span>
         <input
           id="filter-q"
           type="search"
           value={filters.q}
           onChange={(e) => set({ q: e.target.value })}
-          placeholder="Name, family or record number"
+          placeholder="Name, family, event or record number"
           className={control}
         />
+      </label>
+
+      <label className="col-span-2 grid gap-1 sm:col-span-1">
+        <span className="label">Type</span>
+        <select id="filter-type" value={filters.type} onChange={(e) => set({ type: e.target.value })} className={control}>
+          <option value="">All types</option>
+          <option value="worked">Worked with</option>
+          <option value="studied">Studied</option>
+          <option value="event">Events</option>
+        </select>
       </label>
 
       <label className="grid gap-1">
@@ -73,7 +89,7 @@ export function RecordIndex({ records }: RecordIndexProps) {
       </label>
 
       {projects.length > 0 && (
-        <label className="col-span-2 grid gap-1 sm:col-span-4">
+        <label className="col-span-2 grid gap-1 sm:col-span-5">
           <span className="label">Project</span>
           <select id="filter-project" value={filters.project} onChange={(e) => set({ project: e.target.value })} className={control}>
             <option value="">All projects</option>
@@ -124,7 +140,7 @@ export function RecordIndex({ records }: RecordIndexProps) {
             <li key={r.record_no} className="border-b border-border">
               <Link
                 href={`/records/${r.record_no}/`}
-                className="group grid grid-cols-[2.25rem_2.5rem_1fr] gap-x-3 py-3 hover:bg-secondary active:bg-muted sm:grid-cols-[3rem_2.5rem_1fr_9rem_7rem] sm:items-center"
+                className="group grid grid-cols-[2.75rem_2.5rem_1fr] gap-x-3 py-3 hover:bg-secondary active:bg-muted sm:grid-cols-[3rem_2.5rem_1fr_10rem_7rem] sm:items-center"
               >
                 <span className="font-sans text-sm leading-7 tabular-nums text-muted-foreground">{r.record_no}</span>
                 {/* Thumbnail of the record's photo; the cell stays empty when a record has none. */}
@@ -144,10 +160,10 @@ export function RecordIndex({ records }: RecordIndexProps) {
                   )}
                 </span>
                 <span className="min-w-0 text-lg leading-snug group-hover:text-stamp">
-                  <TaxonName html={r.name_html} />
+                  <TaxonName html={entryTitleHtml(r)} />
                 </span>
                 <span className="col-start-3 font-sans text-sm text-muted-foreground sm:col-start-auto">
-                  {r.family}
+                  {meta(r)}
                   <span className="sm:hidden"> · {formatDate(r.date, 'short')}</span>
                 </span>
                 <time dateTime={r.date} className="hidden text-right font-sans text-sm tabular-nums text-muted-foreground sm:block">
