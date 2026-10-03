@@ -706,6 +706,65 @@
     {
       "record_no": "013",
       "type": "worked",
+      "date": "2026-09-25",
+      "site": "Lullingstone Castle World Garden, Eynsford, Kent",
+      "projects": [],
+      "location": "South Africa bed",
+      "vice_county": "16 W Kent",
+      "grid_ref": null,
+      "name": "Chamaerops humilis L.",
+      "name_html": "<i>Chamaerops humilis</i> L.",
+      "family": "Arecaceae",
+      "det": "T. Hart Dyke (verbal), relayed to D.C. Chambers, 25 Sep 2026 — not keyed",
+      "label_read": null,
+      "note": "Planted in the South Africa bed, though the species belongs in the North Africa bed: an executive decision for practicality and aesthetics.",
+      "common_names": "European fan palm",
+      "native_range": "W. & Central Mediterranean",
+      "habit": "Subshrub or shrub; subtropical biome",
+      "provenance": null,
+      "diagnostic": "Clumping fan palm: several stems from one base, suckering from an underground rhizome. Stems slow, 2–5 m, clothed in old leaf bases and fibre. Leaves stiff, rounded fans of 10–20 narrow leaflets. Leaf stalks armed with numerous sharp, needle-like spines.",
+      "near_misses": "<i>Trachycarpus fortunei</i>: a single stem with no suckers at the base, and leaf stalks without spines.",
+      "work_done": "Dug out an old rootball. Dug a significant hole and added sand for drainage. Planted a 7-foot specimen, with notable effort spent positioning and orienting it to sit well against the sculptures around it. Dressed with sand and ornamental warthogs.",
+      "how_studied": null,
+      "observed": null,
+      "sources": "POWO, accessed 3 Oct 2026. Sp. Pl.: 1187 (1753). Wikipedia.",
+      "open_questions": "What the old rootball dug out was. Diagnostic from secondary sources; check against the plant.",
+      "powo_url": "https://powo.science.kew.org/taxon/urn:lsid:ipni.org:names:665917-1",
+      "log": [],
+      "images": [
+        {
+          "kind": "own",
+          "src": "/images/013.jpg",
+          "thumb": "/images/013-thumb.jpg",
+          "width": 768,
+          "height": 1024,
+          "alt": "Chamaerops humilis newly planted in the South Africa bed: a fan palm with a trunk clothed in old leaf bases, standing in a circle of sand dressed with ornamental warthogs, a South African flag flying behind",
+          "credit": "D.C. Chambers",
+          "licence": null,
+          "licence_url": null,
+          "source": null,
+          "source_url": null,
+          "taken": "2026-09-25"
+        },
+        {
+          "kind": "own",
+          "src": "/images/013-2.jpg",
+          "thumb": null,
+          "width": 1024,
+          "height": 768,
+          "alt": "The Chamaerops humilis before planting, lying across a wheelbarrow with its fronds tied together and its rootball behind",
+          "credit": "D.C. Chambers",
+          "licence": null,
+          "licence_url": null,
+          "source": null,
+          "source_url": null,
+          "taken": "2026-09-25"
+        }
+      ]
+    },
+    {
+      "record_no": "014",
+      "type": "worked",
       "date": "2026-10-01",
       "site": "Lullingstone Castle World Garden, Eynsford, Kent",
       "projects": [],
@@ -734,8 +793,8 @@
       "images": [
         {
           "kind": "own",
-          "src": "/images/013.jpg",
-          "thumb": "/images/013-thumb.jpg",
+          "src": "/images/014.jpg",
+          "thumb": "/images/014-thumb.jpg",
           "width": 768,
           "height": 1024,
           "alt": "Tulipa linifolia bulbs set out on a bed of sand in a gravel border, with more bulbs in a gloved hand and a hand fork and trowel beside the packet",
@@ -748,7 +807,7 @@
         },
         {
           "kind": "own",
-          "src": "/images/013-2.jpg",
+          "src": "/images/014-2.jpg",
           "thumb": null,
           "width": 768,
           "height": 1024,
@@ -763,7 +822,7 @@
       ]
     },
     {
-      "record_no": "014",
+      "record_no": "015",
       "type": "worked",
       "date": "2026-10-01",
       "site": "Lullingstone Castle World Garden, Eynsford, Kent",
@@ -793,8 +852,8 @@
       "images": [
         {
           "kind": "own",
-          "src": "/images/014.jpg",
-          "thumb": "/images/014-thumb.jpg",
+          "src": "/images/015.jpg",
+          "thumb": "/images/015-thumb.jpg",
           "width": 1024,
           "height": 768,
           "alt": "Ribes speciosum being cut back: a large tangle of bare spiny stems under a blue sky, with a man in a red cap and orange shirt cutting at its base with loppers and a second person behind",
@@ -807,7 +866,7 @@
         },
         {
           "kind": "own",
-          "src": "/images/014-2.jpg",
+          "src": "/images/015-2.jpg",
           "thumb": null,
           "width": 1024,
           "height": 768,
@@ -822,7 +881,7 @@
       ]
     },
     {
-      "record_no": "015",
+      "record_no": "016",
       "type": "worked",
       "date": "2026-10-02",
       "site": "Lullingstone Castle World Garden, Eynsford, Kent",
@@ -852,7 +911,7 @@
       "images": []
     },
     {
-      "record_no": "016",
+      "record_no": "017",
       "type": "worked",
       "date": "2026-10-02",
       "site": "Lullingstone Castle World Garden, Eynsford, Kent",
@@ -882,8 +941,8 @@
       "images": [
         {
           "kind": "own",
-          "src": "/images/016.jpg",
-          "thumb": "/images/016-thumb.jpg",
+          "src": "/images/017.jpg",
+          "thumb": "/images/017-thumb.jpg",
           "width": 770,
           "height": 1024,
           "alt": "Cordyline 'Sprilecflash' newly planted: long arching leaves striped purple and cream, behind the trunk of a labelled Corymbia ficifolia, with a spiny euphorbia in front and a spade and trug beside",
@@ -897,7 +956,7 @@
       ]
     },
     {
-      "record_no": "017",
+      "record_no": "018",
       "type": "worked",
       "date": "2026-10-02",
       "site": "Lullingstone Castle World Garden, Eynsford, Kent",
@@ -927,8 +986,8 @@
       "images": [
         {
           "kind": "own",
-          "src": "/images/017.jpg",
-          "thumb": "/images/017-thumb.jpg",
+          "src": "/images/018.jpg",
+          "thumb": "/images/018-thumb.jpg",
           "width": 768,
           "height": 1024,
           "alt": "Dyckia frigida newly planted: a rosette of stiff, spine-edged grey-green leaves beside its garden label, which reads Bromeliaceae, Dyckia frigida, \"Syringe Leaved Dyckia\", Parana State, Brazil",
@@ -942,7 +1001,7 @@
       ]
     },
     {
-      "record_no": "018",
+      "record_no": "019",
       "type": "worked",
       "date": "2026-10-02",
       "site": "Lullingstone Castle World Garden, Eynsford, Kent",
@@ -972,8 +1031,8 @@
       "images": [
         {
           "kind": "own",
-          "src": "/images/018.jpg",
-          "thumb": "/images/018-thumb.jpg",
+          "src": "/images/019.jpg",
+          "thumb": "/images/019-thumb.jpg",
           "width": 768,
           "height": 1024,
           "alt": "Cleome arborea in an air-pot on a wooden stool: hairy, purple-tinged stems carrying large palmate leaves of about seven leaflets",
@@ -987,7 +1046,7 @@
       ]
     },
     {
-      "record_no": "019",
+      "record_no": "020",
       "type": "worked",
       "date": "2026-10-02",
       "site": "Lullingstone Castle World Garden, Eynsford, Kent",
@@ -1017,8 +1076,8 @@
       "images": [
         {
           "kind": "own",
-          "src": "/images/019.jpg",
-          "thumb": "/images/019-thumb.jpg",
+          "src": "/images/020.jpg",
+          "thumb": "/images/020-thumb.jpg",
           "width": 788,
           "height": 1024,
           "alt": "A newly planted Farfugium japonicum with large, glossy, crinkled dark green leaves in bare soil, a white label in front of it",
@@ -1032,7 +1091,7 @@
       ]
     },
     {
-      "record_no": "020",
+      "record_no": "021",
       "type": "worked",
       "date": "2026-10-02",
       "site": "Lullingstone Castle World Garden, Eynsford, Kent",
@@ -1062,8 +1121,8 @@
       "images": [
         {
           "kind": "own",
-          "src": "/images/020.jpg",
-          "thumb": "/images/020-thumb.jpg",
+          "src": "/images/021.jpg",
+          "thumb": "/images/021-thumb.jpg",
           "width": 768,
           "height": 1024,
           "alt": "Fuchsia jimenezii being planted: a man in a red cap and gloves setting the young plant into a hole in a border",
@@ -1077,7 +1136,7 @@
       ]
     },
     {
-      "record_no": "021",
+      "record_no": "022",
       "type": "worked",
       "date": "2026-10-02",
       "site": "Lullingstone Castle World Garden, Eynsford, Kent",
@@ -1107,7 +1166,7 @@
       "images": []
     },
     {
-      "record_no": "022",
+      "record_no": "023",
       "type": "worked",
       "date": "2026-10-02",
       "site": "Lullingstone Castle World Garden, Eynsford, Kent",
@@ -1137,8 +1196,8 @@
       "images": [
         {
           "kind": "own",
-          "src": "/images/022.jpg",
-          "thumb": "/images/022-thumb.jpg",
+          "src": "/images/023.jpg",
+          "thumb": "/images/023-thumb.jpg",
           "width": 768,
           "height": 1024,
           "alt": "Symphyotrichum 'Vasterival' newly planted: dark red stems with narrow leaves and small pale lilac daisy flowers",
@@ -1151,7 +1210,7 @@
         },
         {
           "kind": "own",
-          "src": "/images/022-2.jpg",
+          "src": "/images/023-2.jpg",
           "thumb": null,
           "width": 768,
           "height": 1024,
