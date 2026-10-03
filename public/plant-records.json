@@ -2,7 +2,7 @@
   "schema_version": 4,
   "title": "Botanical and Horticultural Records",
   "kept_by": "D.C. Chambers",
-  "updated": "2026-10-02",
+  "updated": "2026-10-03",
   "conventions": "null means not yet recorded. Text fields are plain text; the only markup allowed is <i>…</i> around botanical names. 'name' is the plain-text form of 'name_html'. Dates are ISO 8601. 'projects' is a list: a record can belong to none, one or several, and never appears twice. 'image' is one photo per record, or null. kind 'own' is D.C. Chambers' photograph of the plant recorded; kind 'reference' is a photo of the species from a public source, with its credit, licence and source. An 'own' photo replaces a 'reference' one.",
   "records": [
     {
@@ -584,6 +584,46 @@
       "open_questions": "Confirm the identity against the plant: three leaflets, yellow flowers, inflated pods. The supplier's page is reported to say “Native to South America”, which conflicts with POWO.",
       "powo_url": null,
       "image": null
+    },
+    {
+      "record_no": "022",
+      "date": "2026-10-02",
+      "site": "Lullingstone Castle World Garden, Eynsford, Kent",
+      "projects": [],
+      "location": null,
+      "vice_county": "16 W Kent",
+      "grid_ref": null,
+      "name": "Farfugium japonicum (L.) Kitam.",
+      "name_html": "<i>Farfugium japonicum</i> (L.) Kitam.",
+      "family": "Asteraceae",
+      "det": "T. Hart Dyke (verbal), relayed to D.C. Chambers, 2 Oct 2026 — not keyed",
+      "label_read": null,
+      "note": "Label is handwritten and partly buried in the photograph: “FARFUGIUM” and a second line beginning “TATSU…”. The leaves are crinkled, so this may be a named cultivar; not confirmed.",
+      "common_names": "Leopard plant; tsuwabuki (Japanese)",
+      "native_range": "S. China to Temp. E. Asia",
+      "habit": "Perennial; subtropical biome",
+      "provenance": null,
+      "diagnostic": "Spreading evergreen perennial to about 60 cm, with long-stalked, rounded, leathery, glossy dark green leaves like lily pads. Clusters of yellow daisy flowers are held above the foliage in autumn. Garden forms include spotted, variegated and crinkled-leaved cultivars.",
+      "near_misses": null,
+      "work_done": null,
+      "observed": null,
+      "sources": "POWO, accessed 3 Oct 2026. Acta Phytotax. Geobot. 8: 268 (1939). University of Florida IFAS Gardening Solutions.",
+      "open_questions": "Read the full label and copy it word for word. Confirm whether it is a cultivar, such as ‘Crispatum’ or ‘Shishi Botan’. Diagnostic from a secondary source; check against the plant. Basionym <i>Tussilago japonica</i> L. (1767).",
+      "powo_url": "https://powo.science.kew.org/taxon/urn:lsid:ipni.org:names:207632-1",
+      "image": {
+        "kind": "own",
+        "src": "/images/022.jpg",
+        "thumb": "/images/022-thumb.jpg",
+        "width": 788,
+        "height": 1024,
+        "alt": "A newly planted Farfugium japonicum with large, glossy, crinkled dark green leaves in bare soil, a white label in front of it",
+        "credit": "D.C. Chambers",
+        "licence": null,
+        "licence_url": null,
+        "source": null,
+        "source_url": null,
+        "taken": "2026-10-02"
+      }
     }
   ]
 }
