@@ -3,7 +3,15 @@
 import Image from 'next/image'
 import Link from 'next/link'
 import type { Entry } from '@/types/record'
-import { EMPTY_FILTERS, type RecordFilters, filterRecords, filtersToHash, uniqueSorted } from '@/lib/filter'
+import {
+  type Block,
+  EMPTY_FILTERS,
+  type RecordFilters,
+  buildBlocks,
+  filterRecords,
+  filtersToHash,
+  uniqueSorted,
+} from '@/lib/filter'
 import {
   CAPACITY_LABELS,
   EVENT_KIND_LABELS,
@@ -33,6 +41,54 @@ function meta(r: Entry): string {
   return r.type === 'studied' ? `${TYPE_LABELS.studied} · ${r.family}` : r.family
 }
 
+interface RowProps {
+  r: Entry
+  /** A plant shown beneath its work day: the date is left out, since the day row carries it. */
+  nested?: boolean
+}
+
+function Row({ r, nested = false }: RowProps) {
+  return (
+    <Link
+      href={`/records/${r.record_no}/`}
+      className={cn(
+        'group grid grid-cols-[2.75rem_2.5rem_1fr] gap-x-3 hover:bg-secondary active:bg-muted sm:grid-cols-[3rem_2.5rem_1fr_10rem_7rem] sm:items-center',
+        nested ? 'py-2' : 'py-3',
+      )}
+    >
+      <span className="font-sans text-sm leading-7 tabular-nums text-muted-foreground">{r.record_no}</span>
+      {/* Thumbnail of the record's photo; the cell stays empty when a record has none. */}
+      <span className="row-span-2 size-10 sm:row-span-1" aria-hidden="true">
+        {r.image && (
+          <Image
+            src={`${BASE_PATH}${r.image.thumb}`}
+            alt=""
+            width={40}
+            height={40}
+            className={cn(
+              'size-10 border object-cover',
+              // A coloured border marks a reference photo, i.e. not Danny's own.
+              r.image.kind === 'reference' ? 'border-stamp' : 'border-border',
+            )}
+          />
+        )}
+      </span>
+      <span className={cn('min-w-0 leading-snug group-hover:text-stamp', nested ? 'text-base' : 'text-lg')}>
+        <TaxonName html={r.type === 'day' ? r.site.split(',')[0] : entryTitleHtml(r)} />
+      </span>
+      <span className="col-start-3 font-sans text-sm text-muted-foreground sm:col-start-auto">
+        {meta(r)}
+        {!nested && <span className="sm:hidden"> · {formatDate(r.date, 'short')}</span>}
+      </span>
+      {!nested && (
+        <time dateTime={r.date} className="hidden text-right font-sans text-sm tabular-nums text-muted-foreground sm:block">
+          {formatDate(r.date, 'short')}
+        </time>
+      )}
+    </Link>
+  )
+}
+
 /** The index: an accordion holding search, filters and summaries, then the list. Newest work day first. */
 export function RecordIndex({ records }: RecordIndexProps) {
   const [filters, setFilters] = useHashFilters()
@@ -43,6 +99,9 @@ export function RecordIndex({ records }: RecordIndexProps) {
   const families = uniqueSorted(records.map((r) => (isPlant(r) ? r.family : null)))
 
   const shown = filterRecords(records, filters).reverse()
+  // With no type chosen, a work day and its plants are one block. Filtered to one type, the list is flat.
+  const grouped = filters.type === ''
+  const blocks: Block[] = grouped ? buildBlocks(shown, records) : shown.map((entry) => ({ entry, plants: [] }))
   const filtered = filtersToHash(filters) !== ''
 
   const active = Object.values(filters).filter(Boolean).length
@@ -145,40 +204,31 @@ export function RecordIndex({ records }: RecordIndexProps) {
         <p className="py-6 text-muted-foreground">No records match. Clear the filters to see all {records.length}.</p>
       ) : (
         <ol className="-mt-4">
-          {shown.map((r) => (
-            <li key={r.record_no} className="border-b border-border">
-              <Link
-                href={`/records/${r.record_no}/`}
-                className="group grid grid-cols-[2.75rem_2.5rem_1fr] gap-x-3 py-3 hover:bg-secondary active:bg-muted sm:grid-cols-[3rem_2.5rem_1fr_10rem_7rem] sm:items-center"
-              >
-                <span className="font-sans text-sm leading-7 tabular-nums text-muted-foreground">{r.record_no}</span>
-                {/* Thumbnail of the record's photo; the cell stays empty when a record has none. */}
-                <span className="row-span-2 size-10 sm:row-span-1" aria-hidden="true">
-                  {r.image && (
-                    <Image
-                      src={`${BASE_PATH}${r.image.thumb}`}
-                      alt=""
-                      width={40}
-                      height={40}
-                      className={cn(
-                        'size-10 border object-cover',
-                        // A coloured border marks a reference photo, i.e. not Danny's own.
-                        r.image.kind === 'reference' ? 'border-stamp' : 'border-border',
-                      )}
-                    />
+          {blocks.map(({ entry, plants }) => (
+            <li key={entry.record_no} className="border-b border-border">
+              <Row r={entry} />
+              {entry.type === 'day' && grouped && (entry.tasks.length > 0 || plants.length > 0) && (
+                <div className="mb-3 ml-3 border-l border-border pl-3 sm:ml-[3.75rem]">
+                  {entry.tasks.length > 0 && (
+                    <ul aria-label="Work done" className="py-1">
+                      {entry.tasks.map((task) => (
+                        <li key={task} className="py-1 leading-snug">
+                          <TaxonName html={task} />
+                        </li>
+                      ))}
+                    </ul>
                   )}
-                </span>
-                <span className="min-w-0 text-lg leading-snug group-hover:text-stamp">
-                  <TaxonName html={entryTitleHtml(r)} />
-                </span>
-                <span className="col-start-3 font-sans text-sm text-muted-foreground sm:col-start-auto">
-                  {meta(r)}
-                  <span className="sm:hidden"> · {formatDate(r.date, 'short')}</span>
-                </span>
-                <time dateTime={r.date} className="hidden text-right font-sans text-sm tabular-nums text-muted-foreground sm:block">
-                  {formatDate(r.date, 'short')}
-                </time>
-              </Link>
+                  {plants.length > 0 && (
+                    <ol aria-label="Plants worked with">
+                      {plants.map((p) => (
+                        <li key={p.record_no}>
+                          <Row r={p} nested />
+                        </li>
+                      ))}
+                    </ol>
+                  )}
+                </div>
+              )}
             </li>
           ))}
         </ol>
