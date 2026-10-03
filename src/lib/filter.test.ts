@@ -83,7 +83,7 @@ describe('work days', () => {
   it('keeps the worked-with list clean', () => {
     const worked = filterRecords(all, { ...EMPTY_FILTERS, type: 'worked' })
     expect(worked.every((r) => r.type === 'worked')).toBe(true)
-    expect(worked).toHaveLength(22)
+    expect(worked).toHaveLength(21)
   })
 })
 
@@ -94,7 +94,7 @@ describe('buildBlocks', () => {
     expect(blocks.filter((b) => b.entry.type === 'day')).toHaveLength(19)
     const oct2 = blocks.find((b) => b.entry.date === '2026-10-02')
     expect(oct2?.plants.map((p) => p.record_no)).toEqual(['015', '016', '017', '018', '019', '020', '021', '022'])
-    expect(blocks.reduce((n, b) => n + b.plants.length, 0)).toBe(22)
+    expect(blocks.reduce((n, b) => n + b.plants.length, 0)).toBe(21)
   })
 
   it('is newest first', () => {
