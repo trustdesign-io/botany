@@ -31,7 +31,36 @@
       "sources": "POWO, accessed 28 Sep 2026. IPNI 592709-1: J. Proc. Roy. Soc. New South Wales 58: 177 (1924). EUCLID.",
       "open_questions": "Diagnostic taken from secondary sources; check against the tree. Near misses unsourced.",
       "powo_url": "https://powo.science.kew.org/taxon/urn:lsid:ipni.org:names:592709-1",
-      "images": []
+      "images": [
+        {
+          "kind": "own",
+          "src": "/images/001.jpg",
+          "thumb": "/images/001-thumb.jpg",
+          "width": 768,
+          "height": 1024,
+          "alt": "Eucalyptus badjensis newly potted in a blue barrel, a slender young tree with narrow leaves",
+          "credit": "D.C. Chambers",
+          "licence": null,
+          "licence_url": null,
+          "source": null,
+          "source_url": null,
+          "taken": null
+        },
+        {
+          "kind": "own",
+          "src": "/images/001-2.jpg",
+          "thumb": null,
+          "width": 1024,
+          "height": 768,
+          "alt": "Two wheelbarrows of potting mix and two trugs in the nursery yard at Lullingstone",
+          "credit": "D.C. Chambers",
+          "licence": null,
+          "licence_url": null,
+          "source": null,
+          "source_url": null,
+          "taken": null
+        }
+      ]
     },
     {
       "record_no": "002",
