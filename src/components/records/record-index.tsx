@@ -208,7 +208,7 @@ export function RecordIndex({ records }: RecordIndexProps) {
             <li key={entry.record_no} className="border-b border-border">
               <Row r={entry} />
               {entry.type === 'day' && grouped && (entry.tasks.length > 0 || plants.length > 0) && (
-                <div className="mb-3 ml-3 border-l border-border pl-3 sm:ml-[3.75rem]">
+                <div className="mb-3 border-l border-border pl-3">
                   {entry.tasks.length > 0 && (
                     <ul aria-label="Work done" className="py-1">
                       {entry.tasks.map((task) => (
