@@ -47,8 +47,7 @@ A field with nothing recorded is shown as blank, never omitted, so gaps stay vis
 
 ### Summary views (index accordion, collapsed by default)
 - Search and filters
-- Records by family
-- Native ranges
+- Records by family; choosing a family filters the list to it
 
 ---
 
@@ -94,7 +93,7 @@ A field with nothing recorded is shown as blank, never omitted, so gaps stay vis
 - Four entry types in one list, each with its own number sequence and a Type filter: plants worked with (001…), species studied (S001…), events attended (E001…) and work days (D001…). An event lists the species seen inside it. A work day lists the plants worked with on that date at that site, and a summary panel shows work days per month by site.
 
 ### Should have
-- Index accordion: search and filters, by family, native ranges.
+- Index accordion: search and filters, work days, by family (each family filters the list).
 - Filters for project and date range.
 - Print all records, or a filtered set, in one job.
 - Previous and next links between records.

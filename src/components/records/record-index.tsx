@@ -184,7 +184,13 @@ export function RecordIndex({ records }: RecordIndexProps) {
 
   return (
     <div className="grid gap-4">
-      <Summary records={records} filters={form} filtersNote={active > 0 ? `${active} set` : undefined} />
+      <Summary
+        records={records}
+        filters={form}
+        filtersNote={active > 0 ? `${active} set` : undefined}
+        family={filters.family}
+        onFamily={(family) => set({ family })}
+      />
 
       <div className="flex min-h-9 items-center justify-between gap-3 border-b-2 border-rule pb-1">
         <p className="label" role="status" aria-live="polite">
