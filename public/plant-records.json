@@ -145,7 +145,36 @@
       "sources": "POWO, accessed 29 Sep 2026. First published in DC., Prodr. 8: 665 (1844).",
       "open_questions": "Synonyms include <i>Stapelia gordonii</i>; confirm the basionym on IPNI. Confirm the CITES listing for the genus.",
       "powo_url": null,
-      "images": []
+      "images": [
+        {
+          "kind": "own",
+          "src": "/images/003.jpg",
+          "thumb": "/images/003-thumb.jpg",
+          "width": 768,
+          "height": 1024,
+          "alt": "Hoodia gordonii potted up: spiny, ribbed grey-green stems in a pot, with a handwritten label reading HOODIA GORDONII \"DOG POOH PLANT\"",
+          "credit": "D.C. Chambers",
+          "licence": null,
+          "licence_url": null,
+          "source": null,
+          "source_url": null,
+          "taken": null
+        },
+        {
+          "kind": "own",
+          "src": "/images/003-2.jpg",
+          "thumb": null,
+          "width": 768,
+          "height": 1024,
+          "alt": "Four cut stems of Hoodia gordonii laid on a bench beside a pair of loppers",
+          "credit": "D.C. Chambers",
+          "licence": null,
+          "licence_url": null,
+          "source": null,
+          "source_url": null,
+          "taken": null
+        }
+      ]
     },
     {
       "record_no": "004",
