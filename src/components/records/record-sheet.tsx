@@ -33,7 +33,7 @@ const OWN_PHOTO_LABELS: Record<Entry['type'], string> = {
 const group = 'grid gap-3 print:gap-2 border-b border-border py-4 print:py-2.5'
 const lastGroup = 'grid gap-3 print:gap-2 py-4 print:py-2.5'
 const topGrid =
-  'grid grid-cols-2 gap-x-6 gap-y-3 border-b border-border py-4 print:py-2.5 sm:grid-cols-[1fr_2fr] print:grid-cols-[1fr_2fr]'
+  'grid grid-cols-1 gap-x-6 gap-y-3 border-b border-border py-4 print:py-2.5 sm:grid-cols-[1fr_2fr] print:grid-cols-[1fr_2fr]'
 
 /** The line above the title, saying what kind of entry this is. */
 function kicker(r: Entry): string {
@@ -45,7 +45,7 @@ function kicker(r: Entry): string {
 
 function TopCell({ label, children, wide = false }: { label: string; children: ReactNode; wide?: boolean }) {
   return (
-    <div className={wide ? 'col-span-2' : undefined}>
+    <div className={wide ? 'sm:col-span-2 print:col-span-2' : undefined}>
       <dt className="label">{label}</dt>
       <dd>{children}</dd>
     </div>
@@ -142,8 +142,8 @@ function WorkedBody({ r }: { r: WorkedRecord }) {
           <time dateTime={r.date}>{formatDate(r.date)}</time>
         </TopCell>
         <TopCell label="Site">{r.site}</TopCell>
-        <div className="col-span-2 grid grid-cols-2 gap-x-6 gap-y-3 sm:grid-cols-[2fr_1fr_1fr] print:grid-cols-[2fr_1fr_1fr]">
-          <div className="col-span-2 sm:col-span-1 print:col-span-1">
+        <div className="grid grid-cols-1 gap-x-6 gap-y-3 sm:col-span-2 sm:grid-cols-[2fr_1fr_1fr] print:col-span-2 print:grid-cols-[2fr_1fr_1fr]">
+          <div>
             <dt className="label">Location</dt>
             <dd>{r.location ?? <Blank />}</dd>
           </div>
@@ -151,7 +151,7 @@ function WorkedBody({ r }: { r: WorkedRecord }) {
           <TopCell label="Grid">{r.grid_ref ?? <Blank />}</TopCell>
         </div>
         {day && (
-          <div className="no-print col-span-2">
+          <div className="no-print sm:col-span-2">
             <dt className="label">Work day</dt>
             <dd>
               <Link href={`/records/${day.record_no}/`} className={quietLink}>
