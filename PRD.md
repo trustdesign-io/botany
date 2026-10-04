@@ -47,7 +47,7 @@ A field with nothing recorded is shown as blank, never omitted, so gaps stay vis
 
 ### Summary views (index accordion, collapsed by default)
 - Search and filters
-- Records by family; choosing a family filters the list to it
+- Search and filters only. The summary views (work days, by family, native ranges, timeline) live on a separate Analysis page and do not filter the list.
 
 ---
 

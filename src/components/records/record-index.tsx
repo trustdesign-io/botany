@@ -1,5 +1,7 @@
 'use client'
 
+import { useState } from 'react'
+import { ChevronDownIcon, ChevronUpIcon } from 'lucide-react'
 import Image from 'next/image'
 import Link from 'next/link'
 import type { Entry } from '@/types/record'
@@ -56,7 +58,7 @@ function Row({ r, nested = false }: RowProps) {
     <Link
       href={`/records/${r.record_no}/`}
       className={cn(
-        'group grid grid-cols-[2.75rem_2.5rem_1fr] gap-x-3 hover:bg-secondary active:bg-muted sm:grid-cols-[3rem_2.5rem_1fr_10rem_7rem] sm:items-center',
+        'group grid grid-cols-[2.75rem_2.5rem_1fr] gap-x-3 px-2 hover:bg-secondary active:bg-muted sm:grid-cols-[3rem_2.5rem_1fr_10rem_7rem] sm:items-center',
         nested ? 'py-2' : 'py-3',
       )}
     >
@@ -109,6 +111,10 @@ function Row({ r, nested = false }: RowProps) {
 /** The index: an accordion holding search, filters and summaries, then the list. Newest work day first. */
 export function RecordIndex({ records }: RecordIndexProps) {
   const [filters, setFilters] = useHashFilters()
+  // Work days the reader has folded shut. All start open.
+  const [closed, setClosed] = useState<string[]>([])
+  const toggle = (no: string) =>
+    setClosed((c) => (c.includes(no) ? c.filter((n) => n !== no) : [...c, no]))
   const set = (patch: Partial<RecordFilters>) => setFilters({ ...filters, ...patch })
 
   const sites = uniqueSorted(records.map((r) => r.site))
@@ -203,8 +209,6 @@ export function RecordIndex({ records }: RecordIndexProps) {
         records={records}
         filters={form}
         filtersNote={active > 0 ? `${active} set` : undefined}
-        family={filters.family}
-        onFamily={(family) => set({ family })}
       />
 
       <div className="flex min-h-9 items-center justify-between gap-3 border-b-2 border-rule pb-1">
@@ -227,13 +231,39 @@ export function RecordIndex({ records }: RecordIndexProps) {
         <p className="py-6 text-muted-foreground">No records match. Clear the filters to see all {records.length}.</p>
       ) : (
         <ol className="-mt-4">
-          {blocks.map(({ entry, plants }) => (
+          {blocks.map(({ entry, plants }) => {
+            const hasChildren = entry.type === 'day' && grouped && (entry.tasks.length > 0 || plants.length > 0)
+            const open = hasChildren && !closed.includes(entry.record_no)
+            const panelId = `day-${entry.record_no}`
+            return (
             <li key={entry.record_no} className="border-b border-border">
-              <Row r={entry} />
-              {entry.type === 'day' && grouped && (entry.tasks.length > 0 || plants.length > 0) && (
-                <div className="mb-3 ml-4 border-l border-stamp pl-3">
+              {grouped ? (
+                <div className="flex items-stretch">
+                  <div className="min-w-0 flex-1">
+                    <Row r={entry} />
+                  </div>
+                  {hasChildren ? (
+                    <button
+                      type="button"
+                      aria-expanded={open}
+                      aria-controls={panelId}
+                      aria-label={`${open ? 'Hide' : 'Show'} the work for ${entry.record_no}`}
+                      onClick={() => toggle(entry.record_no)}
+                      className="flex w-10 shrink-0 cursor-pointer items-center justify-center text-muted-foreground hover:bg-secondary hover:text-stamp active:bg-muted"
+                    >
+                      {open ? <ChevronUpIcon className="size-4" /> : <ChevronDownIcon className="size-4" />}
+                    </button>
+                  ) : (
+                    <span className="w-10 shrink-0" aria-hidden="true" />
+                  )}
+                </div>
+              ) : (
+                <Row r={entry} />
+              )}
+              {entry.type === 'day' && open && (
+                <div id={panelId} className="mb-3 ml-4 border-l border-stamp pl-3">
                   {entry.tasks.length > 0 && (
-                    <ul aria-label="Work done" className="py-1">
+                    <ul aria-label="Work done" className="px-2 py-1">
                       {entry.tasks.map((task) => (
                         <li key={task} className="py-1 leading-snug">
                           <TaxonName html={task} />
@@ -253,7 +283,8 @@ export function RecordIndex({ records }: RecordIndexProps) {
                 </div>
               )}
             </li>
-          ))}
+            )
+          })}
         </ol>
       )}
     </div>

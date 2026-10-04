@@ -22,5 +22,5 @@ export const MixedTypes: Story = {
 }
 
 export const SummaryAccordion: Story = {
-  render: (args) => <Summary records={args.records} />,
+  render: (args) => <Summary records={args.records} analysis />,
 }

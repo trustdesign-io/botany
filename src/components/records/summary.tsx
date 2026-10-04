@@ -3,7 +3,9 @@
 import type { ReactNode } from 'react'
 import type { DayRecord, Entry, StudiedRecord, WorkedRecord } from '@/types/record'
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from '@/components/ui/accordion'
-import { formatDate, isPlant } from '@/lib/records'
+import Link from 'next/link'
+import { entryShortTitleHtml, formatDate, getPlantsForDay, isPlant } from '@/lib/records'
+import { TaxonName } from './taxon-name'
 import { cn } from '@/lib/utils'
 
 interface SummaryProps {
@@ -12,6 +14,8 @@ interface SummaryProps {
   filters?: ReactNode
   /** Short note beside the filter heading, e.g. how many filters are set. */
   filtersNote?: string
+  /** Show the analysis panels: work days, families, native ranges, timeline. Off on the index. */
+  analysis?: boolean
   /** The family the list is filtered to, or '' for none. */
   family?: string
   /** Called with a family to filter the list to it, or '' to clear. Without it the rows are plain text. */
@@ -27,10 +31,10 @@ function countBy(records: Plant[], key: (r: Plant) => string): [string, Plant[]]
 }
 
 /**
- * The index's accordion: search and filters, then summary views of all records.
- * Every panel starts closed, so the index stays a plain list.
+ * An accordion. On the index it holds only search and filters, closed, so the
+ * index stays a plain list. On the analysis page it holds the summary views.
  */
-export function Summary({ records, filters, filtersNote, family: selected = '', onFamily }: SummaryProps) {
+export function Summary({ records, filters, filtersNote, analysis = false, family: selected = '', onFamily }: SummaryProps) {
   // Family only applies to plants; events and work days are left out of this view.
   const plants = records.filter(isPlant)
   const families = countBy(plants, (r) => r.family).sort(
@@ -47,8 +51,14 @@ export function Summary({ records, filters, filtersNote, family: selected = '', 
     days.filter((d) => (!month || d.date.startsWith(month)) && (!site || d.site === site)).length
   const hours = days.reduce((sum, d) => sum + (d.hours ?? 0), 0)
 
+  // Newest first: each work day that has plants, with the plants worked with on it.
+  const timeline = days
+    .map((day) => ({ day, worked: getPlantsForDay(day, records) }))
+    .filter((t) => t.worked.length > 0)
+    .sort((a, b) => b.day.date.localeCompare(a.day.date))
+
   return (
-    <Accordion className="border-y border-border">
+    <Accordion className="border-y border-border" multiple={analysis} defaultValue={analysis ? ['days'] : []}>
       {filters && (
         <AccordionItem value="filters">
           <AccordionTrigger className={trigger}>
@@ -60,7 +70,7 @@ export function Summary({ records, filters, filtersNote, family: selected = '', 
         </AccordionItem>
       )}
 
-      {days.length > 0 && (
+      {analysis && days.length > 0 && (
         <AccordionItem value="days">
           <AccordionTrigger className={trigger}>
             Work days ({days.length})
@@ -108,6 +118,7 @@ export function Summary({ records, filters, filtersNote, family: selected = '', 
         </AccordionItem>
       )}
 
+      {analysis && (
       <AccordionItem value="family">
         <AccordionTrigger className={trigger}>
           By family ({families.length})
@@ -149,6 +160,55 @@ export function Summary({ records, filters, filtersNote, family: selected = '', 
           </ul>
         </AccordionContent>
       </AccordionItem>
+      )}
+
+      {analysis && (
+        <AccordionItem value="ranges">
+          <AccordionTrigger className={trigger}>Native ranges ({plants.length})</AccordionTrigger>
+          <AccordionContent>
+            <ul className="grid gap-2 pb-4 text-base">
+              {plants.map((r) => (
+                <li key={r.record_no} className="grid gap-x-4 sm:grid-cols-[2fr_3fr]">
+                  <Link href={`/records/${r.record_no}/`} className="hover:text-stamp">
+                    <TaxonName html={entryShortTitleHtml(r)} />
+                  </Link>
+                  <span className="text-muted-foreground">
+                    {r.native_range ? <TaxonName html={r.native_range} /> : 'Not recorded'}
+                  </span>
+                </li>
+              ))}
+            </ul>
+          </AccordionContent>
+        </AccordionItem>
+      )}
+
+      {analysis && timeline.length > 0 && (
+        <AccordionItem value="timeline">
+          <AccordionTrigger className={trigger}>Timeline ({timeline.length} days with plants)</AccordionTrigger>
+          <AccordionContent>
+            <ol className="grid gap-3 pb-4 text-base">
+              {timeline.map(({ day, worked }) => (
+                <li key={day.record_no} className="grid gap-x-4 sm:grid-cols-[7.5rem_1fr]">
+                  <Link
+                    href={`/records/${day.record_no}/`}
+                    className="font-sans text-sm tabular-nums text-muted-foreground hover:text-stamp"
+                  >
+                    <time dateTime={day.date}>{formatDate(day.date, 'short')}</time>
+                  </Link>
+                  <span>
+                    {worked.map((r, i) => (
+                      <span key={r.record_no}>
+                        {i > 0 && '; '}
+                        <TaxonName html={entryShortTitleHtml(r)} />
+                      </span>
+                    ))}
+                  </span>
+                </li>
+              ))}
+            </ol>
+          </AccordionContent>
+        </AccordionItem>
+      )}
     </Accordion>
   )
 }
