@@ -260,8 +260,9 @@ export function RecordIndex({ records }: RecordIndexProps) {
               ) : (
                 <Row r={entry} />
               )}
+              {/* The rule sits under the middle of the day number (8px padding + half of a four-character number). */}
               {entry.type === 'day' && open && (
-                <div id={panelId} className="mb-3 ml-4 border-l border-stamp pl-3">
+                <div id={panelId} className="mb-3 ml-[25px] border-l border-stamp pl-3">
                   {entry.tasks.length > 0 && (
                     <ul aria-label="Work done" className="px-2 py-1">
                       {entry.tasks.map((task) => (
