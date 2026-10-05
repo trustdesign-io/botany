@@ -34,7 +34,8 @@ describe('projects', () => {
   const withProjects = [
     { ...a, projects: ['Nesocodon accession', 'Lullingstone volunteering'] },
     { ...b, projects: ['Lullingstone volunteering'] },
-    ...rest,
+    // The real records carry projects of their own; clear them so the test owns its data.
+    ...rest.map((r) => ({ ...r, projects: [] })),
   ]
 
   it('matches a record under each of its projects, once', () => {

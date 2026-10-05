@@ -776,7 +776,9 @@
       "type": "worked",
       "date": "2026-09-18",
       "site": "Lullingstone Castle World Garden, Eynsford, Kent",
-      "projects": [],
+      "projects": [
+        "The Bleeding Bellflower - Nesocodon mauritianus"
+      ],
       "location": null,
       "vice_county": "16 W Kent",
       "grid_ref": null,
@@ -1951,7 +1953,9 @@
       "type": "event",
       "date": "2026-08-01",
       "site": "Royal Botanic Gardens, Kew",
-      "projects": [],
+      "projects": [
+        "The Bleeding Bellflower - Nesocodon mauritianus"
+      ],
       "title": "Kew: <i>Nesocodon mauritianus</i> and the Agius Evolution Garden",
       "event_kind": "visit",
       "organiser": null,
@@ -1987,7 +1991,9 @@
       "type": "event",
       "date": "2026-08-15",
       "site": "Royal Botanic Gardens, Kew",
-      "projects": [],
+      "projects": [
+        "The Bleeding Bellflower - Nesocodon mauritianus"
+      ],
       "title": "Kew: <i>Nesocodon mauritianus</i> in flower",
       "event_kind": "visit",
       "organiser": null,
