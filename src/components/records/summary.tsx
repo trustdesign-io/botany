@@ -1,5 +1,6 @@
 'use client'
 
+import { useState, useSyncExternalStore } from 'react'
 import type { ReactNode } from 'react'
 import type { DayRecord, Entry, StudiedRecord, WorkedRecord } from '@/types/record'
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from '@/components/ui/accordion'
@@ -30,6 +31,14 @@ function countBy(records: Plant[], key: (r: Plant) => string): [string, Plant[]]
   return [...groups.entries()]
 }
 
+const WIDE = '(min-width: 768px)'
+
+function subscribeWide(onChange: () => void): () => void {
+  const query = window.matchMedia(WIDE)
+  query.addEventListener('change', onChange)
+  return () => query.removeEventListener('change', onChange)
+}
+
 /**
  * An accordion. On the index it holds only search and filters, closed, so the
  * index stays a plain list. On the analysis page it holds the summary views.
@@ -57,8 +66,15 @@ export function Summary({ records, filters, filtersNote, analysis = false, famil
     .filter((t) => t.worked.length > 0)
     .sort((a, b) => b.day.date.localeCompare(a.day.date))
 
+  // On the index, search and filter start open from 768px, where they fit in two rows,
+  // and closed on a phone, where they would push the list down the screen.
+  const wide = useSyncExternalStore(subscribeWide, () => window.matchMedia(WIDE).matches, () => false)
+  // null until the reader opens or closes a panel; then their choice stands.
+  const [chosen, setOpen] = useState<string[] | null>(null)
+  const open = chosen ?? (analysis ? ['days'] : wide ? ['filters'] : [])
+
   return (
-    <Accordion className="border-y border-border" multiple={analysis} defaultValue={analysis ? ['days'] : []}>
+    <Accordion className="border-y border-border" multiple={analysis} value={open} onValueChange={setOpen}>
       {filters && (
         <AccordionItem value="filters">
           <AccordionTrigger className={trigger}>

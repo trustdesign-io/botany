@@ -134,9 +134,9 @@ export function RecordIndex({ records }: RecordIndexProps) {
       role="search"
       aria-label="Search and filter records"
       onSubmit={(e) => e.preventDefault()}
-      className="grid grid-cols-2 gap-x-3 gap-y-3 sm:grid-cols-5"
+      className="grid grid-cols-2 gap-x-3 gap-y-3 md:grid-cols-12"
     >
-      <label className="col-span-2 grid gap-1 sm:col-span-5">
+      <label className="col-span-2 grid gap-1 md:col-span-4">
         <span className="label">Search</span>
         <input
           id="filter-q"
@@ -148,7 +148,7 @@ export function RecordIndex({ records }: RecordIndexProps) {
         />
       </label>
 
-      <label className="col-span-2 grid gap-1 sm:col-span-1">
+      <label className="col-span-2 grid gap-1 md:col-span-2">
         <span className="label">Type</span>
         <select id="filter-type" value={filters.type} onChange={(e) => set({ type: e.target.value })} className={control}>
           <option value="">All types</option>
@@ -159,7 +159,7 @@ export function RecordIndex({ records }: RecordIndexProps) {
         </select>
       </label>
 
-      <label className="grid gap-1">
+      <label className="grid gap-1 md:col-span-3">
         <span className="label">Family</span>
         <select id="filter-family" value={filters.family} onChange={(e) => set({ family: e.target.value })} className={control}>
           <option value="">All families</option>
@@ -169,7 +169,7 @@ export function RecordIndex({ records }: RecordIndexProps) {
         </select>
       </label>
 
-      <label className="grid gap-1">
+      <label className="grid gap-1 md:col-span-3">
         <span className="label">Site</span>
         <select id="filter-site" value={filters.site} onChange={(e) => set({ site: e.target.value })} className={control}>
           <option value="">All sites</option>
@@ -180,7 +180,7 @@ export function RecordIndex({ records }: RecordIndexProps) {
       </label>
 
       {projects.length > 0 && (
-        <label className="col-span-2 grid gap-1 sm:col-span-5">
+        <label className="col-span-2 grid gap-1 md:col-span-6">
           <span className="label">Project</span>
           <select id="filter-project" value={filters.project} onChange={(e) => set({ project: e.target.value })} className={control}>
             <option value="">All projects</option>
@@ -191,12 +191,12 @@ export function RecordIndex({ records }: RecordIndexProps) {
         </label>
       )}
 
-      <label className="grid gap-1">
+      <label className="grid gap-1 md:col-span-3">
         <span className="label">From</span>
         <input id="filter-from" type="date" value={filters.from} onChange={(e) => set({ from: e.target.value })} className={control} />
       </label>
 
-      <label className="grid gap-1">
+      <label className="grid gap-1 md:col-span-3">
         <span className="label">To</span>
         <input id="filter-to" type="date" value={filters.to} onChange={(e) => set({ to: e.target.value })} className={control} />
       </label>
