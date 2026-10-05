@@ -266,7 +266,7 @@
       "how_studied": null,
       "observed": null,
       "sources": "POWO, accessed 2 Oct 2026. Adansonia, n.s., 1: 43 (1961). Wikipedia, <i>Alluaudia montagnacii</i>.",
-      "open_questions": "Diagnostic from secondary sources; check against the plant. Wikipedia calls it probably a natural hybrid of <i>A. ascendens</i> and <i>A. procera</i>, and gives IUCN Endangered; confirm both. Compare record 005.",
+      "open_questions": "Diagnostic from secondary sources; check against the plant. Wikipedia calls it probably a natural hybrid of <i>A. ascendens</i> and <i>A. procera</i>, and gives IUCN Endangered; confirm both. Compare record 006.",
       "powo_url": "https://powo.science.kew.org/taxon/urn:lsid:ipni.org:names:316434-1",
       "log": [],
       "images": [
@@ -311,7 +311,7 @@
       "how_studied": null,
       "observed": null,
       "sources": "POWO, accessed 2 Oct 2026. Bull. Mus. Hist. Nat. (Paris) 9: 37 (1903). Wikipedia, <i>Alluaudia procera</i>.",
-      "open_questions": "Diagnostic from secondary sources; check against the plant. Basionym <i>Didierea procera</i> Drake (1903). Compare record 004.",
+      "open_questions": "Diagnostic from secondary sources; check against the plant. Basionym <i>Didierea procera</i> Drake (1903). Compare record 005.",
       "powo_url": "https://powo.science.kew.org/taxon/urn:lsid:ipni.org:names:316435-1",
       "log": [],
       "images": [
@@ -684,6 +684,96 @@
     {
       "record_no": "012",
       "type": "worked",
+      "date": "2026-09-05",
+      "site": "Home collection",
+      "projects": [],
+      "location": null,
+      "vice_county": "16 W Kent",
+      "grid_ref": null,
+      "name": "Conophytum minimum (Haw.) N.E.Br.",
+      "name_html": "<i>Conophytum minimum</i> (Haw.) N.E.Br.",
+      "family": "Aizoaceae",
+      "det": "Woodside Cacti (nursery label), read by D.C. Chambers — not keyed",
+      "label_read": "“£5.50 / Conophytum wittebergensis / www.woodsidecacti.co.uk”",
+      "note": "Labelled as <i>Conophytum wittebergensis</i>, a misspelling of <i>C. wittebergense</i> de Boer, which POWO treats as a synonym of <i>C. minimum</i>.",
+      "common_names": null,
+      "native_range": "S. Cape Prov.",
+      "habit": "Succulent subshrub; desert or dry shrubland biome",
+      "provenance": "Bought at the Cactus at the Castle event, Lullingstone Castle, 5 Sep 2026. Label: Woodside Cacti (woodsidecacti.co.uk), £5.50.",
+      "diagnostic": "Tiny, almost stemless, winter-growing leaf succulent to about 3 cm tall, forming dense mats in time. Bodies under 1 cm across, silvery-green, marked with dark brownish-red or purple dots and lines. Small, whitish, strongly scented flowers open at night in autumn.",
+      "near_misses": null,
+      "work_done": "Watered in error after buying. Reported by D.C. Chambers on 5 Oct 2026 as killed by the watering, with one plant thought still alive.",
+      "how_studied": null,
+      "observed": "Photograph, shared 5 Oct 2026: one body plump and grey-green with dark line markings; a second dried out and papery.",
+      "sources": "POWO, accessed 5 Oct 2026. Gard. Chron., ser. 3, 71: 307 (1922); <i>C. wittebergense</i>: Succulenta (Netherlands) 44: 21 (1965). LLIFLE.",
+      "open_questions": "Diagnostic from a secondary source, written for the <i>wittebergense</i> form; check against the plant. How many plants were bought, and when the photograph was taken, not recorded. CITES listing not confirmed.",
+      "powo_url": "https://powo.science.kew.org/taxon/urn:lsid:ipni.org:names:361209-1",
+      "log": [],
+      "images": [
+        {
+          "kind": "own",
+          "src": "/images/012.jpg",
+          "thumb": "/images/012-thumb.jpg",
+          "width": 768,
+          "height": 1024,
+          "alt": "Conophytum minimum in a small terracotta-coloured pot topped with grit: one round grey-green body with dark branching lines beside a dried brown one, with a white nursery label",
+          "credit": "D.C. Chambers",
+          "licence": null,
+          "licence_url": null,
+          "source": null,
+          "source_url": null,
+          "taken": null
+        }
+      ]
+    },
+    {
+      "record_no": "013",
+      "type": "worked",
+      "date": "2026-09-05",
+      "site": "Home collection",
+      "projects": [],
+      "location": null,
+      "vice_county": "16 W Kent",
+      "grid_ref": null,
+      "name": "Conophytum lithopsoides L.Bolus",
+      "name_html": "<i>Conophytum lithopsoides</i> L.Bolus",
+      "family": "Aizoaceae",
+      "det": "Woodside Cacti (nursery label), read by D.C. Chambers — not keyed",
+      "label_read": "“£5.50 / Conophytum lithopsioides / www.woodsidecacti.co.uk”",
+      "note": "Labelled as <i>Conophytum lithopsioides</i>; POWO and IPNI spell the name <i>lithopsoides</i>.",
+      "common_names": null,
+      "native_range": "W. Cape Prov.",
+      "habit": "Succulent subshrub; desert or dry shrubland biome",
+      "provenance": "Bought at the Cactus at the Castle event, Lullingstone Castle, 5 Sep 2026. Label: Woodside Cacti (woodsidecacti.co.uk), £5.50.",
+      "diagnostic": "Dwarf clump-forming succulent. Bodies of two almost wholly fused leaves, cylindrical, about 2.5 cm tall and 1 cm wide, purplish-brown to chartreuse with opaque brownish spots and a window at the tip. Magenta flowers, white at the base, open by day in autumn.",
+      "near_misses": null,
+      "work_done": "Watered in error after buying. Reported by D.C. Chambers on 5 Oct 2026 as killed by the watering, with one plant thought still alive.",
+      "how_studied": null,
+      "observed": "Photograph, shared 5 Oct 2026: two bodies, dark purplish-brown and wrinkled, green at the base, with dried flower remains at the tips.",
+      "sources": "POWO, accessed 5 Oct 2026. Notes Mesembryanthemum 3: 138 (1938). World of Succulents.",
+      "open_questions": "Diagnostic from a secondary source; check against the plant. That source gives the range as Northern Cape, against POWO's W. Cape Prov. Subspecies not determined. How many plants were bought, and when the photograph was taken, not recorded. CITES listing not confirmed.",
+      "powo_url": "https://powo.science.kew.org/taxon/urn:lsid:ipni.org:names:361189-1",
+      "log": [],
+      "images": [
+        {
+          "kind": "own",
+          "src": "/images/013.jpg",
+          "thumb": "/images/013-thumb.jpg",
+          "width": 768,
+          "height": 1024,
+          "alt": "Conophytum lithopsoides in a small terracotta-coloured pot topped with grit: two dark purplish-brown wrinkled bodies with papery collars at the base, with a white nursery label",
+          "credit": "D.C. Chambers",
+          "licence": null,
+          "licence_url": null,
+          "source": null,
+          "source_url": null,
+          "taken": null
+        }
+      ]
+    },
+    {
+      "record_no": "014",
+      "type": "worked",
       "date": "2026-09-18",
       "site": "Lullingstone Castle World Garden, Eynsford, Kent",
       "projects": [],
@@ -717,7 +807,7 @@
           "images": [
             {
               "kind": "own",
-              "src": "/images/012-20261003.jpg",
+              "src": "/images/014-20261003.jpg",
               "thumb": null,
               "width": 768,
               "height": 1024,
@@ -735,8 +825,8 @@
       "images": [
         {
           "kind": "own",
-          "src": "/images/012.jpg",
-          "thumb": "/images/012-thumb.jpg",
+          "src": "/images/014.jpg",
+          "thumb": "/images/014-thumb.jpg",
           "width": 768,
           "height": 1024,
           "alt": "Two men standing in the garden at Lullingstone, one holding the two potted Nesocodon mauritianus plants on the day they arrived",
@@ -749,7 +839,7 @@
         },
         {
           "kind": "own",
-          "src": "/images/012-2.jpg",
+          "src": "/images/014-2.jpg",
           "thumb": null,
           "width": 1024,
           "height": 768,
@@ -763,7 +853,7 @@
         },
         {
           "kind": "own",
-          "src": "/images/012-3.jpg",
+          "src": "/images/014-3.jpg",
           "thumb": null,
           "width": 768,
           "height": 1024,
@@ -778,7 +868,7 @@
       ]
     },
     {
-      "record_no": "013",
+      "record_no": "015",
       "type": "worked",
       "date": "2026-09-18",
       "site": "Lullingstone Castle World Garden, Eynsford, Kent",
@@ -808,8 +898,8 @@
       "images": [
         {
           "kind": "own",
-          "src": "/images/013.jpg",
-          "thumb": "/images/013-thumb.jpg",
+          "src": "/images/015.jpg",
+          "thumb": "/images/015-thumb.jpg",
           "width": 1024,
           "height": 768,
           "alt": "French marigolds (Tagetes erecta) in a narrow metal-edged bed against a clipped hedge: single yellow flowers marked with red, on tall stems with divided leaves, the soil freshly watered",
@@ -822,7 +912,7 @@
         },
         {
           "kind": "own",
-          "src": "/images/013-2.jpg",
+          "src": "/images/015-2.jpg",
           "thumb": null,
           "width": 1024,
           "height": 768,
@@ -837,7 +927,7 @@
       ]
     },
     {
-      "record_no": "014",
+      "record_no": "016",
       "type": "worked",
       "date": "2026-09-25",
       "site": "Lullingstone Castle World Garden, Eynsford, Kent",
@@ -867,8 +957,8 @@
       "images": [
         {
           "kind": "own",
-          "src": "/images/014.jpg",
-          "thumb": "/images/014-thumb.jpg",
+          "src": "/images/016.jpg",
+          "thumb": "/images/016-thumb.jpg",
           "width": 768,
           "height": 1024,
           "alt": "Chamaerops humilis newly planted in the South Africa bed: a fan palm with a trunk clothed in old leaf bases, standing in a circle of sand dressed with ornamental warthogs, a South African flag flying behind",
@@ -881,7 +971,7 @@
         },
         {
           "kind": "own",
-          "src": "/images/014-2.jpg",
+          "src": "/images/016-2.jpg",
           "thumb": null,
           "width": 1024,
           "height": 768,
@@ -896,7 +986,7 @@
       ]
     },
     {
-      "record_no": "015",
+      "record_no": "017",
       "type": "worked",
       "date": "2026-10-01",
       "site": "Lullingstone Castle World Garden, Eynsford, Kent",
@@ -926,8 +1016,8 @@
       "images": [
         {
           "kind": "own",
-          "src": "/images/015.jpg",
-          "thumb": "/images/015-thumb.jpg",
+          "src": "/images/017.jpg",
+          "thumb": "/images/017-thumb.jpg",
           "width": 768,
           "height": 1024,
           "alt": "Tulipa linifolia bulbs set out on a bed of sand in a gravel border, with more bulbs in a gloved hand and a hand fork and trowel beside the packet",
@@ -940,7 +1030,7 @@
         },
         {
           "kind": "own",
-          "src": "/images/015-2.jpg",
+          "src": "/images/017-2.jpg",
           "thumb": null,
           "width": 768,
           "height": 1024,
@@ -955,7 +1045,7 @@
       ]
     },
     {
-      "record_no": "016",
+      "record_no": "018",
       "type": "worked",
       "date": "2026-10-01",
       "site": "Lullingstone Castle World Garden, Eynsford, Kent",
@@ -985,8 +1075,8 @@
       "images": [
         {
           "kind": "own",
-          "src": "/images/016.jpg",
-          "thumb": "/images/016-thumb.jpg",
+          "src": "/images/018.jpg",
+          "thumb": "/images/018-thumb.jpg",
           "width": 1024,
           "height": 768,
           "alt": "Ribes speciosum being cut back: a large tangle of bare spiny stems under a blue sky, with a man in a red cap and orange shirt cutting at its base with loppers and a second person behind",
@@ -999,7 +1089,7 @@
         },
         {
           "kind": "own",
-          "src": "/images/016-2.jpg",
+          "src": "/images/018-2.jpg",
           "thumb": null,
           "width": 1024,
           "height": 768,
@@ -1014,7 +1104,7 @@
       ]
     },
     {
-      "record_no": "017",
+      "record_no": "019",
       "type": "worked",
       "date": "2026-10-02",
       "site": "Lullingstone Castle World Garden, Eynsford, Kent",
@@ -1044,7 +1134,7 @@
       "images": []
     },
     {
-      "record_no": "018",
+      "record_no": "020",
       "type": "worked",
       "date": "2026-10-02",
       "site": "Lullingstone Castle World Garden, Eynsford, Kent",
@@ -1074,8 +1164,8 @@
       "images": [
         {
           "kind": "own",
-          "src": "/images/018.jpg",
-          "thumb": "/images/018-thumb.jpg",
+          "src": "/images/020.jpg",
+          "thumb": "/images/020-thumb.jpg",
           "width": 770,
           "height": 1024,
           "alt": "Cordyline 'Sprilecflash' newly planted: long arching leaves striped purple and cream, behind the trunk of a labelled Corymbia ficifolia, with a spiny euphorbia in front and a spade and trug beside",
@@ -1089,7 +1179,7 @@
       ]
     },
     {
-      "record_no": "019",
+      "record_no": "021",
       "type": "worked",
       "date": "2026-10-02",
       "site": "Lullingstone Castle World Garden, Eynsford, Kent",
@@ -1119,8 +1209,8 @@
       "images": [
         {
           "kind": "own",
-          "src": "/images/019.jpg",
-          "thumb": "/images/019-thumb.jpg",
+          "src": "/images/021.jpg",
+          "thumb": "/images/021-thumb.jpg",
           "width": 768,
           "height": 1024,
           "alt": "Dyckia frigida newly planted: a rosette of stiff, spine-edged grey-green leaves beside its garden label, which reads Bromeliaceae, Dyckia frigida, \"Syringe Leaved Dyckia\", Parana State, Brazil",
@@ -1134,7 +1224,7 @@
       ]
     },
     {
-      "record_no": "020",
+      "record_no": "022",
       "type": "worked",
       "date": "2026-10-02",
       "site": "Lullingstone Castle World Garden, Eynsford, Kent",
@@ -1164,8 +1254,8 @@
       "images": [
         {
           "kind": "own",
-          "src": "/images/020.jpg",
-          "thumb": "/images/020-thumb.jpg",
+          "src": "/images/022.jpg",
+          "thumb": "/images/022-thumb.jpg",
           "width": 768,
           "height": 1024,
           "alt": "Cleome arborea in an air-pot on a wooden stool: hairy, purple-tinged stems carrying large palmate leaves of about seven leaflets",
@@ -1179,7 +1269,7 @@
       ]
     },
     {
-      "record_no": "021",
+      "record_no": "023",
       "type": "worked",
       "date": "2026-10-02",
       "site": "Lullingstone Castle World Garden, Eynsford, Kent",
@@ -1209,8 +1299,8 @@
       "images": [
         {
           "kind": "own",
-          "src": "/images/021.jpg",
-          "thumb": "/images/021-thumb.jpg",
+          "src": "/images/023.jpg",
+          "thumb": "/images/023-thumb.jpg",
           "width": 788,
           "height": 1024,
           "alt": "A newly planted Farfugium japonicum with large, glossy, crinkled dark green leaves in bare soil, a white label in front of it",
@@ -1224,7 +1314,7 @@
       ]
     },
     {
-      "record_no": "022",
+      "record_no": "024",
       "type": "worked",
       "date": "2026-10-02",
       "site": "Lullingstone Castle World Garden, Eynsford, Kent",
@@ -1254,8 +1344,8 @@
       "images": [
         {
           "kind": "own",
-          "src": "/images/022.jpg",
-          "thumb": "/images/022-thumb.jpg",
+          "src": "/images/024.jpg",
+          "thumb": "/images/024-thumb.jpg",
           "width": 768,
           "height": 1024,
           "alt": "Fuchsia jimenezii being planted: a man in a red cap and gloves setting the young plant into a hole in a border",
@@ -1269,7 +1359,7 @@
       ]
     },
     {
-      "record_no": "023",
+      "record_no": "025",
       "type": "worked",
       "date": "2026-10-02",
       "site": "Lullingstone Castle World Garden, Eynsford, Kent",
@@ -1299,7 +1389,7 @@
       "images": []
     },
     {
-      "record_no": "024",
+      "record_no": "026",
       "type": "worked",
       "date": "2026-10-02",
       "site": "Lullingstone Castle World Garden, Eynsford, Kent",
@@ -1329,8 +1419,8 @@
       "images": [
         {
           "kind": "own",
-          "src": "/images/024.jpg",
-          "thumb": "/images/024-thumb.jpg",
+          "src": "/images/026.jpg",
+          "thumb": "/images/026-thumb.jpg",
           "width": 768,
           "height": 1024,
           "alt": "Symphyotrichum 'Vasterival' newly planted: dark red stems with narrow leaves and small pale lilac daisy flowers",
@@ -1343,7 +1433,7 @@
         },
         {
           "kind": "own",
-          "src": "/images/024-2.jpg",
+          "src": "/images/026-2.jpg",
           "thumb": null,
           "width": 768,
           "height": 1024,
@@ -1358,97 +1448,97 @@
       ]
     },
     {
-      "record_no": "025",
-      "type": "worked",
-      "date": "2026-09-05",
-      "site": "Home collection",
-      "projects": [],
-      "location": null,
-      "vice_county": "16 W Kent",
-      "grid_ref": null,
-      "name": "Conophytum minimum (Haw.) N.E.Br.",
-      "name_html": "<i>Conophytum minimum</i> (Haw.) N.E.Br.",
-      "family": "Aizoaceae",
-      "det": "Woodside Cacti (nursery label), read by D.C. Chambers — not keyed",
-      "label_read": "“£5.50 / Conophytum wittebergensis / www.woodsidecacti.co.uk”",
-      "note": "Labelled as <i>Conophytum wittebergensis</i>, a misspelling of <i>C. wittebergense</i> de Boer, which POWO treats as a synonym of <i>C. minimum</i>.",
-      "common_names": null,
-      "native_range": "S. Cape Prov.",
-      "habit": "Succulent subshrub; desert or dry shrubland biome",
-      "provenance": "Bought at the Cactus at the Castle event, Lullingstone Castle, 5 Sep 2026. Label: Woodside Cacti (woodsidecacti.co.uk), £5.50.",
-      "diagnostic": "Tiny, almost stemless, winter-growing leaf succulent to about 3 cm tall, forming dense mats in time. Bodies under 1 cm across, silvery-green, marked with dark brownish-red or purple dots and lines. Small, whitish, strongly scented flowers open at night in autumn.",
-      "near_misses": null,
-      "work_done": "Watered in error after buying. Reported by D.C. Chambers on 5 Oct 2026 as killed by the watering, with one plant thought still alive.",
-      "how_studied": null,
-      "observed": "Photograph, shared 5 Oct 2026: one body plump and grey-green with dark line markings; a second dried out and papery.",
-      "sources": "POWO, accessed 5 Oct 2026. Gard. Chron., ser. 3, 71: 307 (1922); <i>C. wittebergense</i>: Succulenta (Netherlands) 44: 21 (1965). LLIFLE.",
-      "open_questions": "Diagnostic from a secondary source, written for the <i>wittebergense</i> form; check against the plant. How many plants were bought, and when the photograph was taken, not recorded. CITES listing not confirmed.",
-      "powo_url": "https://powo.science.kew.org/taxon/urn:lsid:ipni.org:names:361209-1",
-      "log": [],
-      "images": [
-        {
-          "kind": "own",
-          "src": "/images/025.jpg",
-          "thumb": "/images/025-thumb.jpg",
-          "width": 768,
-          "height": 1024,
-          "alt": "Conophytum minimum in a small terracotta-coloured pot topped with grit: one round grey-green body with dark branching lines beside a dried brown one, with a white nursery label",
-          "credit": "D.C. Chambers",
-          "licence": null,
-          "licence_url": null,
-          "source": null,
-          "source_url": null,
-          "taken": null
-        }
-      ]
-    },
-    {
-      "record_no": "026",
-      "type": "worked",
-      "date": "2026-09-05",
-      "site": "Home collection",
-      "projects": [],
-      "location": null,
-      "vice_county": "16 W Kent",
-      "grid_ref": null,
-      "name": "Conophytum lithopsoides L.Bolus",
-      "name_html": "<i>Conophytum lithopsoides</i> L.Bolus",
-      "family": "Aizoaceae",
-      "det": "Woodside Cacti (nursery label), read by D.C. Chambers — not keyed",
-      "label_read": "“£5.50 / Conophytum lithopsioides / www.woodsidecacti.co.uk”",
-      "note": "Labelled as <i>Conophytum lithopsioides</i>; POWO and IPNI spell the name <i>lithopsoides</i>.",
-      "common_names": null,
-      "native_range": "W. Cape Prov.",
-      "habit": "Succulent subshrub; desert or dry shrubland biome",
-      "provenance": "Bought at the Cactus at the Castle event, Lullingstone Castle, 5 Sep 2026. Label: Woodside Cacti (woodsidecacti.co.uk), £5.50.",
-      "diagnostic": "Dwarf clump-forming succulent. Bodies of two almost wholly fused leaves, cylindrical, about 2.5 cm tall and 1 cm wide, purplish-brown to chartreuse with opaque brownish spots and a window at the tip. Magenta flowers, white at the base, open by day in autumn.",
-      "near_misses": null,
-      "work_done": "Watered in error after buying. Reported by D.C. Chambers on 5 Oct 2026 as killed by the watering, with one plant thought still alive.",
-      "how_studied": null,
-      "observed": "Photograph, shared 5 Oct 2026: two bodies, dark purplish-brown and wrinkled, green at the base, with dried flower remains at the tips.",
-      "sources": "POWO, accessed 5 Oct 2026. Notes Mesembryanthemum 3: 138 (1938). World of Succulents.",
-      "open_questions": "Diagnostic from a secondary source; check against the plant. That source gives the range as Northern Cape, against POWO's W. Cape Prov. Subspecies not determined. How many plants were bought, and when the photograph was taken, not recorded. CITES listing not confirmed.",
-      "powo_url": "https://powo.science.kew.org/taxon/urn:lsid:ipni.org:names:361189-1",
-      "log": [],
-      "images": [
-        {
-          "kind": "own",
-          "src": "/images/026.jpg",
-          "thumb": "/images/026-thumb.jpg",
-          "width": 768,
-          "height": 1024,
-          "alt": "Conophytum lithopsoides in a small terracotta-coloured pot topped with grit: two dark purplish-brown wrinkled bodies with papery collars at the base, with a white nursery label",
-          "credit": "D.C. Chambers",
-          "licence": null,
-          "licence_url": null,
-          "source": null,
-          "source_url": null,
-          "taken": null
-        }
-      ]
-    },
-    {
       "record_no": "D001",
+      "type": "day",
+      "date": "2025-03-10",
+      "site": "Riverview Academy",
+      "organisation": "Riverview Academy",
+      "capacity": "volunteer",
+      "hours": null,
+      "with_whom": null,
+      "tasks": [
+        "Attended the children's forest school day"
+      ],
+      "projects": [],
+      "note": null,
+      "sources": null,
+      "open_questions": null,
+      "images": []
+    },
+    {
+      "record_no": "D002",
+      "type": "day",
+      "date": "2025-04-29",
+      "site": "Riverview Academy",
+      "organisation": "Riverview Academy",
+      "capacity": "volunteer",
+      "hours": null,
+      "with_whom": null,
+      "tasks": [
+        "Attended the children's forest school day"
+      ],
+      "projects": [],
+      "note": null,
+      "sources": null,
+      "open_questions": null,
+      "images": []
+    },
+    {
+      "record_no": "D003",
+      "type": "day",
+      "date": "2025-06-17",
+      "site": "Riverview Academy",
+      "organisation": "Riverview Academy",
+      "capacity": "volunteer",
+      "hours": null,
+      "with_whom": null,
+      "tasks": [
+        "Attended the children's forest school day"
+      ],
+      "projects": [],
+      "note": null,
+      "sources": null,
+      "open_questions": null,
+      "images": []
+    },
+    {
+      "record_no": "D004",
+      "type": "day",
+      "date": "2025-11-18",
+      "site": "Riverview Academy",
+      "organisation": "Riverview Academy",
+      "capacity": "volunteer",
+      "hours": 2.5,
+      "with_whom": null,
+      "tasks": [
+        "Attended the children's forest school day"
+      ],
+      "projects": [],
+      "note": null,
+      "sources": null,
+      "open_questions": null,
+      "images": []
+    },
+    {
+      "record_no": "D005",
+      "type": "day",
+      "date": "2026-01-12",
+      "site": "Riverview Academy",
+      "organisation": "Riverview Academy",
+      "capacity": "volunteer",
+      "hours": 2.5,
+      "with_whom": null,
+      "tasks": [
+        "Attended the children's forest school day"
+      ],
+      "projects": [],
+      "note": null,
+      "sources": null,
+      "open_questions": null,
+      "images": []
+    },
+    {
+      "record_no": "D006",
       "type": "day",
       "date": "2026-07-18",
       "site": "Lullingstone Castle World Garden, Eynsford, Kent",
@@ -1466,7 +1556,7 @@
       "images": []
     },
     {
-      "record_no": "D002",
+      "record_no": "D007",
       "type": "day",
       "date": "2026-07-24",
       "site": "Lullingstone Castle World Garden, Eynsford, Kent",
@@ -1485,8 +1575,8 @@
       "images": [
         {
           "kind": "own",
-          "src": "/images/D002.jpg",
-          "thumb": "/images/D002-thumb.jpg",
+          "src": "/images/D007.jpg",
+          "thumb": "/images/D007-thumb.jpg",
           "width": 1024,
           "height": 768,
           "alt": "A wheelbarrow of dead leaves on a path between shrubs, with a rake handle held in the foreground",
@@ -1500,7 +1590,7 @@
       ]
     },
     {
-      "record_no": "D003",
+      "record_no": "D008",
       "type": "day",
       "date": "2026-07-31",
       "site": "Lullingstone Castle World Garden, Eynsford, Kent",
@@ -1516,7 +1606,7 @@
       "images": []
     },
     {
-      "record_no": "D004",
+      "record_no": "D009",
       "type": "day",
       "date": "2026-08-07",
       "site": "Lullingstone Castle World Garden, Eynsford, Kent",
@@ -1532,7 +1622,7 @@
       "images": []
     },
     {
-      "record_no": "D005",
+      "record_no": "D010",
       "type": "day",
       "date": "2026-08-11",
       "site": "Shorne Woods Country Park, Kent",
@@ -1552,8 +1642,8 @@
       "images": [
         {
           "kind": "own",
-          "src": "/images/D005.jpg",
-          "thumb": "/images/D005-thumb.jpg",
+          "src": "/images/D010.jpg",
+          "thumb": "/images/D010-thumb.jpg",
           "width": 1024,
           "height": 768,
           "alt": "The old timber bridge deck torn out and laid on the grass beside the path, with broken boards and post stumps where it stood",
@@ -1566,7 +1656,7 @@
         },
         {
           "kind": "own",
-          "src": "/images/D005-2.jpg",
+          "src": "/images/D010-2.jpg",
           "thumb": null,
           "width": 1024,
           "height": 768,
@@ -1581,7 +1671,7 @@
       ]
     },
     {
-      "record_no": "D006",
+      "record_no": "D011",
       "type": "day",
       "date": "2026-08-14",
       "site": "Lullingstone Castle World Garden, Eynsford, Kent",
@@ -1597,7 +1687,7 @@
       "images": []
     },
     {
-      "record_no": "D007",
+      "record_no": "D012",
       "type": "day",
       "date": "2026-08-18",
       "site": "Shorne Woods Country Park, Kent",
@@ -1615,7 +1705,7 @@
       "images": []
     },
     {
-      "record_no": "D008",
+      "record_no": "D013",
       "type": "day",
       "date": "2026-08-21",
       "site": "Lullingstone Castle World Garden, Eynsford, Kent",
@@ -1633,7 +1723,7 @@
       "images": []
     },
     {
-      "record_no": "D009",
+      "record_no": "D014",
       "type": "day",
       "date": "2026-08-25",
       "site": "Shorne Woods Country Park, Kent",
@@ -1649,7 +1739,7 @@
       "images": []
     },
     {
-      "record_no": "D010",
+      "record_no": "D015",
       "type": "day",
       "date": "2026-08-28",
       "site": "Lullingstone Castle World Garden, Eynsford, Kent",
@@ -1665,7 +1755,7 @@
       "images": []
     },
     {
-      "record_no": "D011",
+      "record_no": "D016",
       "type": "day",
       "date": "2026-09-01",
       "site": "Shorne Woods Country Park, Kent",
@@ -1683,7 +1773,7 @@
       "images": []
     },
     {
-      "record_no": "D012",
+      "record_no": "D017",
       "type": "day",
       "date": "2026-09-04",
       "site": "Lullingstone Castle World Garden, Eynsford, Kent",
@@ -1699,7 +1789,25 @@
       "images": []
     },
     {
-      "record_no": "D013",
+      "record_no": "D018",
+      "type": "day",
+      "date": "2026-09-05",
+      "site": "Home collection",
+      "organisation": null,
+      "capacity": "own",
+      "hours": null,
+      "with_whom": null,
+      "tasks": [
+        "Bought plants at the Cactus at the Castle event, Lullingstone Castle"
+      ],
+      "projects": [],
+      "note": null,
+      "sources": null,
+      "open_questions": null,
+      "images": []
+    },
+    {
+      "record_no": "D019",
       "type": "day",
       "date": "2026-09-11",
       "site": "Lullingstone Castle World Garden, Eynsford, Kent",
@@ -1717,7 +1825,7 @@
       "images": []
     },
     {
-      "record_no": "D014",
+      "record_no": "D020",
       "type": "day",
       "date": "2026-09-15",
       "site": "Shorne Woods Country Park, Kent",
@@ -1735,7 +1843,7 @@
       "images": []
     },
     {
-      "record_no": "D015",
+      "record_no": "D021",
       "type": "day",
       "date": "2026-09-18",
       "site": "Lullingstone Castle World Garden, Eynsford, Kent",
@@ -1753,7 +1861,7 @@
       "images": []
     },
     {
-      "record_no": "D016",
+      "record_no": "D022",
       "type": "day",
       "date": "2026-09-22",
       "site": "Shorne Woods Country Park, Kent",
@@ -1771,7 +1879,7 @@
       "images": []
     },
     {
-      "record_no": "D017",
+      "record_no": "D023",
       "type": "day",
       "date": "2026-09-25",
       "site": "Lullingstone Castle World Garden, Eynsford, Kent",
@@ -1787,39 +1895,7 @@
       "images": []
     },
     {
-      "record_no": "D018",
-      "type": "day",
-      "date": "2026-10-01",
-      "site": "Lullingstone Castle World Garden, Eynsford, Kent",
-      "organisation": "Lullingstone Castle World Garden",
-      "capacity": "volunteer",
-      "hours": null,
-      "with_whom": "T. Hart Dyke",
-      "tasks": [],
-      "projects": [],
-      "note": null,
-      "sources": null,
-      "open_questions": null,
-      "images": []
-    },
-    {
-      "record_no": "D019",
-      "type": "day",
-      "date": "2026-10-02",
-      "site": "Lullingstone Castle World Garden, Eynsford, Kent",
-      "organisation": "Lullingstone Castle World Garden",
-      "capacity": "volunteer",
-      "hours": null,
-      "with_whom": "T. Hart Dyke",
-      "tasks": [],
-      "projects": [],
-      "note": null,
-      "sources": null,
-      "open_questions": null,
-      "images": []
-    },
-    {
-      "record_no": "D020",
+      "record_no": "D024",
       "type": "day",
       "date": "2026-09-29",
       "site": "Riverview Academy",
@@ -1839,89 +1915,15 @@
       "images": []
     },
     {
-      "record_no": "D021",
-      "type": "day",
-      "date": "2026-01-12",
-      "site": "Riverview Academy",
-      "organisation": "Riverview Academy",
-      "capacity": "volunteer",
-      "hours": 2.5,
-      "with_whom": null,
-      "tasks": [
-        "Attended the children's forest school day"
-      ],
-      "projects": [],
-      "note": null,
-      "sources": null,
-      "open_questions": null,
-      "images": []
-    },
-    {
-      "record_no": "D022",
-      "type": "day",
-      "date": "2025-11-18",
-      "site": "Riverview Academy",
-      "organisation": "Riverview Academy",
-      "capacity": "volunteer",
-      "hours": 2.5,
-      "with_whom": null,
-      "tasks": [
-        "Attended the children's forest school day"
-      ],
-      "projects": [],
-      "note": null,
-      "sources": null,
-      "open_questions": null,
-      "images": []
-    },
-    {
-      "record_no": "D023",
-      "type": "day",
-      "date": "2025-06-17",
-      "site": "Riverview Academy",
-      "organisation": "Riverview Academy",
-      "capacity": "volunteer",
-      "hours": null,
-      "with_whom": null,
-      "tasks": [
-        "Attended the children's forest school day"
-      ],
-      "projects": [],
-      "note": null,
-      "sources": null,
-      "open_questions": null,
-      "images": []
-    },
-    {
-      "record_no": "D024",
-      "type": "day",
-      "date": "2025-04-29",
-      "site": "Riverview Academy",
-      "organisation": "Riverview Academy",
-      "capacity": "volunteer",
-      "hours": null,
-      "with_whom": null,
-      "tasks": [
-        "Attended the children's forest school day"
-      ],
-      "projects": [],
-      "note": null,
-      "sources": null,
-      "open_questions": null,
-      "images": []
-    },
-    {
       "record_no": "D025",
       "type": "day",
-      "date": "2025-03-10",
-      "site": "Riverview Academy",
-      "organisation": "Riverview Academy",
+      "date": "2026-10-01",
+      "site": "Lullingstone Castle World Garden, Eynsford, Kent",
+      "organisation": "Lullingstone Castle World Garden",
       "capacity": "volunteer",
       "hours": null,
-      "with_whom": null,
-      "tasks": [
-        "Attended the children's forest school day"
-      ],
+      "with_whom": "T. Hart Dyke",
+      "tasks": [],
       "projects": [],
       "note": null,
       "sources": null,
@@ -1931,15 +1933,13 @@
     {
       "record_no": "D026",
       "type": "day",
-      "date": "2026-09-05",
-      "site": "Home collection",
-      "organisation": null,
-      "capacity": "own",
+      "date": "2026-10-02",
+      "site": "Lullingstone Castle World Garden, Eynsford, Kent",
+      "organisation": "Lullingstone Castle World Garden",
+      "capacity": "volunteer",
       "hours": null,
-      "with_whom": null,
-      "tasks": [
-        "Bought plants at the Cactus at the Castle event, Lullingstone Castle"
-      ],
+      "with_whom": "T. Hart Dyke",
+      "tasks": [],
       "projects": [],
       "note": null,
       "sources": null,
