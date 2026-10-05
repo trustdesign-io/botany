@@ -34,7 +34,7 @@ describe('plant-records.json', () => {
 })
 
 describe('schema', () => {
-  const good = getRecords()[0]
+  const good = getRecords().find((r) => r.type === 'worked')
 
   it('rejects markup other than <i>', () => {
     expect(recordSchema.safeParse({ ...good, diagnostic: '<b>bold</b>' }).success).toBe(false)
