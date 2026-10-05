@@ -1510,7 +1510,7 @@
       "site": "Riverview Academy",
       "organisation": "Riverview Academy",
       "capacity": "volunteer",
-      "hours": 2.5,
+      "hours": null,
       "with_whom": null,
       "tasks": [
         "Attended the children's forest school day"
@@ -1528,7 +1528,7 @@
       "site": "Riverview Academy",
       "organisation": "Riverview Academy",
       "capacity": "volunteer",
-      "hours": 2.5,
+      "hours": null,
       "with_whom": null,
       "tasks": [
         "Attended the children's forest school day"
@@ -1903,7 +1903,7 @@
       "site": "Riverview Academy",
       "organisation": "Riverview Academy",
       "capacity": "volunteer",
-      "hours": 1.5,
+      "hours": null,
       "with_whom": null,
       "tasks": [
         "Attended the children's forest school day"

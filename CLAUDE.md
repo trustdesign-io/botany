@@ -25,6 +25,7 @@ Every entry has a `type`, and each type has its own number sequence:
 - A work day is linked to the plants worked with by date and site, not stored: the `worked` entries with the same `date` and the same `site` string appear on the day's page, and each links back. So when adding a `worked` record, make sure a `day` exists for that date and site (add one if not), and copy the `site` string exactly. One work day per date and site.
 - Work that did not involve a specific plant (watering a tunnel, building a bridge, clearing a site) goes in the day's `tasks` list, one short item each. Do not make a record for it.
 - In the full list a work day is one block: its tasks and its plants sit beneath it. Filtered to one type, the list is flat.
+- Hours are not recorded or shown: leave a day's `hours` as `null`. Danny dropped them (Oct 2026); days worked are what count.
 - Regular days: Lullingstone on Fridays with T. Hart Dyke (volunteer); Shorne Woods Country Park on Tuesdays for Kent County Council (volunteer). Do not add a day Danny has not confirmed he attended.
 - The schema in `src/lib/records.ts` and the types in `src/types/record.ts` list every field per type.
 
