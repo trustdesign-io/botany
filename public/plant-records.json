@@ -2117,6 +2117,26 @@
           "taken": "2026-09-26"
         }
       ]
+    },
+    {
+      "record_no": "E006",
+      "type": "event",
+      "date": "2026-09-05",
+      "site": "Lullingstone Castle World Garden, Eynsford, Kent",
+      "projects": [],
+      "title": "Cactus at the Castle",
+      "event_kind": "visit",
+      "organiser": null,
+      "notes": "Bought two <i>Conophytum</i> for the home collection, both labelled Woodside Cacti: records 025 and 026.",
+      "species": [
+        "<i>Conophytum minimum</i>",
+        "<i>Conophytum lithopsoides</i>"
+      ],
+      "url": null,
+      "note": null,
+      "sources": null,
+      "open_questions": null,
+      "images": []
     }
   ]
 }
