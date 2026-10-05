@@ -126,6 +126,11 @@ export function RecordIndex({ records }: RecordIndexProps) {
   const grouped = filters.type === ''
   const blocks: Block[] = grouped ? buildBlocks(shown, records) : shown.map((entry) => ({ entry, plants: [] }))
   const filtered = filtersToHash(filters) !== ''
+  // The work days in view that have something beneath them to fold away.
+  const foldable = grouped
+    ? blocks.filter((b) => b.entry.type === 'day' && (b.entry.tasks.length > 0 || b.plants.length > 0)).map((b) => b.entry.record_no)
+    : []
+  const allClosed = foldable.length > 0 && foldable.every((no) => closed.includes(no))
 
   const active = Object.values(filters).filter(Boolean).length
 
@@ -216,6 +221,17 @@ export function RecordIndex({ records }: RecordIndexProps) {
           {shown.length} {shown.length === 1 ? 'record' : 'records'}
           {filtered && ` of ${records.length}`}
         </p>
+        <div className="flex items-center gap-4">
+        {foldable.length > 0 && (
+          <button
+            type="button"
+            aria-pressed={allClosed}
+            onClick={() => setClosed(allClosed ? [] : foldable)}
+            className="label cursor-pointer underline underline-offset-2 hover:text-stamp active:text-foreground"
+          >
+            {allClosed ? 'Expand all' : 'Collapse all'}
+          </button>
+        )}
         {filtered && (
           <button
             type="button"
@@ -225,6 +241,7 @@ export function RecordIndex({ records }: RecordIndexProps) {
             Clear filters
           </button>
         )}
+        </div>
       </div>
 
       {shown.length === 0 ? (
