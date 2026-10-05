@@ -1803,6 +1803,24 @@
       "images": []
     },
     {
+      "record_no": "D024",
+      "type": "day",
+      "date": "2025-04-29",
+      "site": "Riverview Academy",
+      "organisation": "Riverview Academy",
+      "capacity": "volunteer",
+      "hours": null,
+      "with_whom": null,
+      "tasks": [
+        "Forest school day with the children"
+      ],
+      "projects": [],
+      "note": null,
+      "sources": null,
+      "open_questions": null,
+      "images": []
+    },
+    {
       "record_no": "E001",
       "type": "event",
       "date": "2026-08-01",
