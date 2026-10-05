@@ -27,7 +27,7 @@ export function Header() {
   const pathname = usePathname()
 
   return (
-    <header className="no-print border-b border-rule">
+    <header className="no-print border-b border-border">
       <div className="mx-auto flex max-w-4xl flex-col gap-1 px-4 pt-4 pb-2 sm:flex-row sm:items-end sm:justify-between sm:px-6">
         <Link href="/" className="group flex items-center gap-3">
           <Image

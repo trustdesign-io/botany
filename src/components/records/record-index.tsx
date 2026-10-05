@@ -216,7 +216,7 @@ export function RecordIndex({ records }: RecordIndexProps) {
         filtersNote={active > 0 ? `${active} set` : undefined}
       />
 
-      <div className="flex min-h-9 items-center justify-between gap-3 border-b-2 border-rule pb-1">
+      <div className="flex min-h-9 items-center justify-between gap-3 border-b border-border pb-1">
         <p className="label" role="status" aria-live="polite">
           {shown.length} {shown.length === 1 ? 'record' : 'records'}
           {filtered && ` of ${records.length}`}
