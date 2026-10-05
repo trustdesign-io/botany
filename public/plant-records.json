@@ -1735,7 +1735,7 @@
       "site": "Riverview Academy",
       "organisation": "Riverview Academy",
       "capacity": "volunteer",
-      "hours": null,
+      "hours": 1.5,
       "with_whom": null,
       "tasks": [
         "Forest school day with the children"
@@ -1744,6 +1744,24 @@
         "Greenfinch"
       ],
       "note": "Forest school maintenance for the school, as a Greenfinch project. The day also served as user research for it.",
+      "sources": null,
+      "open_questions": null,
+      "images": []
+    },
+    {
+      "record_no": "D021",
+      "type": "day",
+      "date": "2026-01-12",
+      "site": "Riverview Academy",
+      "organisation": "Riverview Academy",
+      "capacity": "volunteer",
+      "hours": 2.5,
+      "with_whom": null,
+      "tasks": [
+        "Forest school day with the children"
+      ],
+      "projects": [],
+      "note": null,
       "sources": null,
       "open_questions": null,
       "images": []

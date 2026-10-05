@@ -75,7 +75,7 @@ describe('types', () => {
 describe('work days', () => {
   it('filters to work days and by site', () => {
     const days = filterRecords(all, { ...EMPTY_FILTERS, type: 'day' })
-    expect(days).toHaveLength(20)
+    expect(days).toHaveLength(all.filter((r) => r.type === 'day').length)
     const shorne = filterRecords(all, { ...EMPTY_FILTERS, type: 'day', site: 'Shorne Woods Country Park, Kent' })
     expect(shorne).toHaveLength(6)
   })
@@ -102,7 +102,7 @@ describe('buildBlocks', () => {
   it('puts each plant under its work day, so a visit appears once', () => {
     const blocks = buildBlocks(all, all)
     expect(blocks.filter((b) => b.entry.type === 'worked')).toHaveLength(0)
-    expect(blocks.filter((b) => b.entry.type === 'day')).toHaveLength(20)
+    expect(blocks.filter((b) => b.entry.type === 'day')).toHaveLength(all.filter((r) => r.type === 'day').length)
     const oct2 = blocks.find((b) => b.entry.date === '2026-10-02')
     expect(oct2?.plants.map((p) => p.record_no)).toEqual(['017', '018', '019', '020', '021', '022', '023', '024'])
     expect(blocks.reduce((n, b) => n + b.plants.length, 0)).toBe(all.filter((r) => r.type === 'worked').length)
