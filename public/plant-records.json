@@ -2,7 +2,7 @@
   "schema_version": 10,
   "title": "Botanical and Horticultural Records",
   "kept_by": "D.C. Chambers",
-  "updated": "2026-10-03",
+  "updated": "2026-10-05",
   "conventions": "Every entry has a 'type'. 'worked': a plant worked with, numbered 001, 002… 'studied': a species investigated but not worked with, numbered S001, S002… 'event': a lecture, visit, course or other attendance, numbered E001, E002… 'day': a day worked at a site, as a volunteer, on contract or on an own project, numbered D001, D002… Each type has its own sequence. A work day is linked to the plants worked with on the same date at the same site; that link is worked out from the two entries and is not stored. A day's 'tasks' list holds work that did not involve a specific plant. null means not yet recorded. Text fields are plain text; the only markup allowed is <i>…</i> around botanical names. For plants, 'name' is the plain-text form of 'name_html'. Dates are ISO 8601. 'projects' is a list: an entry can belong to none, one or several, and never appears twice. 'image' is one photo per entry, or null. kind 'own' is D.C. Chambers' photograph; kind 'reference' is a photo of the species from a public source, with its credit, licence and source. An 'own' photo replaces a 'reference' one.",
   "records": [
     {
@@ -67,6 +67,65 @@
     {
       "record_no": "002",
       "type": "worked",
+      "date": "2026-07-24",
+      "site": "Lullingstone Castle World Garden, Eynsford, Kent",
+      "projects": [],
+      "location": null,
+      "vice_county": "16 W Kent",
+      "grid_ref": null,
+      "name": "Erythronium dens-canis L.",
+      "name_html": "<i>Erythronium dens-canis</i> L.",
+      "family": "Liliaceae",
+      "det": "From the bulb packet, read by D.C. Chambers, 24 Jul 2026 — not keyed",
+      "label_read": "Bulb packet: “Erythronium / dens-canis x 3 / The Dogs Tooth Violets are excellent for naturalising, ideal for shady places.” The rest is torn.",
+      "note": null,
+      "common_names": "Dog's-tooth violet",
+      "native_range": "Central & S. Europe to Ukraine",
+      "habit": "Bulbous geophyte; temperate biome",
+      "provenance": "A packet of three bulbs, with a UK plant passport. The supplier’s name is torn on the packet.",
+      "diagnostic": null,
+      "near_misses": null,
+      "work_done": "Planted.",
+      "how_studied": null,
+      "observed": null,
+      "sources": "POWO, accessed 5 Oct 2026. Sp. Pl.: 305 (1753).",
+      "open_questions": "Which bed. Diagnostic and near misses not yet written.",
+      "powo_url": "https://powo.science.kew.org/taxon/urn:lsid:ipni.org:names:534921-1",
+      "log": [],
+      "images": [
+        {
+          "kind": "own",
+          "src": "/images/002.jpg",
+          "thumb": "/images/002-thumb.jpg",
+          "width": 768,
+          "height": 1024,
+          "alt": "Three Erythronium dens-canis bulbs, pale and tooth-shaped with fine roots, held in an open hand above the bed",
+          "credit": "D.C. Chambers",
+          "licence": null,
+          "licence_url": null,
+          "source": null,
+          "source_url": null,
+          "taken": "2026-07-24"
+        },
+        {
+          "kind": "own",
+          "src": "/images/002-2.jpg",
+          "thumb": null,
+          "width": 768,
+          "height": 1024,
+          "alt": "The bulb packet: Erythronium dens-canis x 3, Dogs Tooth Violets, with a UK plant passport and a bag of bulbs in compost",
+          "credit": "D.C. Chambers",
+          "licence": null,
+          "licence_url": null,
+          "source": null,
+          "source_url": null,
+          "taken": "2026-07-24"
+        }
+      ]
+    },
+    {
+      "record_no": "003",
+      "type": "worked",
       "date": "2026-07-31",
       "site": "Lullingstone Castle World Garden, Eynsford, Kent",
       "projects": [],
@@ -95,8 +154,8 @@
       "images": [
         {
           "kind": "own",
-          "src": "/images/002.jpg",
-          "thumb": "/images/002-thumb.jpg",
+          "src": "/images/003.jpg",
+          "thumb": "/images/003-thumb.jpg",
           "width": 1024,
           "height": 768,
           "alt": "Muehlenbeckia complexa covering a rock bank in a dense mat of wiry stems and small round leaves, beneath a taller shrub",
@@ -109,7 +168,7 @@
         },
         {
           "kind": "own",
-          "src": "/images/002-2.jpg",
+          "src": "/images/003-2.jpg",
           "thumb": null,
           "width": 1024,
           "height": 768,
@@ -124,7 +183,7 @@
       ]
     },
     {
-      "record_no": "003",
+      "record_no": "004",
       "type": "worked",
       "date": "2026-08-07",
       "site": "Lullingstone Castle World Garden, Eynsford, Kent",
@@ -154,8 +213,8 @@
       "images": [
         {
           "kind": "own",
-          "src": "/images/003.jpg",
-          "thumb": "/images/003-thumb.jpg",
+          "src": "/images/004.jpg",
+          "thumb": "/images/004-thumb.jpg",
           "width": 768,
           "height": 1024,
           "alt": "Hoodia gordonii potted up: spiny, ribbed grey-green stems in a pot, with a handwritten label reading HOODIA GORDONII \"DOG POOH PLANT\"",
@@ -168,7 +227,7 @@
         },
         {
           "kind": "own",
-          "src": "/images/003-2.jpg",
+          "src": "/images/004-2.jpg",
           "thumb": null,
           "width": 768,
           "height": 1024,
@@ -183,7 +242,7 @@
       ]
     },
     {
-      "record_no": "004",
+      "record_no": "005",
       "type": "worked",
       "date": "2026-08-07",
       "site": "Lullingstone Castle World Garden, Eynsford, Kent",
@@ -213,8 +272,8 @@
       "images": [
         {
           "kind": "own",
-          "src": "/images/004.jpg",
-          "thumb": "/images/004-thumb.jpg",
+          "src": "/images/005.jpg",
+          "thumb": "/images/005-thumb.jpg",
           "width": 768,
           "height": 1024,
           "alt": "Alluaudia montagnacii potted up: a single upright stem with long white spines and small dark green leaves",
@@ -228,7 +287,7 @@
       ]
     },
     {
-      "record_no": "005",
+      "record_no": "006",
       "type": "worked",
       "date": "2026-08-07",
       "site": "Lullingstone Castle World Garden, Eynsford, Kent",
@@ -258,8 +317,8 @@
       "images": [
         {
           "kind": "own",
-          "src": "/images/005.jpg",
-          "thumb": "/images/005-thumb.jpg",
+          "src": "/images/006.jpg",
+          "thumb": "/images/006-thumb.jpg",
           "width": 768,
           "height": 1024,
           "alt": "Alluaudia procera: two upright grey stems with short spines and paired rounded leaves, green below and dark at the tips",
@@ -273,7 +332,7 @@
       ]
     },
     {
-      "record_no": "006",
+      "record_no": "007",
       "type": "worked",
       "date": "2026-08-14",
       "site": "Lullingstone Castle World Garden, Eynsford, Kent",
@@ -303,8 +362,8 @@
       "images": [
         {
           "kind": "own",
-          "src": "/images/006.jpg",
-          "thumb": "/images/006-thumb.jpg",
+          "src": "/images/007.jpg",
+          "thumb": "/images/007-thumb.jpg",
           "width": 770,
           "height": 1024,
           "alt": "Aloidendron barberae being planted: a tall bare stem topped by a rosette of long channelled leaves, with a person in a straw hat working at its base",
@@ -318,7 +377,7 @@
       ]
     },
     {
-      "record_no": "007",
+      "record_no": "008",
       "type": "worked",
       "date": "2026-08-14",
       "site": "Lullingstone Castle World Garden, Eynsford, Kent",
@@ -348,8 +407,8 @@
       "images": [
         {
           "kind": "own",
-          "src": "/images/007.jpg",
-          "thumb": "/images/007-thumb.jpg",
+          "src": "/images/008.jpg",
+          "thumb": "/images/008-thumb.jpg",
           "width": 768,
           "height": 1024,
           "alt": "Aloe arborescens var. lutea newly planted: a rosette of toothed, curving leaves on a bare stem, with a man in a red cap standing beside it and two yellow trugs in front",
@@ -363,7 +422,7 @@
       ]
     },
     {
-      "record_no": "008",
+      "record_no": "009",
       "type": "worked",
       "date": "2026-08-14",
       "site": "Lullingstone Castle World Garden, Eynsford, Kent",
@@ -393,8 +452,8 @@
       "images": [
         {
           "kind": "own",
-          "src": "/images/008.jpg",
-          "thumb": "/images/008-thumb.jpg",
+          "src": "/images/009.jpg",
+          "thumb": "/images/009-thumb.jpg",
           "width": 768,
           "height": 1024,
           "alt": "Brachychiton rupestris under cover: a dense crown of narrow, bronze-tinted leaves on dark branches",
@@ -533,7 +592,7 @@
       ]
     },
     {
-      "record_no": "009",
+      "record_no": "010",
       "type": "worked",
       "date": "2026-08-28",
       "site": "Lullingstone Castle World Garden, Eynsford, Kent",
@@ -563,8 +622,8 @@
       "images": [
         {
           "kind": "own",
-          "src": "/images/009.jpg",
-          "thumb": "/images/009-thumb.jpg",
+          "src": "/images/010.jpg",
+          "thumb": "/images/010-thumb.jpg",
           "width": 1024,
           "height": 768,
           "alt": "Puya castellanosii being pruned: a rosette of narrow grey-green leaves with a flower stem, among cacti, with a man in a cap and gloves reaching in to cut at its base",
@@ -578,7 +637,7 @@
       ]
     },
     {
-      "record_no": "010",
+      "record_no": "011",
       "type": "worked",
       "date": "2026-08-28",
       "site": "Lullingstone Castle World Garden, Eynsford, Kent",
@@ -608,8 +667,8 @@
       "images": [
         {
           "kind": "own",
-          "src": "/images/010.jpg",
-          "thumb": "/images/010-thumb.jpg",
+          "src": "/images/011.jpg",
+          "thumb": "/images/011-thumb.jpg",
           "width": 1024,
           "height": 768,
           "alt": "Ceiba speciosa under cover: a green trunk branching wide beneath the roof, with palmate leaves, against a blue painted wall among cacti",
@@ -623,7 +682,7 @@
       ]
     },
     {
-      "record_no": "011",
+      "record_no": "012",
       "type": "worked",
       "date": "2026-09-18",
       "site": "Lullingstone Castle World Garden, Eynsford, Kent",
@@ -658,7 +717,7 @@
           "images": [
             {
               "kind": "own",
-              "src": "/images/011-20261003.jpg",
+              "src": "/images/012-20261003.jpg",
               "thumb": null,
               "width": 768,
               "height": 1024,
@@ -676,8 +735,8 @@
       "images": [
         {
           "kind": "own",
-          "src": "/images/011.jpg",
-          "thumb": "/images/011-thumb.jpg",
+          "src": "/images/012.jpg",
+          "thumb": "/images/012-thumb.jpg",
           "width": 768,
           "height": 1024,
           "alt": "Two men standing in the garden at Lullingstone, one holding the two potted Nesocodon mauritianus plants on the day they arrived",
@@ -690,7 +749,7 @@
         },
         {
           "kind": "own",
-          "src": "/images/011-2.jpg",
+          "src": "/images/012-2.jpg",
           "thumb": null,
           "width": 1024,
           "height": 768,
@@ -704,7 +763,7 @@
         },
         {
           "kind": "own",
-          "src": "/images/011-3.jpg",
+          "src": "/images/012-3.jpg",
           "thumb": null,
           "width": 768,
           "height": 1024,
@@ -719,7 +778,7 @@
       ]
     },
     {
-      "record_no": "012",
+      "record_no": "013",
       "type": "worked",
       "date": "2026-09-18",
       "site": "Lullingstone Castle World Garden, Eynsford, Kent",
@@ -749,8 +808,8 @@
       "images": [
         {
           "kind": "own",
-          "src": "/images/012.jpg",
-          "thumb": "/images/012-thumb.jpg",
+          "src": "/images/013.jpg",
+          "thumb": "/images/013-thumb.jpg",
           "width": 1024,
           "height": 768,
           "alt": "French marigolds (Tagetes erecta) in a narrow metal-edged bed against a clipped hedge: single yellow flowers marked with red, on tall stems with divided leaves, the soil freshly watered",
@@ -763,7 +822,7 @@
         },
         {
           "kind": "own",
-          "src": "/images/012-2.jpg",
+          "src": "/images/013-2.jpg",
           "thumb": null,
           "width": 1024,
           "height": 768,
@@ -778,7 +837,7 @@
       ]
     },
     {
-      "record_no": "013",
+      "record_no": "014",
       "type": "worked",
       "date": "2026-09-25",
       "site": "Lullingstone Castle World Garden, Eynsford, Kent",
@@ -808,8 +867,8 @@
       "images": [
         {
           "kind": "own",
-          "src": "/images/013.jpg",
-          "thumb": "/images/013-thumb.jpg",
+          "src": "/images/014.jpg",
+          "thumb": "/images/014-thumb.jpg",
           "width": 768,
           "height": 1024,
           "alt": "Chamaerops humilis newly planted in the South Africa bed: a fan palm with a trunk clothed in old leaf bases, standing in a circle of sand dressed with ornamental warthogs, a South African flag flying behind",
@@ -822,7 +881,7 @@
         },
         {
           "kind": "own",
-          "src": "/images/013-2.jpg",
+          "src": "/images/014-2.jpg",
           "thumb": null,
           "width": 1024,
           "height": 768,
@@ -837,7 +896,7 @@
       ]
     },
     {
-      "record_no": "014",
+      "record_no": "015",
       "type": "worked",
       "date": "2026-10-01",
       "site": "Lullingstone Castle World Garden, Eynsford, Kent",
@@ -867,8 +926,8 @@
       "images": [
         {
           "kind": "own",
-          "src": "/images/014.jpg",
-          "thumb": "/images/014-thumb.jpg",
+          "src": "/images/015.jpg",
+          "thumb": "/images/015-thumb.jpg",
           "width": 768,
           "height": 1024,
           "alt": "Tulipa linifolia bulbs set out on a bed of sand in a gravel border, with more bulbs in a gloved hand and a hand fork and trowel beside the packet",
@@ -881,7 +940,7 @@
         },
         {
           "kind": "own",
-          "src": "/images/014-2.jpg",
+          "src": "/images/015-2.jpg",
           "thumb": null,
           "width": 768,
           "height": 1024,
@@ -896,7 +955,7 @@
       ]
     },
     {
-      "record_no": "015",
+      "record_no": "016",
       "type": "worked",
       "date": "2026-10-01",
       "site": "Lullingstone Castle World Garden, Eynsford, Kent",
@@ -926,8 +985,8 @@
       "images": [
         {
           "kind": "own",
-          "src": "/images/015.jpg",
-          "thumb": "/images/015-thumb.jpg",
+          "src": "/images/016.jpg",
+          "thumb": "/images/016-thumb.jpg",
           "width": 1024,
           "height": 768,
           "alt": "Ribes speciosum being cut back: a large tangle of bare spiny stems under a blue sky, with a man in a red cap and orange shirt cutting at its base with loppers and a second person behind",
@@ -940,7 +999,7 @@
         },
         {
           "kind": "own",
-          "src": "/images/015-2.jpg",
+          "src": "/images/016-2.jpg",
           "thumb": null,
           "width": 1024,
           "height": 768,
@@ -955,7 +1014,7 @@
       ]
     },
     {
-      "record_no": "016",
+      "record_no": "017",
       "type": "worked",
       "date": "2026-10-02",
       "site": "Lullingstone Castle World Garden, Eynsford, Kent",
@@ -985,7 +1044,7 @@
       "images": []
     },
     {
-      "record_no": "017",
+      "record_no": "018",
       "type": "worked",
       "date": "2026-10-02",
       "site": "Lullingstone Castle World Garden, Eynsford, Kent",
@@ -1015,8 +1074,8 @@
       "images": [
         {
           "kind": "own",
-          "src": "/images/017.jpg",
-          "thumb": "/images/017-thumb.jpg",
+          "src": "/images/018.jpg",
+          "thumb": "/images/018-thumb.jpg",
           "width": 770,
           "height": 1024,
           "alt": "Cordyline 'Sprilecflash' newly planted: long arching leaves striped purple and cream, behind the trunk of a labelled Corymbia ficifolia, with a spiny euphorbia in front and a spade and trug beside",
@@ -1030,7 +1089,7 @@
       ]
     },
     {
-      "record_no": "018",
+      "record_no": "019",
       "type": "worked",
       "date": "2026-10-02",
       "site": "Lullingstone Castle World Garden, Eynsford, Kent",
@@ -1060,8 +1119,8 @@
       "images": [
         {
           "kind": "own",
-          "src": "/images/018.jpg",
-          "thumb": "/images/018-thumb.jpg",
+          "src": "/images/019.jpg",
+          "thumb": "/images/019-thumb.jpg",
           "width": 768,
           "height": 1024,
           "alt": "Dyckia frigida newly planted: a rosette of stiff, spine-edged grey-green leaves beside its garden label, which reads Bromeliaceae, Dyckia frigida, \"Syringe Leaved Dyckia\", Parana State, Brazil",
@@ -1075,7 +1134,7 @@
       ]
     },
     {
-      "record_no": "019",
+      "record_no": "020",
       "type": "worked",
       "date": "2026-10-02",
       "site": "Lullingstone Castle World Garden, Eynsford, Kent",
@@ -1105,8 +1164,8 @@
       "images": [
         {
           "kind": "own",
-          "src": "/images/019.jpg",
-          "thumb": "/images/019-thumb.jpg",
+          "src": "/images/020.jpg",
+          "thumb": "/images/020-thumb.jpg",
           "width": 768,
           "height": 1024,
           "alt": "Cleome arborea in an air-pot on a wooden stool: hairy, purple-tinged stems carrying large palmate leaves of about seven leaflets",
@@ -1120,7 +1179,7 @@
       ]
     },
     {
-      "record_no": "020",
+      "record_no": "021",
       "type": "worked",
       "date": "2026-10-02",
       "site": "Lullingstone Castle World Garden, Eynsford, Kent",
@@ -1150,8 +1209,8 @@
       "images": [
         {
           "kind": "own",
-          "src": "/images/020.jpg",
-          "thumb": "/images/020-thumb.jpg",
+          "src": "/images/021.jpg",
+          "thumb": "/images/021-thumb.jpg",
           "width": 788,
           "height": 1024,
           "alt": "A newly planted Farfugium japonicum with large, glossy, crinkled dark green leaves in bare soil, a white label in front of it",
@@ -1165,7 +1224,7 @@
       ]
     },
     {
-      "record_no": "021",
+      "record_no": "022",
       "type": "worked",
       "date": "2026-10-02",
       "site": "Lullingstone Castle World Garden, Eynsford, Kent",
@@ -1195,8 +1254,8 @@
       "images": [
         {
           "kind": "own",
-          "src": "/images/021.jpg",
-          "thumb": "/images/021-thumb.jpg",
+          "src": "/images/022.jpg",
+          "thumb": "/images/022-thumb.jpg",
           "width": 768,
           "height": 1024,
           "alt": "Fuchsia jimenezii being planted: a man in a red cap and gloves setting the young plant into a hole in a border",
@@ -1210,7 +1269,7 @@
       ]
     },
     {
-      "record_no": "022",
+      "record_no": "023",
       "type": "worked",
       "date": "2026-10-02",
       "site": "Lullingstone Castle World Garden, Eynsford, Kent",
@@ -1240,7 +1299,7 @@
       "images": []
     },
     {
-      "record_no": "023",
+      "record_no": "024",
       "type": "worked",
       "date": "2026-10-02",
       "site": "Lullingstone Castle World Garden, Eynsford, Kent",
@@ -1270,8 +1329,8 @@
       "images": [
         {
           "kind": "own",
-          "src": "/images/023.jpg",
-          "thumb": "/images/023-thumb.jpg",
+          "src": "/images/024.jpg",
+          "thumb": "/images/024-thumb.jpg",
           "width": 768,
           "height": 1024,
           "alt": "Symphyotrichum 'Vasterival' newly planted: dark red stems with narrow leaves and small pale lilac daisy flowers",
@@ -1284,7 +1343,7 @@
         },
         {
           "kind": "own",
-          "src": "/images/023-2.jpg",
+          "src": "/images/024-2.jpg",
           "thumb": null,
           "width": 768,
           "height": 1024,
