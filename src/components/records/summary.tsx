@@ -108,7 +108,7 @@ export function Summary({ records, filters, filtersNote, analysis = false, famil
                 <tbody className="font-sans text-sm tabular-nums">
                   {months.map((m) => (
                     <tr key={m} className="border-b border-border">
-                      <th scope="row" className="py-1.5 pr-3 text-left font-normal">
+                      <th scope="row" className="py-1.5 pr-3 text-left font-normal whitespace-nowrap">
                         {formatDate(`${m}-01`).replace(/^1 /, '')}
                       </th>
                       {daySites.map((s) => (
