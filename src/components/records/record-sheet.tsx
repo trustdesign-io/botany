@@ -324,7 +324,6 @@ function DayBody({ r }: { r: DayRecord }) {
       <div className={group}>
         <RecordField label="For" value={r.organisation} />
         <RecordField label="Capacity" value={CAPACITY_LABELS[r.capacity]} />
-        <RecordField label="Hours" value={r.hours === null ? null : String(r.hours)} />
         <RecordField label="With" value={r.with_whom} />
         {r.note && <RecordField label="Note" value={r.note} small />}
       </div>

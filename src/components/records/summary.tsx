@@ -58,7 +58,6 @@ export function Summary({ records, filters, filtersNote, analysis = false, famil
   const months = [...new Set(days.map((d) => d.date.slice(0, 7)))].sort()
   const count = (month: string | null, site: string | null) =>
     days.filter((d) => (!month || d.date.startsWith(month)) && (!site || d.site === site)).length
-  const hours = days.reduce((sum, d) => sum + (d.hours ?? 0), 0)
 
   // Newest first: each work day that has plants, with the plants worked with on it.
   const timeline = days
@@ -126,9 +125,6 @@ export function Summary({ records, filters, filtersNote, analysis = false, famil
                   </tr>
                 </tbody>
               </table>
-              {hours > 0 && (
-                <p className="pt-2 font-sans text-sm text-muted-foreground">{hours} hours recorded.</p>
-              )}
             </div>
           </AccordionContent>
         </AccordionItem>
