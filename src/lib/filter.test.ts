@@ -122,6 +122,16 @@ describe('buildBlocks', () => {
     expect(blocks[0].plants.map((p) => p.record_no)).toEqual(['019'])
   })
 
+  it('puts a species studied on a work day under that day', () => {
+    const day = all.find((r) => r.type === 'day' && r.site !== null)
+    if (!day || day.type !== 'day') throw new Error('no day')
+    const onDay = { ...STUDIED_EXAMPLE, record_no: 'S900', date: day.date, site: day.site }
+    const blocks = buildBlocks([onDay], [...all, onDay])
+    expect(blocks).toHaveLength(1)
+    expect(blocks[0].entry.record_no).toBe(day.record_no)
+    expect(blocks[0].studied.map((s) => s.record_no)).toEqual(['S900'])
+  })
+
   it('keeps studied species and events as rows of their own', () => {
     const blocks = buildBlocks([STUDIED_EXAMPLE, EVENT_EXAMPLE], all)
     expect(blocks.map((b) => b.entry.record_no).sort()).toEqual(['E001', 'S001'])

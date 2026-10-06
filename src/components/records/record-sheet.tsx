@@ -9,6 +9,7 @@ import {
   formatDate,
   getDayFor,
   getPlantsForDay,
+  getStudiedForDay,
   getRecords,
   weekday,
 } from '@/lib/records'
@@ -202,6 +203,7 @@ function WorkedBody({ r }: { r: WorkedRecord }) {
 
 /** A species studied but not worked with: the plant fields, without the hands-on ones. */
 function StudiedBody({ r }: { r: StudiedRecord }) {
+  const day = getDayFor(r)
   return (
     <dl>
       <div className={topGrid}>
@@ -209,6 +211,21 @@ function StudiedBody({ r }: { r: StudiedRecord }) {
           <time dateTime={r.date}>{formatDate(r.date)}</time>
         </TopCell>
         <TopCell label="Where">{r.site ?? <Blank />}</TopCell>
+        {day && (
+          <div className="no-print sm:col-span-2">
+            <dt className="label">Work day</dt>
+            <dd>
+              <Link href={`/records/${day.record_no}/`} className={quietLink}>
+                {day.record_no}
+              </Link>
+              <span className="text-muted-foreground">
+                {' '}
+                · {CAPACITY_LABELS[day.capacity]}
+                {day.organisation && `, ${day.organisation}`}
+              </span>
+            </dd>
+          </div>
+        )}
         <Projects projects={r.projects} />
       </div>
 
@@ -309,6 +326,7 @@ function EventBody({ r }: { r: EventRecord }) {
 /** A day worked at a site, with the plants worked with that day listed from their own records. */
 function DayBody({ r }: { r: DayRecord }) {
   const plants = getPlantsForDay(r)
+  const studied = getStudiedForDay(r)
   return (
     <dl>
       <div className={topGrid}>
@@ -368,6 +386,26 @@ function DayBody({ r }: { r: DayRecord }) {
           </dd>
         </div>
       </div>
+
+      {studied.length > 0 && (
+        <div className={group}>
+          <div className="grid gap-x-4 gap-y-0.5 sm:grid-cols-[7.5rem_1fr] print:grid-cols-[7.5rem_1fr]">
+            <dt className="label pt-1">Species studied</dt>
+            <dd className="min-w-0">
+              <ul className="grid gap-1">
+                {studied.map((s) => (
+                  <li key={s.record_no}>
+                    <Link href={`/records/${s.record_no}/`} className={quietLink}>
+                      <span className="font-sans text-sm tabular-nums text-muted-foreground">{s.record_no} </span>
+                      <TaxonName html={s.name_html} />
+                    </Link>
+                  </li>
+                ))}
+              </ul>
+            </dd>
+          </div>
+        </div>
+      )}
 
       <Sources r={r} />
     </dl>

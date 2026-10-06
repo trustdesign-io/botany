@@ -226,7 +226,7 @@ export function isPlant(r: Entry): r is WorkedRecord | StudiedRecord {
 }
 
 /** The work day a plant was worked with on: same date, same site. */
-export function getDayFor(r: WorkedRecord, records: Entry[] = file.records): DayRecord | undefined {
+export function getDayFor(r: WorkedRecord | StudiedRecord, records: Entry[] = file.records): DayRecord | undefined {
   return records.find((d): d is DayRecord => d.type === 'day' && d.date === r.date && d.site === r.site)
 }
 
@@ -242,6 +242,13 @@ export function getPlantsForDay(day: DayRecord, records: Entry[] = file.records)
         ((r.date === day.date && r.site === day.site) ||
           r.log.some((e) => e.date === day.date && e.site === day.site)),
     )
+    .sort((a, b) => a.record_no.localeCompare(b.record_no))
+}
+
+/** The species studied on a work day: same date, same site, in record order. */
+export function getStudiedForDay(day: DayRecord, records: Entry[] = file.records): StudiedRecord[] {
+  return records
+    .filter((r): r is StudiedRecord => r.type === 'studied' && r.date === day.date && r.site === day.site)
     .sort((a, b) => a.record_no.localeCompare(b.record_no))
 }
 
