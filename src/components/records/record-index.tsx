@@ -22,7 +22,7 @@ import {
   formatDate,
   isPlant,
 } from '@/lib/records'
-import { BASE_PATH } from '@/lib/site'
+import { imageUrl } from '@/lib/site'
 import { cn } from '@/lib/utils'
 import { useHashFilters } from '@/hooks/use-hash-filters'
 import { Summary } from './summary'
@@ -69,7 +69,7 @@ function Row({ r, nested = false }: RowProps) {
           {!first?.thumb && <span className="block size-10 border border-border" />}
           {first?.thumb && (
             <Image
-              src={`${BASE_PATH}${first.thumb}`}
+              src={imageUrl(first.thumb)}
               alt=""
               width={40}
               height={40}
