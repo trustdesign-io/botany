@@ -2,7 +2,7 @@
   "schema_version": 10,
   "title": "Botanical and Horticultural Records",
   "kept_by": "D.C. Chambers",
-  "updated": "2026-10-05",
+  "updated": "2026-10-06",
   "conventions": "Every entry has a 'type'. 'worked': a plant worked with, numbered 001, 002… 'studied': a species investigated but not worked with, numbered S001, S002… 'event': a lecture, visit, course or other attendance, numbered E001, E002… 'day': a day worked at a site, as a volunteer, on contract or on an own project, numbered D001, D002… Each type has its own sequence. A work day is linked to the plants worked with on the same date at the same site; that link is worked out from the two entries and is not stored. A day's 'tasks' list holds work that did not involve a specific plant. null means not yet recorded. Text fields are plain text; the only markup allowed is <i>…</i> around botanical names. For plants, 'name' is the plain-text form of 'name_html'. Dates are ISO 8601. 'projects' is a list: an entry can belong to none, one or several, and never appears twice. 'image' is one photo per entry, or null. kind 'own' is D.C. Chambers' photograph; kind 'reference' is a photo of the species from a public source, with its credit, licence and source. An 'own' photo replaces a 'reference' one.",
   "records": [
     {
@@ -2137,6 +2137,52 @@
       "sources": null,
       "open_questions": null,
       "images": []
+    },
+    {
+      "record_no": "E007",
+      "type": "event",
+      "date": "2026-10-05",
+      "site": "Royal Botanic Gardens, Kew",
+      "projects": [],
+      "title": "Diamonds in the Desert: plants, people and poaching in South Africa",
+      "event_kind": "lecture",
+      "organiser": "Kew Mutual Improvement Society (KMIS). Speakers: Anna Lim, Botanical Horticulturist, Kew rock and alpine; Selina Tan, Head Gardener, Isabella Plantation, Richmond Park; Fay Davies, Nursery Manager, Kew Wakehurst; Sara Barnes, Garden Manager, Kew Wakehurst.",
+      "notes": null,
+      "species": [],
+      "url": null,
+      "note": null,
+      "sources": null,
+      "open_questions": null,
+      "images": [
+        {
+          "kind": "own",
+          "src": "/images/E007.jpg",
+          "thumb": "/images/E007-thumb.jpg",
+          "width": 1024,
+          "height": 768,
+          "alt": "The lecture in progress: a slide headed Fog belt showing succulents and the speakers in the field in South Africa, with two speakers at the lectern",
+          "credit": "D.C. Chambers",
+          "licence": null,
+          "licence_url": null,
+          "source": null,
+          "source_url": null,
+          "taken": "2026-10-05"
+        },
+        {
+          "kind": "own",
+          "src": "/images/E007-2.jpg",
+          "thumb": null,
+          "width": 1024,
+          "height": 768,
+          "alt": "The speakers at the front of the lecture theatre at the end of the talk, with the acknowledgements slide behind them",
+          "credit": "D.C. Chambers",
+          "licence": null,
+          "licence_url": null,
+          "source": null,
+          "source_url": null,
+          "taken": "2026-10-05"
+        }
+      ]
     }
   ]
 }
