@@ -13,15 +13,15 @@ describe('filterRecords', () => {
 
   it('searches names, ignoring case and accents', () => {
     const found = filterRecords(records, { ...EMPTY_FILTERS, q: 'RIBES' })
-    expect(found.map((r) => r.record_no)).toEqual(['018'])
+    expect(found.map((r) => r.record_no)).toEqual(['019'])
     expect(filterRecords(records, { ...EMPTY_FILTERS, q: 'pohuehue' })).toHaveLength(1)
   })
 
   it('filters by family and date range', () => {
     const brom = filterRecords(records, { ...EMPTY_FILTERS, family: 'Bromeliaceae' })
-    expect(brom.map((r) => r.record_no)).toEqual(['010', '021'])
+    expect(brom.map((r) => r.record_no)).toEqual(['011', '022'])
     const oct = filterRecords(records, { ...EMPTY_FILTERS, from: '2026-10-01', to: '2026-10-01' })
-    expect(oct.map((r) => r.record_no)).toEqual(['017', '018'])
+    expect(oct.map((r) => r.record_no)).toEqual(['018', '019'])
   })
 
   it('returns nothing for an unknown site', () => {
@@ -105,7 +105,7 @@ describe('buildBlocks', () => {
     expect(blocks.filter((b) => b.entry.type === 'worked')).toHaveLength(0)
     expect(blocks.filter((b) => b.entry.type === 'day')).toHaveLength(all.filter((r) => r.type === 'day').length)
     const oct2 = blocks.find((b) => b.entry.date === '2026-10-02')
-    expect(oct2?.plants.map((p) => p.record_no)).toEqual(['019', '020', '021', '022', '023', '024', '025', '026'])
+    expect(oct2?.plants.map((p) => p.record_no)).toEqual(['020', '021', '022', '023', '024', '025', '026', '027'])
     expect(blocks.reduce((n, b) => n + b.plants.length, 0)).toBe(all.filter((r) => r.type === 'worked').length)
   })
 
@@ -119,7 +119,7 @@ describe('buildBlocks', () => {
     const blocks = buildBlocks(matched, all)
     expect(blocks).toHaveLength(1)
     expect(blocks[0].entry.date).toBe('2026-10-01')
-    expect(blocks[0].plants.map((p) => p.record_no)).toEqual(['018'])
+    expect(blocks[0].plants.map((p) => p.record_no)).toEqual(['019'])
   })
 
   it('keeps studied species and events as rows of their own', () => {
