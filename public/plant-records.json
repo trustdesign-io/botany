@@ -2248,7 +2248,22 @@
       "note": null,
       "sources": null,
       "open_questions": null,
-      "images": []
+      "images": [
+        {
+          "kind": "own",
+          "src": "/images/E004.jpg",
+          "thumb": "/images/E004-thumb.jpg",
+          "width": 1024,
+          "height": 768,
+          "alt": "The Cactus at the Castle event at Lullingstone Castle: visitors queuing between marquees and stalls on the lawn, with the house behind",
+          "credit": "D.C. Chambers",
+          "licence": null,
+          "licence_url": null,
+          "source": null,
+          "source_url": null,
+          "taken": "2026-09-05"
+        }
+      ]
     },
     {
       "record_no": "E005",
