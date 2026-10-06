@@ -2131,7 +2131,22 @@
       "note": null,
       "sources": null,
       "open_questions": null,
-      "images": []
+      "images": [
+        {
+          "kind": "own",
+          "src": "/images/E001.jpg",
+          "thumb": "/images/E001-thumb.jpg",
+          "width": 768,
+          "height": 1024,
+          "alt": "Nesocodon mauritianus at Kew, not in flower: narrow toothed leaves in front of its label, which reads Campanulaceae, Nesocodon mauritianus, Mauritius, 1988-120",
+          "credit": "D.C. Chambers",
+          "licence": null,
+          "licence_url": null,
+          "source": null,
+          "source_url": null,
+          "taken": "2026-08-01"
+        }
+      ]
     },
     {
       "record_no": "E002",
@@ -2148,7 +2163,22 @@
       "note": null,
       "sources": null,
       "open_questions": null,
-      "images": []
+      "images": [
+        {
+          "kind": "own",
+          "src": "/images/E002.jpg",
+          "thumb": "/images/E002-thumb.jpg",
+          "width": 1024,
+          "height": 768,
+          "alt": "A meadow at Wakehurst in flower, thick with purple knapweed among grasses",
+          "credit": "D.C. Chambers",
+          "licence": null,
+          "licence_url": null,
+          "source": null,
+          "source_url": null,
+          "taken": "2026-08-02"
+        }
+      ]
     },
     {
       "record_no": "E003",
