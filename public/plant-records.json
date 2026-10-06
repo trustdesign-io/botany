@@ -2039,6 +2039,26 @@
     {
       "record_no": "E004",
       "type": "event",
+      "date": "2026-09-05",
+      "site": "Lullingstone Castle World Garden, Eynsford, Kent",
+      "projects": [],
+      "title": "Cactus at the Castle",
+      "event_kind": "visit",
+      "organiser": null,
+      "notes": "Bought two <i>Conophytum</i> for the home collection, both labelled Woodside Cacti: records 025 and 026.",
+      "species": [
+        "<i>Conophytum minimum</i>",
+        "<i>Conophytum lithopsoides</i>"
+      ],
+      "url": null,
+      "note": null,
+      "sources": null,
+      "open_questions": null,
+      "images": []
+    },
+    {
+      "record_no": "E005",
+      "type": "event",
       "date": "2026-09-12",
       "site": "Royal Botanic Gardens, Kew",
       "projects": [],
@@ -2056,8 +2076,8 @@
       "images": [
         {
           "kind": "own",
-          "src": "/images/E004.jpg",
-          "thumb": "/images/E004-thumb.jpg",
+          "src": "/images/E005.jpg",
+          "thumb": "/images/E005-thumb.jpg",
           "width": 768,
           "height": 1024,
           "alt": "Titan arum in a large pot in the Princess of Wales Conservatory: the ribbed green and cream spathe closed around a tall yellow spadix, its frilled rim dark maroon",
@@ -2070,7 +2090,7 @@
         },
         {
           "kind": "own",
-          "src": "/images/E004-2.jpg",
+          "src": "/images/E005-2.jpg",
           "thumb": null,
           "width": 768,
           "height": 1024,
@@ -2085,7 +2105,7 @@
       ]
     },
     {
-      "record_no": "E005",
+      "record_no": "E006",
       "type": "event",
       "date": "2026-09-26",
       "site": "Royal Botanic Gardens, Kew",
@@ -2104,8 +2124,8 @@
       "images": [
         {
           "kind": "own",
-          "src": "/images/E005.jpg",
-          "thumb": "/images/E005-thumb.jpg",
+          "src": "/images/E006.jpg",
+          "thumb": "/images/E006-thumb.jpg",
           "width": 768,
           "height": 1024,
           "alt": "Agave montana with a tall flower spike in bud rising from the rosette, beside a glasshouse, with red-flowered plants in front",
@@ -2117,26 +2137,6 @@
           "taken": "2026-09-26"
         }
       ]
-    },
-    {
-      "record_no": "E006",
-      "type": "event",
-      "date": "2026-09-05",
-      "site": "Lullingstone Castle World Garden, Eynsford, Kent",
-      "projects": [],
-      "title": "Cactus at the Castle",
-      "event_kind": "visit",
-      "organiser": null,
-      "notes": "Bought two <i>Conophytum</i> for the home collection, both labelled Woodside Cacti: records 025 and 026.",
-      "species": [
-        "<i>Conophytum minimum</i>",
-        "<i>Conophytum lithopsoides</i>"
-      ],
-      "url": null,
-      "note": null,
-      "sources": null,
-      "open_questions": null,
-      "images": []
     },
     {
       "record_no": "E007",
