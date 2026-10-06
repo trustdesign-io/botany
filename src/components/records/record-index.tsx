@@ -52,8 +52,8 @@ interface RowProps {
 
 function Row({ r, nested = false }: RowProps) {
   const first = r.images[0]
-  // A work day or event with no photo gives its thumbnail column to the title, so the title does not wrap early.
-  const wide = !first?.thumb && (r.type === 'day' || r.type === 'event')
+  // A work day with no photo gives its thumbnail column to the title, so the title does not wrap early.
+  const wide = !first?.thumb && r.type === 'day'
   return (
     <Link
       href={`/records/${r.record_no}/`}
@@ -63,9 +63,10 @@ function Row({ r, nested = false }: RowProps) {
       )}
     >
       <span className="font-sans text-sm leading-7 tabular-nums text-muted-foreground">{r.record_no}</span>
-      {/* Thumbnail of the record's photo; the cell stays empty when a record has none. */}
+      {/* Thumbnail of the record's photo, or an empty square when a plant or event has none, so the rows line up. */}
       {!wide && (
         <span className="row-span-2 size-10 sm:row-span-1" aria-hidden="true">
+          {!first?.thumb && <span className="block size-10 border border-border" />}
           {first?.thumb && (
             <Image
               src={`${BASE_PATH}${first.thumb}`}
