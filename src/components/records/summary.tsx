@@ -31,6 +31,19 @@ function countBy(records: Plant[], key: (r: Plant) => string): [string, Plant[]]
   return [...groups.entries()]
 }
 
+/** Column headings: the name a site goes by, short enough to sit on one line. */
+const SHORT_SITES: Record<string, string> = {
+  'Lullingstone Castle World Garden': 'Lullingstone',
+  'Shorne Woods Country Park': 'Shorne Woods',
+  'Riverview Academy': 'Riverview',
+  'Home collection': 'Home',
+}
+
+function shortSite(site: string): string {
+  const name = site.split(',')[0]
+  return SHORT_SITES[name] ?? name
+}
+
 const WIDE = '(min-width: 768px)'
 
 function subscribeWide(onChange: () => void): () => void {
@@ -97,8 +110,10 @@ export function Summary({ records, filters, filtersNote, analysis = false, famil
                   <tr className="border-b border-border text-left">
                     <th scope="col" className="label py-1.5 pr-3 font-semibold">Month</th>
                     {daySites.map((s) => (
-                      <th key={s} scope="col" className="label py-1.5 pr-3 text-right font-semibold">
-                        {s.split(',')[0]}
+                      <th key={s} scope="col" className="label py-1.5 pr-3 text-right font-semibold whitespace-nowrap">
+                        <abbr title={s} className="no-underline">
+                          {shortSite(s)}
+                        </abbr>
                       </th>
                     ))}
                     <th scope="col" className="label py-1.5 text-right font-semibold">All</th>
