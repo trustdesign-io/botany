@@ -22,7 +22,7 @@ import {
   formatDate,
   isPlant,
 } from '@/lib/records'
-import { imageUrl } from '@/lib/site'
+import { imageUrl, siteLogo } from '@/lib/site'
 import { cn } from '@/lib/utils'
 import { useHashFilters } from '@/hooks/use-hash-filters'
 import { Summary } from './summary'
@@ -52,8 +52,8 @@ interface RowProps {
 
 function Row({ r, nested = false }: RowProps) {
   const first = r.images[0]
-  // A work day with no photo gives its thumbnail column to the title, so the title does not wrap early.
-  const wide = !first?.thumb && r.type === 'day'
+  // A work day with no photo of its own shows its venue's logo in the thumbnail square.
+  const logo = !first?.thumb && r.type === 'day' ? siteLogo(r.site) : undefined
   return (
     <Link
       href={`/records/${r.record_no}/`}
@@ -63,10 +63,12 @@ function Row({ r, nested = false }: RowProps) {
       )}
     >
       <span className="font-sans text-sm leading-7 tabular-nums text-muted-foreground">{r.record_no}</span>
-      {/* Thumbnail of the record's photo, or an empty square when a plant or event has none, so the rows line up. */}
-      {!wide && (
-        <span className="row-span-2 size-10 sm:row-span-1" aria-hidden="true">
-          {!first?.thumb && <span className="block size-10 border border-border" />}
+      {/* Thumbnail of the record's photo, the venue's logo for a work day, or an empty square, so the rows line up. */}
+      <span className="row-span-2 size-10 sm:row-span-1" aria-hidden="true">
+          {!first?.thumb && !logo && <span className="block size-10 border border-border" />}
+          {logo && (
+            <Image src={imageUrl(logo)} alt="" width={40} height={40} className="size-10 border border-border bg-white object-contain" />
+          )}
           {first?.thumb && (
             <Image
               src={imageUrl(first.thumb)}
@@ -80,22 +82,17 @@ function Row({ r, nested = false }: RowProps) {
               )}
             />
           )}
-        </span>
-      )}
+      </span>
       <span
         className={cn(
           'min-w-0 leading-snug group-hover:text-stamp',
           nested ? 'text-base' : 'text-lg',
-          wide && 'col-span-2',
         )}
       >
         <TaxonName html={r.type === 'day' ? r.site.split(',')[0] : entryTitleHtml(r)} />
       </span>
       <span
-        className={cn(
-          'font-sans text-sm text-muted-foreground sm:col-span-1 sm:col-start-auto',
-          wide ? 'col-span-2 col-start-2' : 'col-start-3',
-        )}
+        className="col-start-3 font-sans text-sm text-muted-foreground sm:col-span-1 sm:col-start-auto"
       >
         {meta(r)}
         {!nested && <span className="sm:hidden"> · {formatDate(r.date, 'short')}</span>}

@@ -27,6 +27,7 @@ Every entry has a `type`, and each type has its own number sequence:
 - In the full list a work day is one block: its tasks and its plants sit beneath it. Filtered to one type, the list is flat.
 - Hours are not recorded or shown: leave a day's `hours` as `null`. Danny dropped them (Oct 2026); days worked are what count.
 - Lullingstone: the `site` is `Lullingstone Castle, Eynsford, Kent`. `location` names the area first, then the bed: The World Garden (beds by region, e.g. `The World Garden, South Africa bed`), Hot and Spiky room (the Cactus house), Hot and Juicy room, Australis and the Cloud Garden (two areas sharing one polytunnel), Boat garden, Moon gate, Prairie bed, Orchid house, Blue room. Plants sometimes overflow into another area by necessity; record where the plant actually is.
+- Venue logos: one file per venue in `public/images/sites/`, mapped in `SITE_LOGOS` in `src/lib/site.ts` by the first part of the `site` string. A work day with no photo of its own shows the logo in the list; a day's own photo wins. Add a logo only when Danny supplies it.
 - Regular days: Lullingstone on Fridays with T. Hart Dyke (volunteer); Shorne Woods Country Park on Tuesdays for Kent County Council (volunteer). Do not add a day Danny has not confirmed he attended.
 - The schema in `src/lib/records.ts` and the types in `src/types/record.ts` list every field per type.
 

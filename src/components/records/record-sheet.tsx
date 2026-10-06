@@ -1,4 +1,5 @@
 import type { ReactNode } from 'react'
+import Image from 'next/image'
 import Link from 'next/link'
 import type { DayRecord, Entry, EventRecord, LogEntry, StudiedRecord, WorkedRecord } from '@/types/record'
 import {
@@ -13,6 +14,7 @@ import {
   getRecords,
   weekday,
 } from '@/lib/records'
+import { imageUrl, siteLogo } from '@/lib/site'
 import { Blank, RecordField } from './record-field'
 import { RecordImage } from './record-image'
 import { TaxonName } from './taxon-name'
@@ -326,6 +328,7 @@ function EventBody({ r }: { r: EventRecord }) {
 /** A day worked at a site, with the plants worked with that day listed from their own records. */
 function DayBody({ r }: { r: DayRecord }) {
   const plants = getPlantsForDay(r)
+  const logo = siteLogo(r.site)
   const studied = getStudiedForDay(r)
   return (
     <dl>
@@ -335,7 +338,14 @@ function DayBody({ r }: { r: DayRecord }) {
             {weekday(r.date)} {formatDate(r.date)}
           </time>
         </TopCell>
-        <TopCell label="Site">{r.site}</TopCell>
+        <TopCell label="Site">
+          <span className="flex items-center gap-3">
+            {logo && (
+              <Image src={imageUrl(logo)} alt="" width={40} height={40} className="size-10 shrink-0 border border-border bg-white object-contain" />
+            )}
+            <span>{r.site}</span>
+          </span>
+        </TopCell>
         <Projects projects={r.projects} />
       </div>
 
