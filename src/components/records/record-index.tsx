@@ -125,11 +125,11 @@ export function RecordIndex({ records }: RecordIndexProps) {
   const shown = filterRecords(records, filters).reverse()
   // With no type chosen, a work day and its plants are one block. Filtered to one type, the list is flat.
   const grouped = filters.type === ''
-  const blocks: Block[] = grouped ? buildBlocks(shown, records) : shown.map((entry) => ({ entry, plants: [] }))
+  const blocks: Block[] = grouped ? buildBlocks(shown, records) : shown.map((entry) => ({ entry, plants: [], studied: [] }))
   const filtered = filtersToHash(filters) !== ''
   // The work days in view that have something beneath them to fold away.
   const foldable = grouped
-    ? blocks.filter((b) => b.entry.type === 'day' && (b.entry.tasks.length > 0 || b.plants.length > 0)).map((b) => b.entry.record_no)
+    ? blocks.filter((b) => b.entry.type === 'day' && (b.entry.tasks.length > 0 || b.plants.length > 0 || b.studied.length > 0)).map((b) => b.entry.record_no)
     : []
   const allClosed = foldable.length > 0 && foldable.every((no) => closed.includes(no))
 
@@ -249,8 +249,8 @@ export function RecordIndex({ records }: RecordIndexProps) {
         <p className="py-6 text-muted-foreground">No records match. Clear the filters to see all {records.length}.</p>
       ) : (
         <ol className="-mt-4">
-          {blocks.map(({ entry, plants }) => {
-            const hasChildren = entry.type === 'day' && grouped && (entry.tasks.length > 0 || plants.length > 0)
+          {blocks.map(({ entry, plants, studied }) => {
+            const hasChildren = entry.type === 'day' && grouped && (entry.tasks.length > 0 || plants.length > 0 || studied.length > 0)
             const open = hasChildren && !closed.includes(entry.record_no)
             const panelId = `day-${entry.record_no}`
             return (
@@ -295,6 +295,15 @@ export function RecordIndex({ records }: RecordIndexProps) {
                       {plants.map((p) => (
                         <li key={p.record_no}>
                           <Row r={p} nested />
+                        </li>
+                      ))}
+                    </ol>
+                  )}
+                  {studied.length > 0 && (
+                    <ol aria-label="Species studied">
+                      {studied.map((s) => (
+                        <li key={s.record_no}>
+                          <Row r={s} nested />
                         </li>
                       ))}
                     </ol>

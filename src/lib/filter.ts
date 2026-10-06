@@ -1,4 +1,4 @@
-import type { DayRecord, Entry, WorkedRecord } from '@/types/record'
+import type { DayRecord, Entry, StudiedRecord, WorkedRecord } from '@/types/record'
 
 export interface RecordFilters {
   q: string
@@ -71,29 +71,38 @@ export interface Block {
   entry: Entry
   /** Plants worked with on this day. Empty unless `entry` is a work day. */
   plants: WorkedRecord[]
+  /** Species studied on this day at this site. Empty unless `entry` is a work day. */
+  studied: StudiedRecord[]
 }
 
 /**
  * Groups the matched entries for the mixed list: each work day becomes one block
- * holding its matched plants, so a visit is not shown twice. A day appears when it
- * matched itself or when any of its plants did. Newest first.
+ * holding its matched plants and the species studied there that day, so a visit is
+ * not shown twice. A day appears when it matched itself or when any of those did. Newest first.
  */
 export function buildBlocks(matched: Entry[], all: Entry[]): Block[] {
   const days = all.filter((r): r is DayRecord => r.type === 'day')
-  const dayOf = (r: WorkedRecord) => days.find((d) => d.date === r.date && d.site === r.site)
+  const dayOf = (r: WorkedRecord | StudiedRecord) => days.find((d) => d.date === r.date && d.site === r.site)
   const matchedNos = new Set(matched.map((r) => r.record_no))
 
   const byDay = new Map<string, WorkedRecord[]>()
+  const studiedByDay = new Map<string, StudiedRecord[]>()
   const blocks: Block[] = []
   for (const r of matched) {
-    const day = r.type === 'worked' ? dayOf(r) : undefined
+    const day = r.type === 'worked' || r.type === 'studied' ? dayOf(r) : undefined
     if (r.type === 'worked' && day) byDay.set(day.record_no, [...(byDay.get(day.record_no) ?? []), r])
-    else if (r.type !== 'day') blocks.push({ entry: r, plants: [] })
+    else if (r.type === 'studied' && day) studiedByDay.set(day.record_no, [...(studiedByDay.get(day.record_no) ?? []), r])
+    else if (r.type !== 'day') blocks.push({ entry: r, plants: [], studied: [] })
   }
   for (const day of days) {
     const plants = byDay.get(day.record_no) ?? []
-    if (matchedNos.has(day.record_no) || plants.length > 0) {
-      blocks.push({ entry: day, plants: plants.sort((a, b) => a.record_no.localeCompare(b.record_no)) })
+    const studied = studiedByDay.get(day.record_no) ?? []
+    if (matchedNos.has(day.record_no) || plants.length > 0 || studied.length > 0) {
+      blocks.push({
+        entry: day,
+        plants: plants.sort((a, b) => a.record_no.localeCompare(b.record_no)),
+        studied: studied.sort((a, b) => a.record_no.localeCompare(b.record_no)),
+      })
     }
   }
   return blocks.sort(
