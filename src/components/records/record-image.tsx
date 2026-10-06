@@ -1,7 +1,7 @@
 import Image from 'next/image'
 import type { RecordImage as RecordImageData } from '@/types/record'
 import { formatDate } from '@/lib/records'
-import { BASE_PATH } from '@/lib/site'
+import { imageUrl } from '@/lib/site'
 
 interface RecordImageProps {
   image: RecordImageData
@@ -20,7 +20,7 @@ export function RecordImage({ image, ownLabel = 'The plant recorded' }: RecordIm
   return (
     <figure className="no-print grid gap-2">
       <Image
-        src={`${BASE_PATH}${image.src}`}
+        src={imageUrl(image.src)}
         alt={image.alt}
         width={image.width}
         height={image.height}
