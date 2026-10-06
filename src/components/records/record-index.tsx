@@ -51,9 +51,9 @@ interface RowProps {
 }
 
 function Row({ r, nested = false }: RowProps) {
-  const first = r.images[0]
-  // A work day with no photo of its own shows its venue's logo in the thumbnail square.
-  const logo = !first?.thumb && r.type === 'day' ? siteLogo(r.site) : undefined
+  // A work day always shows its venue's logo in the thumbnail square; its own photos stay on its page.
+  const logo = r.type === 'day' ? siteLogo(r.site) : undefined
+  const first = logo ? undefined : r.images[0]
   return (
     <Link
       href={`/records/${r.record_no}/`}
