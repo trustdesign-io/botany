@@ -45,7 +45,7 @@ export default function AboutPage() {
         <h1 className="text-3xl leading-tight text-balance sm:text-4xl">How the records are kept</h1>
         <p className="mt-3">
           These are the records of D.C. Chambers: plants worked with, species studied, events attended and days worked, at
-          Lullingstone Castle World Garden and elsewhere. They began as a handwritten book and follow the same fields in the same order.
+          Lullingstone Castle and elsewhere. They began as a handwritten book and follow the same fields in the same order.
         </p>
       </div>
 

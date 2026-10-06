@@ -33,7 +33,7 @@ function countBy(records: Plant[], key: (r: Plant) => string): [string, Plant[]]
 
 /** Column headings: the name a site goes by, short enough to sit on one line. */
 const SHORT_SITES: Record<string, string> = {
-  'Lullingstone Castle World Garden': 'Lullingstone',
+  'Lullingstone Castle': 'Lullingstone',
   'Shorne Woods Country Park': 'Shorne Woods',
   'Riverview Academy': 'Riverview',
   'Home collection': 'Home',
