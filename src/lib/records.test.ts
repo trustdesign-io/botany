@@ -140,7 +140,7 @@ describe('entry types', () => {
     const all = [...getRecords(), STUDIED_EXAMPLE]
     expect(findPlantByName('<i>Ribes speciosum</i>', all)?.record_no).toBe('019')
     expect(findPlantByName('<i>Amorphophallus titanum</i>', all)?.record_no).toBe('S001')
-    expect(findPlantByName('<i>Quercus robur</i>', all)).toBeUndefined()
+    expect(findPlantByName('<i>Fagus sylvatica</i>', all)).toBeUndefined()
   })
 })
 
