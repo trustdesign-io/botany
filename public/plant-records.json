@@ -2571,7 +2571,50 @@
       "note": "First tree work.",
       "sources": null,
       "open_questions": null,
-      "images": []
+      "images": [
+        {
+          "kind": "own",
+          "src": "/images/D029.jpg",
+          "thumb": "/images/D029-thumb.jpg",
+          "width": 1024,
+          "height": 768,
+          "alt": "Before: the trees around the thatched shelter on the Lawn, with low branches of the yew, oak and variegated box elder, and a ladder set up ready",
+          "credit": "D.C. Chambers",
+          "licence": null,
+          "licence_url": null,
+          "source": null,
+          "source_url": null,
+          "taken": null
+        },
+        {
+          "kind": "own",
+          "src": "/images/D029-2.jpg",
+          "thumb": null,
+          "width": 1024,
+          "height": 768,
+          "alt": "After: the thatched shelter on the Lawn with the surrounding trees lifted and cut back, the castle behind",
+          "credit": "D.C. Chambers",
+          "licence": null,
+          "licence_url": null,
+          "source": null,
+          "source_url": null,
+          "taken": null
+        },
+        {
+          "kind": "own",
+          "src": "/images/D029-3.jpg",
+          "thumb": null,
+          "width": 1024,
+          "height": 768,
+          "alt": "After: the thatched shelter with the yew, left, and the variegated box elder, behind, up-limbed and cut back",
+          "credit": "D.C. Chambers",
+          "licence": null,
+          "licence_url": null,
+          "source": null,
+          "source_url": null,
+          "taken": null
+        }
+      ]
     }
   ]
 }
