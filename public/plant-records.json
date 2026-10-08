@@ -2168,7 +2168,22 @@
       "note": "Made room for <i>Cordyline banksii</i> by moving <i>Dyckia frigida</i> slightly. Also planted <i>Farfugium japonicum</i>: although we know it is not technically Australis, we have a space there for some japonicums. Also planted <i>Fuchsia jimenezii</i>, <i>Dahlia coccinea</i> and <i>Symphyotrichum</i> ‘Vasterival’ in the North America bed of the World Garden. We repotted <i>Cleome arborea</i> in an air-pot to display outside the nursery (explicitly not for sale). Tom noted that the <i>Cleome arborea</i> is a rare type which flowers yellow, and only certain visitors would notice.",
       "sources": null,
       "open_questions": null,
-      "images": []
+      "images": [
+        {
+          "kind": "own",
+          "src": "/images/D027.jpg",
+          "thumb": "/images/D027-thumb.jpg",
+          "width": 1024,
+          "height": 768,
+          "alt": "Dyckia frigida with its label in the Australis bed, beneath the arching purple-and-cream striped leaves of a cordyline",
+          "credit": "D.C. Chambers",
+          "licence": null,
+          "licence_url": null,
+          "source": null,
+          "source_url": null,
+          "taken": null
+        }
+      ]
     },
     {
       "record_no": "D028",
