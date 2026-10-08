@@ -954,7 +954,7 @@
       "name": "Tagetes erecta L.",
       "name_html": "<i>Tagetes erecta</i> L.",
       "family": "Asteraceae",
-      "det": "From D.C. Chambers' photographs of 18 Sep 2026, determined with Claude 3 Oct 2026 — not keyed, not confirmed by T. Hart Dyke",
+      "det": "Genus <i>Tagetes</i> confirmed by D.C. Chambers, 8 Oct 2026. Species from his photographs of 18 Sep 2026, determined with Claude 3 Oct 2026 — not keyed",
       "label_read": null,
       "note": "The French marigold of gardens, <i>Tagetes patula</i> L., which POWO treats as a synonym of <i>T. erecta</i>. A tall single-flowered form; cultivar not known.",
       "common_names": "French marigold",
@@ -967,7 +967,7 @@
       "how_studied": null,
       "observed": null,
       "sources": "POWO, accessed 3 Oct 2026. Sp. Pl.: 887 (1753).",
-      "open_questions": "Determined from photographs only; confirm with T. Hart Dyke, and ask which cultivar or seed strain was sown.",
+      "open_questions": "Species determined from photographs only; ask which cultivar or seed strain was sown.",
       "powo_url": "https://powo.science.kew.org/taxon/urn:lsid:ipni.org:names:252092-1",
       "log": [],
       "images": [
