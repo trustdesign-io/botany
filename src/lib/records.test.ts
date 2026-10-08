@@ -140,7 +140,7 @@ describe('entry types', () => {
     const all = [...getRecords(), STUDIED_EXAMPLE]
     expect(findPlantByName('<i>Ribes speciosum</i>', all)?.record_no).toBe('019')
     expect(findPlantByName('<i>Amorphophallus titanum</i>', all)?.record_no).toBe('S001')
-    expect(findPlantByName('<i>Quercus robur</i>', all)).toBeUndefined()
+    expect(findPlantByName('<i>Fagus sylvatica</i>', all)).toBeUndefined()
   })
 })
 
@@ -155,7 +155,7 @@ describe('work days', () => {
 
   it('lists a day\'s plants from their own records', () => {
     const oct2 = days.find((d) => d.date === '2026-10-02')
-    expect(oct2 && getPlantsForDay(oct2).map((p) => p.record_no)).toEqual(['020', '021', '022', '023', '024', '025', '026', '027'])
+    expect(oct2 && getPlantsForDay(oct2).map((p) => p.record_no)).toEqual(['020', '021', '022', '023', '024', '025', '026', '027', '028'])
   })
 
   it('has no plants on a day at another site', () => {

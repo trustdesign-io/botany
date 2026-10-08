@@ -105,7 +105,7 @@ describe('buildBlocks', () => {
     expect(blocks.filter((b) => b.entry.type === 'worked')).toHaveLength(0)
     expect(blocks.filter((b) => b.entry.type === 'day')).toHaveLength(all.filter((r) => r.type === 'day').length)
     const oct2 = blocks.find((b) => b.entry.date === '2026-10-02')
-    expect(oct2?.plants.map((p) => p.record_no)).toEqual(['020', '021', '022', '023', '024', '025', '026', '027'])
+    expect(oct2?.plants.map((p) => p.record_no)).toEqual(['020', '021', '022', '023', '024', '025', '026', '027', '028'])
     expect(blocks.reduce((n, b) => n + b.plants.length, 0)).toBe(all.filter((r) => r.type === 'worked').length)
   })
 
