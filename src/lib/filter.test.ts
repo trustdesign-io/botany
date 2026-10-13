@@ -78,7 +78,8 @@ describe('work days', () => {
     const days = filterRecords(all, { ...EMPTY_FILTERS, type: 'day' })
     expect(days).toHaveLength(all.filter((r) => r.type === 'day').length)
     const shorne = filterRecords(all, { ...EMPTY_FILTERS, type: 'day', site: 'Shorne Woods Country Park, Kent' })
-    expect(shorne).toHaveLength(6)
+    expect(shorne).toHaveLength(all.filter((r) => r.type === 'day' && r.site === 'Shorne Woods Country Park, Kent').length)
+    expect(shorne.length).toBeGreaterThan(0)
   })
 
   it('keeps the worked-with list clean', () => {
