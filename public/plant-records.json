@@ -2851,6 +2851,23 @@
           "taken": null
         }
       ]
+    },
+    {
+      "type": "event",
+      "date": "2026-10-17",
+      "projects": [],
+      "species": [],
+      "url": null,
+      "sources": null,
+      "open_questions": null,
+      "notes": "Tested the hortlog.com Vantage tool prototype.",
+      "record_no": "E010",
+      "site": "Royal Botanic Gardens, Kew",
+      "title": "Kew: testing the hortlog.com Vantage tool prototype",
+      "event_kind": "visit",
+      "organiser": null,
+      "note": null,
+      "images": []
     }
   ]
 }
