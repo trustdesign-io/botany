@@ -47,7 +47,7 @@ Every entry has a `type`, and each type has its own number sequence:
    - `log` (worked-with plants only) is a list of dated additions, oldest first, for a plant Danny returns to: `{ date, site, location, text, images }`. Return work on a plant is a log entry, never a second record. `site` is the work day's site string copied exactly when it happened on a work day (the plant then shows on that day's page), otherwise `null`; `location` is where exactly (a polytunnel, his terrarium at home). `text` is Danny's account. Log photos are own photos, saved as `NNN-YYYYMMDD.jpg`, `NNN-YYYYMMDD-2.jpg`…, `thumb` `null`.
    - Bump the top-level `updated` date.
 3. Run `npx vitest run --project unit`. It validates the file against the schema in `src/lib/records.ts`; a malformed file fails CI and never deploys.
-4. Run `npm run build`, then open a PR. Merging to `main` deploys to dannychambers.co.uk/botany.
+4. Run `npm run build`, then open a PR. Once CI passes, merge it yourself (Danny asked, Oct 2026; do not wait for him). Merging to `main` deploys to dannychambers.co.uk/botany in about 5 minutes; check the live `plant-records.json` before saying it is live.
 
 ## Tech Stack
 | Layer | Choice |
