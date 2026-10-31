@@ -2693,7 +2693,7 @@
       "organisation": "Lullingstone Castle",
       "capacity": "volunteer",
       "hours": null,
-      "with_whom": "T. Hart Dyke and Janice",
+      "with_whom": "T. Hart Dyke and J. Moorekite",
       "tasks": [],
       "projects": [],
       "note": "First tree work. T. Hart Dyke taught undercutting, so as not to split the remaining branch, and not cutting off the branch collar, so the tree can callus over.",
@@ -3033,7 +3033,7 @@
       "organisation": "Lullingstone Castle",
       "capacity": "volunteer",
       "hours": null,
-      "with_whom": "T. Hart Dyke, F. Jones and Janice",
+      "with_whom": "T. Hart Dyke, F. Jones and J. Moorekite",
       "tasks": [],
       "projects": [],
       "note": "Replaced the Arizona cypress and <i>Ginkgo biloba</i> ‘Mariken’ in the Dahlia (round) beds on the Lawn with two <i>Catalpa bignonioides</i> ‘Nana’. The ginkgo was moved to the west wall of the World Garden, near China.",
@@ -3226,15 +3226,14 @@
     {
       "record_no": "D034",
       "type": "day",
-      "date": "2026-10-30",
+      "date": "2026-10-29",
       "site": "Lullingstone Castle, Eynsford, Kent",
       "organisation": "Lullingstone Castle",
       "capacity": "volunteer",
       "hours": null,
-      "with_whom": null,
+      "with_whom": "F. Jones, S. Carter and J. Moorekite",
       "tasks": [
-        "Weeded the hybrid African bed in the World Garden",
-        "Weeded feverfew (<i>Tanacetum parthenium</i>) and Canadian fleabane (<i>Erigeron canadensis</i>) out of the South America bed in the World Garden"
+        "Prepared for the Halloween event"
       ],
       "projects": [],
       "note": null,
@@ -3270,6 +3269,25 @@
       "open_questions": "Diagnostic from secondary sources; check against the plant.",
       "powo_url": "https://powo.science.kew.org/taxon/261681-1",
       "log": [],
+      "images": []
+    },
+    {
+      "record_no": "D035",
+      "type": "day",
+      "date": "2026-10-30",
+      "site": "Lullingstone Castle, Eynsford, Kent",
+      "organisation": "Lullingstone Castle",
+      "capacity": "volunteer",
+      "hours": null,
+      "with_whom": "T. Hart Dyke",
+      "tasks": [
+        "Weeded the hybrid African bed in the World Garden",
+        "Weeded feverfew (<i>Tanacetum parthenium</i>) and Canadian fleabane (<i>Erigeron canadensis</i>) out of the South America bed in the World Garden"
+      ],
+      "projects": [],
+      "note": null,
+      "sources": null,
+      "open_questions": null,
       "images": []
     }
   ]
