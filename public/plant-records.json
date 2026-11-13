@@ -3677,9 +3677,12 @@
       "capacity": "volunteer",
       "hours": null,
       "with_whom": null,
-      "tasks": [],
+      "tasks": [
+        "Cut back various Cannas and moved them indoors to overwinter",
+        "Pruned the oak-leaved papaya"
+      ],
       "projects": [],
-      "note": "Lifted the Cannas for winter and moved the Alluaudias into the heated rare plants tunnel.",
+      "note": "Also moved the Alluaudias into the heated rare plants tunnel for the winter.",
       "sources": null,
       "open_questions": null,
       "images": []
