@@ -4135,6 +4135,29 @@
       "images": []
     },
     {
+      "record_no": "D045",
+      "type": "day",
+      "date": "2026-11-23",
+      "site": "Riverview Academy",
+      "organisation": "Riverview Academy",
+      "capacity": "volunteer",
+      "hours": null,
+      "with_whom": null,
+      "tasks": [
+        "Put up the new tarp",
+        "Hung a nest box for blue tits, great tits or coal tits",
+        "Put up a bird feeding table",
+        "Forked over the sensory garden bed and mulched it with fallen leaves"
+      ],
+      "projects": [
+        "Greenfinch"
+      ],
+      "note": null,
+      "sources": null,
+      "open_questions": null,
+      "images": []
+    },
+    {
       "record_no": "054",
       "type": "worked",
       "date": "2026-11-20",
