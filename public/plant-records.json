@@ -4214,12 +4214,29 @@
       "capacity": "volunteer",
       "hours": null,
       "with_whom": null,
-      "tasks": [],
+      "tasks": [
+        "Finished clearing the cut grass from the Laundry Meadow"
+      ],
       "projects": [],
       "note": null,
       "sources": null,
       "open_questions": null,
-      "images": []
+      "images": [
+        {
+          "kind": "own",
+          "src": "/images/D047.jpg",
+          "thumb": "/images/D047-thumb.jpg",
+          "width": 750,
+          "height": 561,
+          "alt": "The Laundry Meadow cleared of cut grass in low autumn sun, fallen yellow leaves on the stubble and a wheelbarrow in the corner",
+          "credit": "D.C. Chambers",
+          "licence": null,
+          "licence_url": null,
+          "source": null,
+          "source_url": null,
+          "taken": "2026-10-16"
+        }
+      ]
     },
     {
       "record_no": "D048",
